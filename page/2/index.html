@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>夜悊的技术小宅 - 初次见面，请多关照</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一名潜心学习技术的在校大学生">
+<meta property="og:type" content="website">
+<meta property="og:title" content="夜悊的技术小宅">
+<meta property="og:url" content="http://example.com/page/2/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="一名潜心学习技术的在校大学生">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="博客 计算机技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/page/2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '夜悊的技术小宅',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2024-07-18 10:39:46'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">夜悊的技术小宅</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/08/C%20%E5%92%8C%20C++%20%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0%E4%BB%8B%E7%BB%8D/" title="C 和 C++ 可变参数介绍">C 和 C++ 可变参数介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-08T12:38:00.000Z" title="发表于 2023-11-08 20:38:00">2023-11-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C 和 C++ 可变参数介绍。
+
+概念可变（长）&#x2F;不定（长）参数：函数可以接收任意数量的参数（函数在声名和定义时不明确参数的数量）
+
+C 的可变参数参数列表 #va_list 4组宏头文件
+
+&lt;stdarg.h&gt;
+
+宏
+
+#va_list：类型宏；参数列表
+#va_start()：函数宏；va_list 指向参数列表的第一个参数
+#va_arg()：函数宏；依据类型，va_list 指向参数列表的下一个参数
+#va_end()：函数宏；清理 va_list
+
+底层原理
+
+#va_list：字符指针
+#va_start()：指针指向第一个元素
+#va_arg()：指针指向下一个元素
+#va_end()：指针置空
+
+缺点
+
+代码逻辑需要明确参数的数量和每个参数的类型
+…
+
+代码示例1234567891011121314151617181920212223242526272829303132333435363738394041#include &lt;stdarg.h&gt; // #va_list、#va_start()、#va_arg()、#va_end()#i ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/06/C++%20%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%AE%80%E5%8D%95%E5%88%9B%E5%BB%BA%E5%B7%A5%E5%85%B7/" title="C++ 代码实例：并查集简单创建工具">C++ 代码实例：并查集简单创建工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-05T16:10:41.000Z" title="发表于 2023-11-06 00:10:41">2023-11-06</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++ 代码实例：并查集简单创建工具。
+
+代码仓库
+yezhening&#x2F;Programming-examples: 编程实例 (github.com)
+Programming-examples: 编程实例 (gitee.com)
+
+
+代码说明
+简单地创建并查集
+注释有详细的步骤解析
+还可优化的点：使用cmake；使用右值传递复杂容器减小开销
+
+
+注：半个晚上完成，大概测试了下
+
+
+main.cpp12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485868788899091929394959697989910010110210310410510610710810911011111211311411511611711811912012112212312412512612712812913013113213313 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/05/C++%20%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%A4%9A%E9%A1%B9%E5%BC%8F%E9%99%A4%E6%B3%95%E7%AE%80%E5%8D%95%E8%AE%A1%E7%AE%97%E5%B7%A5%E5%85%B7/" title="C++ 代码实例：多项式除法简单计算工具">C++ 代码实例：多项式除法简单计算工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-05T04:14:19.000Z" title="发表于 2023-11-05 12:14:19">2023-11-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++ 代码实例：多项式除法简单计算工具。
+
+代码仓库
+yezhening&#x2F;Programming-examples: 编程实例 (github.com)
+Programming-examples: 编程实例 (gitee.com)
+
+
+代码说明
+由于代码篇幅较多，在博客中直接粘贴并呈现会显得冗长，因此未在博客中放置完整代码，只展示核心片段代码。请前往”代码仓库”查看或获取相关代码
+简单地计算多项式除法
+注释有详细的步骤解析
+好用的多项式除法在线计算网址：在线计算器: 多项式除法 (planetcalc.com)
+多项式除法，被除数和除数写在程序中：main.exe、main.cpp、polynomial.cpp、polynomial.h
+多项式除法，在终端输入被除数和除数：main1.exe、main1.cpp、polynomial.cpp、polynomial.h
+
+
+注：一个晚上一个早上完成，应该大部分结果对，若出现小部分结果错误懒得管了，逻辑差不多那样
+
+
+核心片段polynomial.h
+1234567891011121314151617181920212223 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/11/03/C++%20STL%20%E5%85%AD%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/" title="C++ STL 六组件介绍">C++ STL 六组件介绍</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-03T04:23:20.000Z" title="发表于 2023-11-03 12:23:20">2023-11-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++ STL 六组件介绍。
+
+概念
+C++：编程语言
+
+STL（Standard Template Library，标准模板库）：C++ 标准库的一部分，提供相关工具（函数模板、类模板和函数等）
+
+
+
+“函数模板” 和 “类模板” 是“抽象”概念，“模板函数” 和 “模板类” 是“具体”概念。
+
+
+六组件：容器，算法，迭代器，适配器，仿函数，分配器
+
+基础（常用） 三组件：容器，算法，迭代器
+
+拓展（少用） 三组件：适配器，仿函数，分配器
+
+
+
+容器（container）概念
+组织数据的结构（所以称作：容纳物体的器具 -&gt; 容器）
+特性：静态
+类比：数组
+
+类型顺序容器
+
+数组&#x2F;向量
+链表
+队列
+栈
+
+关联容器
+
+图&#x2F;映射
+集合
+对组
+元组
+
+数组&#x2F;向量
+
+
+
+名称
+底层原理
+说明
+
+
+
+array
+静态数组
+C++11 标准
+
+
+vector
+动态数组
+
+
+
+ 链表
+
+
+
+名称
+底层原理
+说明
+
+
+
+list
+双向链表
+
+
+
+forward_list
+单向链表
+C++11 标准
+
+
+ 队列
+
+
+
+名称
+底层原理
+说明
+
+
+
+deque
+管理数 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/" title="环境编程代码实例：“加/卸载” Zend Framework 2">环境编程代码实例：“加/卸载” Zend Framework 2</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-25T13:12:11.000Z" title="发表于 2023-10-25 21:12:11">2023-10-25</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></span></div><div class="content">前言环境编程代码实例：“加&#x2F;卸载” Zend Framework 2。
+
+代码仓库
+yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com)
+Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)
+
+
+需求介绍现状：已存在旧生产项目，系统使用 Zend Framework 2（基于 PHP 的 Web MVC 框架，简称 ZF2）
+目标：简化 ZF2 的配置
+内容：
+
+将 ZF2 的供应镜像可执行文件加载到内存，并映射&#x2F;解映射到虚拟设备的一个分区
+将虚拟设备的文件系统挂&#x2F;卸载到目录
+
+实现：
+
+环境：FreeBSD（服务器）
+语言：C&#x2F;C++（程序）
+核心：执行 Shell 命令（程序使用 UNIX -&gt; FreeBSD 的系统调用）
+要求：可靠（尽可能地考虑并处理错误情况）
+
+
+代码说明
+由于代码篇幅较多，在博客中直接粘贴并呈现会显得冗长，因此未在博客 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/02/C++%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%BF%9B%E5%88%B6%E6%95%B0%E7%AE%80%E5%8D%95%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" title="C++代码示例：进制数简单生成工具">C++代码示例：进制数简单生成工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-02T02:24:29.000Z" title="发表于 2023-10-02 10:24:29">2023-10-02</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++代码示例：进制数简单生成工具。
+
+代码仓库
+yezhening&#x2F;Programming-examples: 编程实例 (github.com)
+Programming-examples: 编程实例 (gitee.com)
+
+
+内容
+简单地生成进制数
+有详细的步骤解析
+
+
+代码（有详细注释）cdigital.cpp
+12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747576777879808182838485#include &lt;vector&gt;#include &lt;iostream&gt;using std::cout;using std::endl;using std::vector;class CDigital&#123;public:    CDigital(const vector&lt;int&gt; &amp;base ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/10/01/C++%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%9A%E6%8E%92%E5%88%97%E6%95%B0%E7%AE%80%E5%8D%95%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" title="C++代码示例：排列数简单生成工具">C++代码示例：排列数简单生成工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-10-01T12:19:23.000Z" title="发表于 2023-10-01 20:19:23">2023-10-01</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++代码示例：排列数简单生成工具。
+
+代码仓库
+yezhening&#x2F;Programming-examples: 编程实例 (github.com)
+Programming-examples: 编程实例 (gitee.com)
+
+
+内容
+简单地生成排列数
+有详细的步骤解析
+
+
+代码（有详细注释）cpermutation.cpp
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/09/28/C++%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%9A%E7%BB%84%E5%90%88%E6%95%B0%E7%AE%80%E5%8D%95%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" title="C++代码示例：组合数简单生成工具">C++代码示例：组合数简单生成工具</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-28T08:06:20.000Z" title="发表于 2023-09-28 16:06:20">2023-09-28</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/C/">C++</a></span></div><div class="content">前言C++代码示例：组合数简单生成工具。
+
+代码仓库
+yezhening&#x2F;Programming-examples: 编程实例 (github.com)
+Programming-examples: 编程实例 (gitee.com)
+
+
+内容
+简单地生成组合数
+有详细的步骤解析
+
+
+代码（有详细注释）ccombination.cpp
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293#include &lt;vector&gt;#include &lt;iostream&gt;using std::cout;using std::endl;using std::vector;class CCombination&#123;public:    CCombination(const ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/16/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%EF%BC%88IPC%EF%BC%89/" title="环境编程代码实例：进程间通信（IPC）">环境编程代码实例：进程间通信（IPC）</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-16T01:36:28.000Z" title="发表于 2023-05-16 09:36:28">2023-05-16</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></span></div><div class="content">前言环境编程代码实例：进程间通信（IPC）。
+
+代码仓库
+yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com)
+Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)
+
+
+内容低级：3种
+
+全局变量&#x2F;glov：类似管道、命名管道、消息队列、共享内存：头文件&#x2F;库文件全局变量，源文件全局变量
+文件&#x2F;file：类似管道、命名管道、消息队列、共享内存
+PV操作&#x2F;pv：类似信号量
+
+第三方：2种
+
+数据库&#x2F;db：类似管道、命名管道、消息队列、共享内存
+缓存&#x2F;cache：类似管道、命名管道、消息队列、共享内存
+
+一般：7种
+
+管道&#x2F;无名管道&#x2F;pipe
+命名管道&#x2F;有名管道&#x2F;FIFO
+信号&#x2F;signal
+信号量&#x2F;semaphore：XSI信号量，POSIX信号量
+消息队列&#x2F;mq
+共享 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/" title="网络编程代码实例：守护进程版">网络编程代码实例：守护进程版</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-05-12T02:15:57.000Z" title="发表于 2023-05-12 10:15:57">2023-05-12</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></span></div><div class="content">前言网络编程代码实例：守护进程版。
+
+代码仓库
+yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com)
+Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)
+
+
+内容
+使用传输控制协议（TCP）
+检测recv()返回值，遇到信号或网络中断会重启
+为保证代码简洁，部分输入输出和字符串处理函数未获取返回值进行错误检测
+服务端作为守护进程启动，设置无缓冲IO，标准输入、输出和错误重定向并实时记录到日志文本文件。在main()开头注释不调用create_daemon()，可不作为守护进程启动——增加
+服务端使用signal()注册SIGCHLD信号处理函数（signal()函数对信号处理一次后，信号恢复默认行为，需要在信号处理函数中重新注册）。信号处理函数中使用可重入函数和保存并恢复旧errno方案，避免重入错误。父进程接收SIGCHLD信号后调用循环非阻塞waitpid()可处理同时终止的多个子进程， ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>分类</span>
+            <a class="card-more-btn" href="/categories/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a>
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C++</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Go/"><span class="card-category-list-name">Go</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发和管理工具</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">环境和网络编程</span><span class="card-category-list-count">8</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.34em; color: #99a3b0">计算机组成原理</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.26em; color: #999fa8">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.34em; color: #99a3b0">数据库</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 1.14em; color: #999b9d">开发和管理工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 1.38em; color: #99a4b4">环境和网络编程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 1.14em; color: #999b9d">环境配置</a> <a href="/tags/Go/" style="font-size: 1.22em; color: #999ea4">Go</a> <a href="/tags/C/" style="font-size: 1.42em; color: #99a6b7">C++</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.46em; color: #99a7bb">设计模式</a> <a href="/tags/Node-js/" style="font-size: 1.1em; color: #999">Node.js</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 1.18em; color: #999ca1">网络安全</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">90</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-18T02:39:46.156Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

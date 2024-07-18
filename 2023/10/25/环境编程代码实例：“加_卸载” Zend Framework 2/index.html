@@ -1,0 +1,225 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>环境编程代码实例：“加/卸载” Zend Framework 2 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言环境编程代码实例：“加&#x2F;卸载” Zend Framework 2。  代码仓库 yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com) Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="环境编程代码实例：“加&#x2F;卸载” Zend Framework 2">
+<meta property="og:url" content="http://example.com/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言环境编程代码实例：“加&#x2F;卸载” Zend Framework 2。  代码仓库 yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com) Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-10-25T13:12:11.000Z">
+<meta property="article:modified_time" content="2024-02-28T03:04:06.217Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="环境和网络编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '环境编程代码实例：“加/卸载” Zend Framework 2',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-02-28 11:04:06'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">环境编程代码实例：“加/卸载” Zend Framework 2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-10-25T13:12:11.000Z" title="发表于 2023-10-25 21:12:11">2023-10-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-02-28T03:04:06.217Z" title="更新于 2024-02-28 11:04:06">2024-02-28</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="环境编程代码实例：“加/卸载” Zend Framework 2"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>环境编程代码实例：“加&#x2F;卸载” Zend Framework 2。</p>
+<hr>
+<h1 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/yezhening/Environment-and-network-programming-examples">yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/yezhening/Environment-and-network-programming-examples">Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)</a></li>
+</ul>
+<hr>
+<h1 id="需求介绍"><a href="#需求介绍" class="headerlink" title="需求介绍"></a>需求介绍</h1><p>现状：已存在旧生产项目，系统使用 Zend Framework 2（基于 PHP 的 Web MVC 框架，简称 ZF2）</p>
+<p>目标：简化 ZF2 的配置</p>
+<p>内容：</p>
+<ol>
+<li>将 ZF2 的供应镜像可执行文件加载到内存，并<strong>映射&#x2F;解映射</strong>到虚拟设备的一个分区</li>
+<li>将虚拟设备的文件系统<strong>挂&#x2F;卸载</strong>到目录</li>
+</ol>
+<p>实现：</p>
+<ul>
+<li>环境：FreeBSD（服务器）</li>
+<li>语言：C&#x2F;C++（程序）</li>
+<li>核心：执行 Shell 命令（程序使用 UNIX -&gt; FreeBSD 的系统调用）</li>
+<li>要求：可靠（尽可能地考虑并处理错误情况）</li>
+</ul>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><ul>
+<li>由于代码篇幅较多，在博客中直接粘贴并呈现会显得冗长，因此未在博客中放置<strong>完整</strong>代码，只展示<strong>核心片段</strong>代码。请前往”代码仓库”查看或获取相关代码</li>
+<li>注释有详细解析</li>
+</ul>
+<hr>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><ul>
+<li>文件夹：load_ZF2</li>
+<li>源文件：main.cpp</li>
+<li>可执行文件：main</li>
+<li>说明文件：readme.txt</li>
+<li>配置文件：setupvendor.conf</li>
+<li>ZF2 的供应镜像文件：ZF2VendorImage.bin（<strong>因为是生产项目，未将该文件开源在代码仓库</strong>）</li>
+</ul>
+<hr>
+<h2 id="核心片段"><a href="#核心片段" class="headerlink" title="核心片段"></a>核心片段</h2><p>结构体和全局变量</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">SystemFile</span> <span class="comment">// 系统文件</span></span><br><span class="line">&#123;</span><br><span class="line">    string file_name;   <span class="comment">// 文件名称</span></span><br><span class="line">    string virtual_dev; <span class="comment">// 挂载设备号</span></span><br><span class="line">    string mount_dir;   <span class="comment">// 挂载目录</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// const string g_config_file_path(&quot;./setupvendor.conf&quot;); // 配置文件路径</span></span><br><span class="line"><span class="function"><span class="type">const</span> string <span class="title">g_config_file_path</span><span class="params">(<span class="string">&quot;/usr/local/etc/setupvendor.conf&quot;</span>)</span></span>; <span class="comment">// 配置文件路径</span></span><br><span class="line"><span class="function"><span class="type">const</span> string <span class="title">g_file_num_key</span><span class="params">(<span class="string">&quot;file_num&quot;</span>)</span></span>;                            <span class="comment">// 配置文件中系统文件数量的键</span></span><br><span class="line"><span class="function">string <span class="title">g_file_num_value</span><span class="params">(<span class="string">&quot;&quot;</span>)</span></span>;                                        <span class="comment">// 配置文件中系统文件数量的值</span></span><br><span class="line"><span class="type">int</span> g_file_num_value2 = <span class="number">0</span>;                                          <span class="comment">// 配置文件中系统文件数量的值2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">const</span> string <span class="title">g_file_name_key</span><span class="params">(<span class="string">&quot;file_name&quot;</span>)</span></span>;     <span class="comment">// 配置文件中系统文件名称的键</span></span><br><span class="line"><span class="function"><span class="type">const</span> string <span class="title">g_virtual_dev_key</span><span class="params">(<span class="string">&quot;virtual_dev&quot;</span>)</span></span>; <span class="comment">// 配置文件中虚拟设备号的键</span></span><br><span class="line"><span class="function"><span class="type">const</span> string <span class="title">g_mount_dir_key</span><span class="params">(<span class="string">&quot;mount_dir&quot;</span>)</span></span>;     <span class="comment">// 配置文件中挂载目录的键</span></span><br><span class="line">vector&lt;<span class="keyword">struct</span> SystemFile&gt; g_system_file_vec&#123;&#125;; <span class="comment">// 系统文件向量</span></span><br></pre></td></tr></table></figure>
+
+<p>函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在配置文件的一行字符串【键 = 值换行符】中，依据键获取值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_key_value</span><span class="params">(<span class="type">const</span> string &amp;line, <span class="type">const</span> string &amp;key, string &amp;value)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 获取系统文件数量</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_system_file_num</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 获取系统文件配置</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">get_system_file_config</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 执行命令</span></span></span><br><span class="line"><span class="function"><span class="comment">// 输入：命令，参数数组，参数数量</span></span></span><br><span class="line"><span class="function"><span class="comment">// 注意execv需要char*const*参数</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exec_cmd</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd, <span class="type">char</span> *<span class="type">const</span> arg[], <span class="type">const</span> <span class="type">int</span> arg_size)</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 挂载文件系统</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mount_file_system</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="comment">// 卸载文件系统</span></span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">umount_file_system</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br></pre></td></tr></table></figure>
+
+<p>执行命令函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 执行命令</span></span><br><span class="line"><span class="comment">// 输入：命令，参数数组，参数数量</span></span><br><span class="line"><span class="comment">// 注意execv需要char*const*参数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">exec_cmd</span><span class="params">(<span class="type">const</span> <span class="type">char</span> *cmd, <span class="type">char</span> *<span class="type">const</span> arg[], <span class="type">const</span> <span class="type">int</span> arg_size)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; arg_size; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        cout &lt;&lt; arg[i] &lt;&lt; <span class="string">&quot; &quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="type">pid_t</span> pid = fork(); <span class="comment">// 进程号</span></span><br><span class="line">    <span class="keyword">if</span> (pid == <span class="number">-1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">perror</span>(<span class="string">&quot;exec_cmd() fork() error&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (pid == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">execv</span>(cmd, arg);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// pid != 0</span></span><br><span class="line">    <span class="type">int</span> ret = <span class="number">-1</span>;                   <span class="comment">// 系统调用返回结果</span></span><br><span class="line">    <span class="type">int</span> status = <span class="number">0</span>;                 <span class="comment">// 进程结束状态</span></span><br><span class="line">    ret = <span class="built_in">waitpid</span>(pid, &amp;status, <span class="number">0</span>); <span class="comment">// 等待子进程，结束状态，阻塞等待</span></span><br><span class="line">    <span class="keyword">if</span> ((ret == <span class="number">-1</span>) || ((<span class="built_in">WIFEXITED</span>(status)) &amp;&amp; (<span class="built_in">WEXITSTATUS</span>(status) != <span class="number">0</span>)))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">perror</span>(<span class="string">&quot;exec_cmd() Execute command error&quot;</span>);</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>主函数</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 依据参数判断挂载或卸载文件系统</span></span><br><span class="line">    <span class="keyword">if</span> (argc &gt;= <span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;main() Argument number error&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ((argc == <span class="number">2</span>) &amp;&amp; (((<span class="built_in">strncmp</span>(argv[<span class="number">1</span>], <span class="string">&quot;umount&quot;</span>, <span class="number">6</span>)) != <span class="number">0</span>)))</span><br><span class="line">    &#123;</span><br><span class="line">        cerr &lt;&lt; <span class="string">&quot;main() Invalid argument error&quot;</span> &lt;&lt; endl;</span><br><span class="line">        <span class="built_in">exit</span>(EXIT_FAILURE);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">get_system_file_num</span>();    <span class="comment">// 获取系统文件数量</span></span><br><span class="line">    <span class="built_in">get_system_file_config</span>(); <span class="comment">// 获取系统文件配置</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> ((argc == <span class="number">2</span>) &amp;&amp; (((<span class="built_in">strncmp</span>(argv[<span class="number">1</span>], <span class="string">&quot;umount&quot;</span>, <span class="number">6</span>)) == <span class="number">0</span>))) <span class="comment">// 有2个参数且第二个是umount，则卸载文件系统</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">umount_file_system</span>();</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">mount_file_system</span>(); <span class="comment">// 默认1个参数挂载文件系统</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h1><ul>
+<li>该份实例实际上是在 UNIX&#x2F;FreeBSD&#x2F;Linux 环境使用 C&#x2F;C++ 程序执行 Shell 命令的<strong>特例</strong>版本</li>
+<li>看懂代码后，稍加修改，该份实例可以成为<strong>通用</strong>版本</li>
+</ul>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>环境编程代码实例：“加&#x2F;卸载” Zend Framework 2。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《UNIX环境高级编程（第3版）》作者：W.Richard Stevens，Stephen A.Rago</li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/">http://example.com/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/03/C++%20STL%20%E5%85%AD%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D/" title="C++ STL 六组件介绍"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">C++ STL 六组件介绍</div></div></a></div><div class="next-post pull-right"><a href="/2023/10/02/C++%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%EF%BC%9A%E8%BF%9B%E5%88%B6%E6%95%B0%E7%AE%80%E5%8D%95%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7/" title="C++代码示例：进制数简单生成工具"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++代码示例：进制数简单生成工具</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/16/IRC%EF%BC%88Internet%20Relay%20Chat%EF%BC%89%EF%BC%88%E5%9B%A0%E7%89%B9%E7%BD%91%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%89%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94RFC1459%E6%96%87%E6%A1%A3%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/" title="IRC（Internet Relay Chat）（因特网中继聊天）协议——RFC1459文档要点总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-16</div><div class="title">IRC（Internet Relay Chat）（因特网中继聊天）协议——RFC1459文档要点总结</div></div></a></div><div><a href="/2023/05/16/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%EF%BC%88IPC%EF%BC%89/" title="环境编程代码实例：进程间通信（IPC）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-16</div><div class="title">环境编程代码实例：进程间通信（IPC）</div></div></a></div><div><a href="/2023/05/01/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9AIO%E5%A4%8D%E7%94%A8%E7%89%88/" title="网络编程代码实例：IO复用版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-01</div><div class="title">网络编程代码实例：IO复用版</div></div></a></div><div><a href="/2023/04/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%88TCP%EF%BC%89%E7%AE%80%E5%8D%95%E7%89%88/" title="网络编程代码实例：传输控制协议（TCP）简单版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-24</div><div class="title">网络编程代码实例：传输控制协议（TCP）简单版</div></div></a></div><div><a href="/2023/04/26/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%89%88/" title="网络编程代码实例：多进程版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-26</div><div class="title">网络编程代码实例：多进程版</div></div></a></div><div><a href="/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/" title="网络编程代码实例：守护进程版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-12</div><div class="title">网络编程代码实例：守护进程版</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">代码仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9C%80%E6%B1%82%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">需求介绍</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E"><span class="toc-number">4.1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="toc-number">4.2.</span> <span class="toc-text">文件结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E7%89%87%E6%AE%B5"><span class="toc-number">4.3.</span> <span class="toc-text">核心片段</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%93%E5%B1%95"><span class="toc-number">5.</span> <span class="toc-text">拓展</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">7.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">8.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

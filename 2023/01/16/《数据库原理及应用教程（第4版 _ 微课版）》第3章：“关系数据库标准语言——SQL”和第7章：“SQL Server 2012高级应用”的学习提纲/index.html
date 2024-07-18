@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲。  3.1 SQL的基本概念与特点概念：  内模式——存储文件 模式——基本表 外模式——视图  特点：  类似自然语言：如英语 一体化的：功能集中 非过程化的：用户只关心“做什么”，无需关心“怎么做” 面向集合的：操作对象是关系，结果是关系 自">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲">
+<meta property="og:url" content="http://example.com/2023/01/16/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94SQL%E2%80%9D%E5%92%8C%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E2%80%9CSQL%20Server%202012%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲。  3.1 SQL的基本概念与特点概念：  内模式——存储文件 模式——基本表 外模式——视图  特点：  类似自然语言：如英语 一体化的：功能集中 非过程化的：用户只关心“做什么”，无需关心“怎么做” 面向集合的：操作对象是关系，结果是关系 自">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-01-16T03:41:44.000Z">
+<meta property="article:modified_time" content="2023-04-13T05:05:55.742Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2023/01/16/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94SQL%E2%80%9D%E5%92%8C%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E2%80%9CSQL%20Server%202012%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-13 13:05:55'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-16T03:41:44.000Z" title="发表于 2023-01-16 11:41:44">2023-01-16</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-13T05:05:55.742Z" title="更新于 2023-04-13 13:05:55">2023-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲。</p>
+<hr>
+<h1 id="3-1-SQL的基本概念与特点"><a href="#3-1-SQL的基本概念与特点" class="headerlink" title="3.1 SQL的基本概念与特点"></a>3.1 SQL的基本概念与特点</h1><p>概念：</p>
+<ul>
+<li>内模式——存储文件</li>
+<li>模式——基本表</li>
+<li>外模式——视图</li>
+</ul>
+<p>特点：</p>
+<ul>
+<li>类似自然语言：如英语</li>
+<li>一体化的：功能集中</li>
+<li>非过程化的：用户只关心“做什么”，无需关心“怎么做”</li>
+<li>面向集合的：操作对象是关系，结果是关系</li>
+<li>自含式的：可单独使用交互命令</li>
+<li>嵌入式的：嵌入高级语言中使用</li>
+<li><strong>有数据查询、数据定义、数据操纵和数据控制功能</strong></li>
+</ul>
+<hr>
+<h1 id="3-2-SQL-Server-2012简介——略"><a href="#3-2-SQL-Server-2012简介——略" class="headerlink" title="3.2 SQL Server 2012简介——略"></a>3.2 SQL Server 2012简介——略</h1><hr>
+<h1 id="3-3-数据库的创建和使用"><a href="#3-3-数据库的创建和使用" class="headerlink" title="3.3 数据库的创建和使用"></a>3.3 数据库的创建和使用</h1><p>数据库的文件：</p>
+<ul>
+<li>数据文件：主数据文件，次数据文件</li>
+<li>日志文件</li>
+</ul>
+<blockquote>
+<p>一个数据库至少有一个数据文件和一个日志文件。<br>一个数据库只有一个主数据文件，可有多个次数据文件。</p>
+</blockquote>
+<p>数据库的文件组：主要文件组，次要文件组</p>
+<blockquote>
+<p>数据文件有文件组，日志文件无文件组。<br>一个数据文件只能在一个文件组，一个文件组只能被一个数据库使用。</p>
+</blockquote>
+<p>SQL语句：</p>
+<ul>
+<li>增加数据库：create database</li>
+<li>删除数据库：drop database</li>
+<li>修改数据库：alter database</li>
+</ul>
+<p>数据库迁移的方式：</p>
+<ul>
+<li>分离和加载</li>
+<li>生成脚本：常用</li>
+</ul>
+<hr>
+<h1 id="3-4-数据表的创建和使用"><a href="#3-4-数据表的创建和使用" class="headerlink" title="3.4 数据表的创建和使用"></a>3.4 数据表的创建和使用</h1><p>数据定义：使用数据定义语言（DDL）。</p>
+<p>数据类型：</p>
+<ul>
+<li>整数型：如int</li>
+<li>数值型：如numeric</li>
+<li>货币型：如money</li>
+<li>日期型：如datetime</li>
+<li>字符型：如char</li>
+</ul>
+<blockquote>
+<p>“var”表示“变长的”，“n”表示“Unicode字符（ASCII字符）”：<br>char：定长的，非Unicode字符（ASCII字符）（1个字符1字节）<br>varchar：变长的，非Unicode字符（ASCII字符）（1个字符1字节）<br>nchar：定长的，Unicode字符（1个字符2字节）<br>nvarchar：变长的，Unicode字符（1个字符2字节）</p>
+</blockquote>
+<blockquote>
+<p>若字符串有<strong>非ASCII字符</strong>（如中文），则使用nchar或nvarchar。</p>
+</blockquote>
+<ul>
+<li>二进制数据型：如binary</li>
+<li>特殊类型：如timestamp</li>
+</ul>
+<p>数据完整性的机制：</p>
+<ul>
+<li>约束</li>
+<li>默认</li>
+<li>规则</li>
+<li>触发器</li>
+<li>存储过程</li>
+</ul>
+<p>约束的类型1：</p>
+<ul>
+<li>列约束：约束1列</li>
+<li>表约束：约束多列</li>
+</ul>
+<p>约束的类型2：</p>
+<ul>
+<li>空值约束：只用于列约束</li>
+<li>主键约束</li>
+<li>唯一约束</li>
+</ul>
+<blockquote>
+<p>注意：主键约束和唯一约束不同</p>
+</blockquote>
+<ul>
+<li>外键约束</li>
+<li>检查约束</li>
+</ul>
+<p>SQL语句：</p>
+<ul>
+<li>增加数据表：create table</li>
+<li>删除数据表：drop table</li>
+<li>修改数据表：alter table</li>
+</ul>
+<hr>
+<h1 id="3-5-单关系（表）的数据查询"><a href="#3-5-单关系（表）的数据查询" class="headerlink" title="3.5 单关系（表）的数据查询"></a>3.5 单关系（表）的数据查询</h1><p>无条件查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line"><span class="keyword">from</span></span><br></pre></td></tr></table></figure>
+
+<p>条件查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line"><span class="keyword">where</span></span><br></pre></td></tr></table></figure>
+
+<p>常用的库函数：</p>
+<ul>
+<li>AVG()</li>
+<li>SUM()</li>
+<li>MAX()</li>
+<li>MIN()</li>
+<li>COUNT()</li>
+</ul>
+<p>分组查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line"><span class="keyword">having</span></span><br></pre></td></tr></table></figure>
+
+<p>排序查询：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line"><span class="keyword">from</span></span><br><span class="line"><span class="keyword">where</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span></span><br><span class="line"><span class="keyword">having</span></span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span></span><br></pre></td></tr></table></figure>
+
+<p>select语句语义层的执行顺序：</p>
+<ol>
+<li>from</li>
+<li>where</li>
+<li>group by</li>
+<li>having</li>
+<li>select</li>
+<li>order by</li>
+</ol>
+<blockquote>
+<p>详细内容参见：参考资料</p>
+</blockquote>
+<hr>
+<h1 id="3-6-多关系（表）的连接查询"><a href="#3-6-多关系（表）的连接查询" class="headerlink" title="3.6 多关系（表）的连接查询"></a>3.6 多关系（表）的连接查询</h1><p>连接的方法：</p>
+<ul>
+<li>from子句指明连接的表名，where子句指明连接的列名和连接条件：常用</li>
+<li>join子句指明连接的表名，on子句指明连接的列名和连接条件</li>
+</ul>
+<p> join子句指明连接的表名，on子句指明连接的列名和连接条件的方法：</p>
+<ul>
+<li>内连接：inner join：输出符合条件的结果</li>
+<li>左（外）连接：left （outer） join：输出符合条件的结果和左边表不符合条件的结果</li>
+<li>右（外）连接：right （outer） join：输出符合条件的结果和右边表不符合条件的结果</li>
+<li>全（外）连接）：full （outer） join：输出符合条件的结果、左边表不符合条件的结果和右边表不符合条件的结果</li>
+<li>交叉连接：cross join：类似广义笛卡尔积</li>
+</ul>
+<blockquote>
+<p>另外，还有一种自连接查询。</p>
+</blockquote>
+<hr>
+<h1 id="3-7-子查询"><a href="#3-7-子查询" class="headerlink" title="3.7 子查询"></a>3.7 子查询</h1><p>类型：</p>
+<ul>
+<li>普通子查询：先执行子查询，后执行父查询</li>
+<li>相关子查询：对父查询的每一行，执行子查询判断是否满足条件</li>
+</ul>
+<hr>
+<h1 id="3-8-其他类型查询"><a href="#3-8-其他类型查询" class="headerlink" title="3.8 其他类型查询"></a>3.8 其他类型查询</h1><p>类型：</p>
+<ul>
+<li>集合运算查询：如union</li>
+<li>存储结果集到表：如select into</li>
+</ul>
+<hr>
+<h1 id="3-9-数据表中数据的操纵"><a href="#3-9-数据表中数据的操纵" class="headerlink" title="3.9 数据表中数据的操纵"></a>3.9 数据表中数据的操纵</h1><p>数据操纵：使用数据操纵语言（DML）。</p>
+<p>SQL语句：</p>
+<ul>
+<li>增加数据：insert into … values</li>
+<li>删除数据：<strong>delete</strong> from</li>
+<li>修改数据：<strong>update</strong> … set</li>
+</ul>
+<hr>
+<h1 id="3-10-视图"><a href="#3-10-视图" class="headerlink" title="3.10 视图"></a>3.10 视图</h1><p>SQL语句：</p>
+<ul>
+<li>增加视图：create view</li>
+<li>删除视图：drop view</li>
+<li>修改视图：alter view</li>
+<li>增加数据：insert into … values</li>
+<li>删除数据：<strong>delete</strong> from</li>
+<li>修改数据：<strong>update</strong> … set</li>
+<li>查询数据：select</li>
+</ul>
+<hr>
+<h1 id="3-11-创建与使用索引"><a href="#3-11-创建与使用索引" class="headerlink" title="3.11 创建与使用索引"></a>3.11 创建与使用索引</h1><p>索引的类型：</p>
+<ul>
+<li>聚集索引</li>
+<li>非聚集索引</li>
+<li>唯一索引</li>
+<li>视图索引</li>
+<li>全文索引</li>
+<li>XML索引</li>
+</ul>
+<p>SQL语句：</p>
+<ul>
+<li>增加索引：create</li>
+<li>删除索引：drop</li>
+<li>修改索引：alter</li>
+</ul>
+<hr>
+<h1 id="SQL功能的总结"><a href="#SQL功能的总结" class="headerlink" title="SQL功能的总结"></a>SQL功能的总结</h1><ul>
+<li>数据定义（DDL）：create，drop，alter</li>
+<li>数据操纵（DML）：insert，delete，update</li>
+<li>数据查询（DQL）：select</li>
+<li>数据控制（DCL）：grant，revoke</li>
+</ul>
+<hr>
+<h1 id="7-1-Transact-SQL程序设计——略"><a href="#7-1-Transact-SQL程序设计——略" class="headerlink" title="7.1 Transact-SQL程序设计——略"></a>7.1 Transact-SQL程序设计——略</h1><hr>
+<h1 id="7-2-存储过程"><a href="#7-2-存储过程" class="headerlink" title="7.2 存储过程"></a>7.2 存储过程</h1><p>概念：依据时序&#x2F;流程，封装多条SQL语句后方便一次调用&#x2F;执行。类似函数</p>
+<p>优点：</p>
+<ul>
+<li>模块化的程序设计</li>
+<li>高效率地执行</li>
+<li>减少网络流量</li>
+<li>可以作为安全机制使用</li>
+</ul>
+<p>类型：</p>
+<ul>
+<li>系统存储过程</li>
+<li>用户自定义存储过程：常用</li>
+<li>扩展存储过程</li>
+</ul>
+<p>SQL语句：</p>
+<ul>
+<li>创建存储过程：create procedure</li>
+<li>删除存储过程：drop procedure</li>
+<li>修改存储过程：alter procedure</li>
+<li>执行存储过程：exec procedure</li>
+</ul>
+<hr>
+<h1 id="7-3-触发器"><a href="#7-3-触发器" class="headerlink" title="7.3 触发器"></a>7.3 触发器</h1><p>概念：依据时序&#x2F;流程，封装多条SQL语句后方便一次调用&#x2F;执行。类似回调函数</p>
+<p>本质：特殊的存储过程</p>
+<p>类型：</p>
+<ul>
+<li>登录触发器</li>
+<li>DDL触发器</li>
+<li>DML触发器：instead of触发器（语句执行前触发），after触发器（语句执行后触发）</li>
+</ul>
+<p>SQL语句：</p>
+<ul>
+<li>增加触发器：create trigger</li>
+<li>删除触发器：drop trigger</li>
+<li>修改触发器：alter trigger</li>
+</ul>
+<hr>
+<h1 id="7-4-备份和还原"><a href="#7-4-备份和还原" class="headerlink" title="7.4 备份和还原"></a>7.4 备份和还原</h1><p>备份的类型：</p>
+<ul>
+<li>数据库完整备份</li>
+<li>数据库差异备份：还必须用数据库完整备份</li>
+<li>事务日志备份：还必须用数据库完整备份</li>
+<li>文件及文件组备份：还必须用事务日志备份</li>
+</ul>
+<p>备份并还原的方式：</p>
+<ul>
+<li>数据库完整备份——简单还原</li>
+<li>数据库完整备份 + 数据库差异备份——简单还原</li>
+<li>数据库完整备份 + 数据库差异备份 + 事务日志备份——完全还原，批日志还原（性能更好）</li>
+<li>文件及文件组备份 + 事务日志备份</li>
+</ul>
+<blockquote>
+<p>数据库完整备份：还原完整数据<br>数据库差异备份：还原差异数据<br>事务日志备份：还原到<strong>失败点</strong><br>失败前处于运行状态事务的备份：还原到<strong>失败时刻</strong></p>
+</blockquote>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《数据库原理及应用教程（第4版 | 微课版）》主编：陈志泊；副主编：许福，韩慧；编著：崔晓晖，路贺俊，阮豫红</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39703170/article/details/79056533">SQL Select语句完整的执行顺序_20120623的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/16/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94SQL%E2%80%9D%E5%92%8C%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E2%80%9CSQL%20Server%202012%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/">http://example.com/2023/01/16/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94SQL%E2%80%9D%E5%92%8C%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E2%80%9CSQL%20Server%202012%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/02/01/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%88Dynamic%20Programming%EF%BC%89%EF%BC%88dp%EF%BC%89%E6%8F%8F%E8%BF%B0/" title="动态规划（Dynamic Programming）（dp）描述"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">动态规划（Dynamic Programming）（dp）描述</div></div></a></div><div class="next-post pull-right"><a href="/2023/01/15/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC4%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/12/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第2章：“关系数据库”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第2章：“关系数据库”的学习提纲</div></div></a></div><div><a href="/2023/01/11/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-11</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲</div></div></a></div><div><a href="/2023/01/15/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC4%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-15</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲</div></div></a></div><div><a href="/2023/01/14/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E4%BF%9D%E6%8A%A4%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第5章：“数据库安全保护”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-14</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第5章：“数据库安全保护”的学习提纲</div></div></a></div><div><a href="/2023/01/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC6%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第6章：“数据库设计”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-13</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第6章：“数据库设计”的学习提纲</div></div></a></div><div><a href="/2023/01/02/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC6%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%BC%95%E8%A8%80%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库系统概念（第6版）》第1章：“引言”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-02</div><div class="title">《数据库系统概念（第6版）》第1章：“引言”的学习提纲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-1-SQL%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5%E4%B8%8E%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">3.1 SQL的基本概念与特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-2-SQL-Server-2012%E7%AE%80%E4%BB%8B%E2%80%94%E2%80%94%E7%95%A5"><span class="toc-number">3.</span> <span class="toc-text">3.2 SQL Server 2012简介——略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-3-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">4.</span> <span class="toc-text">3.3 数据库的创建和使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-4-%E6%95%B0%E6%8D%AE%E8%A1%A8%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">5.</span> <span class="toc-text">3.4 数据表的创建和使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-5-%E5%8D%95%E5%85%B3%E7%B3%BB%EF%BC%88%E8%A1%A8%EF%BC%89%E7%9A%84%E6%95%B0%E6%8D%AE%E6%9F%A5%E8%AF%A2"><span class="toc-number">6.</span> <span class="toc-text">3.5 单关系（表）的数据查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-6-%E5%A4%9A%E5%85%B3%E7%B3%BB%EF%BC%88%E8%A1%A8%EF%BC%89%E7%9A%84%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2"><span class="toc-number">7.</span> <span class="toc-text">3.6 多关系（表）的连接查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-7-%E5%AD%90%E6%9F%A5%E8%AF%A2"><span class="toc-number">8.</span> <span class="toc-text">3.7 子查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-8-%E5%85%B6%E4%BB%96%E7%B1%BB%E5%9E%8B%E6%9F%A5%E8%AF%A2"><span class="toc-number">9.</span> <span class="toc-text">3.8 其他类型查询</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-9-%E6%95%B0%E6%8D%AE%E8%A1%A8%E4%B8%AD%E6%95%B0%E6%8D%AE%E7%9A%84%E6%93%8D%E7%BA%B5"><span class="toc-number">10.</span> <span class="toc-text">3.9 数据表中数据的操纵</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-10-%E8%A7%86%E5%9B%BE"><span class="toc-number">11.</span> <span class="toc-text">3.10 视图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-11-%E5%88%9B%E5%BB%BA%E4%B8%8E%E4%BD%BF%E7%94%A8%E7%B4%A2%E5%BC%95"><span class="toc-number">12.</span> <span class="toc-text">3.11 创建与使用索引</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL%E5%8A%9F%E8%83%BD%E7%9A%84%E6%80%BB%E7%BB%93"><span class="toc-number">13.</span> <span class="toc-text">SQL功能的总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-1-Transact-SQL%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E7%95%A5"><span class="toc-number">14.</span> <span class="toc-text">7.1 Transact-SQL程序设计——略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-2-%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">15.</span> <span class="toc-text">7.2 存储过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-3-%E8%A7%A6%E5%8F%91%E5%99%A8"><span class="toc-number">16.</span> <span class="toc-text">7.3 触发器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-4-%E5%A4%87%E4%BB%BD%E5%92%8C%E8%BF%98%E5%8E%9F"><span class="toc-number">17.</span> <span class="toc-text">7.4 备份和还原</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">18.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">19.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">20.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

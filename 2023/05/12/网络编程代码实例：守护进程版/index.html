@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>网络编程代码实例：守护进程版 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言网络编程代码实例：守护进程版。  代码仓库 yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com) Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)   内容 使用传输控制协议（TCP） 检测rec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络编程代码实例：守护进程版">
+<meta property="og:url" content="http://example.com/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言网络编程代码实例：守护进程版。  代码仓库 yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com) Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)   内容 使用传输控制协议（TCP） 检测rec">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-05-12T02:15:57.000Z">
+<meta property="article:modified_time" content="2023-05-22T03:04:11.538Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="环境和网络编程">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '网络编程代码实例：守护进程版',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-22 11:04:11'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">网络编程代码实例：守护进程版</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-12T02:15:57.000Z" title="发表于 2023-05-12 10:15:57">2023-05-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-22T03:04:11.538Z" title="更新于 2023-05-22 11:04:11">2023-05-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="网络编程代码实例：守护进程版"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>网络编程代码实例：守护进程版。</p>
+<hr>
+<h1 id="代码仓库"><a href="#代码仓库" class="headerlink" title="代码仓库"></a>代码仓库</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/yezhening/Environment-and-network-programming-examples">yezhening&#x2F;Environment-and-network-programming-examples: 环境和网络编程实例 (github.com)</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/yezhening/Environment-and-network-programming-examples">Environment-and-network-programming-examples: 环境和网络编程实例 (gitee.com)</a></li>
+</ul>
+<hr>
+<h1 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h1><ul>
+<li>使用传输控制协议（TCP）</li>
+<li>检测recv()返回值，遇到信号或网络中断会重启</li>
+<li>为保证代码简洁，部分输入输出和字符串处理函数未获取返回值进行错误检测</li>
+<li>服务端作为守护进程启动，设置无缓冲IO，标准输入、输出和错误重定向并实时记录到日志文本文件。在main()开头注释不调用create_daemon()，可不作为守护进程启动——增加</li>
+<li>服务端使用signal()注册SIGCHLD信号处理函数（signal()函数对信号处理一次后，信号恢复默认行为，需要在信号处理函数中重新注册）。信号处理函数中使用可重入函数和保存并恢复旧errno方案，避免重入错误。父进程接收SIGCHLD信号后调用循环非阻塞waitpid()可处理同时终止的多个子进程，避免子进程成为僵尸进程——增加</li>
+<li>服务端检测accept()慢系统调用的返回值，遇到信号中断会重启。在三次握手后且accept()返回前的时序，收到客户端RST重新连接，依据POSIX标准重启——增加</li>
+<li>服务端设置套接字选项：SO_KEEPLIVE。客户端不发送数据也可以检测到服务端主机崩溃、主机崩溃后重启或网络不可达——增加</li>
+<li>服务端设置套接字选项：SO_REUSEADDR。服务端Ctrl+C或意外中止后，不会经过TIME_WAIT状态，bind()不会报错：Address already in use，可立即重启服务端。连接套接字子进程正常运行，监听套接字父进程可立即重启。允许多个IP地址绑定同一个端口——增加</li>
+<li>服务端多进程，一个服务端可并发连接多个客户端</li>
+<li>服务端使用getpeername()而不是传递客户端sockaddr_in{}参数获取客户端地址——修改</li>
+<li>用户在客户端终端输入，可多次手动通信</li>
+<li>3个客户端代码实例分别使用IO复用的select、poll和epoll技术，同时监听用户输入和网络接收，可即时检测到服务端进程终止和服务端主机关机</li>
+<li>Makefile文件增加注释和生成.o目标文件逻辑——增加</li>
+</ul>
+<hr>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p>daemon_process&#x2F;：</p>
+<ul>
+<li>bin&#x2F;</li>
+<li>obj&#x2F;</li>
+<li>src&#x2F;</li>
+<li>log.txt：以守护进程方式（未注释main()中的creat_daemon()），运行daemon_process&#x2F;bin&#x2F;server生成</li>
+<li>Makefile</li>
+</ul>
+<p>daemon_process&#x2F;bin&#x2F;：运行Makefile生成</p>
+<ul>
+<li>client_epoll</li>
+<li>client_poll</li>
+<li>client_select</li>
+<li>server</li>
+</ul>
+<p>daemon_process&#x2F;obj&#x2F;：运行Makefile生成</p>
+<ul>
+<li>client_epoll.o</li>
+<li>client_poll.o</li>
+<li>client_select.o</li>
+<li>server.o</li>
+</ul>
+<p>daemon_process&#x2F;src&#x2F;：</p>
+<ul>
+<li>client_epoll.c</li>
+<li>client_poll.c</li>
+<li>client_select.c</li>
+<li>server.c</li>
+</ul>
+<hr>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>由于代码篇幅较多，在博客中直接粘贴并呈现会显得冗长，因此未在博客中放置代码。请前往”代码仓库”查看或获取相关代码。</p>
+<hr>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>操作时序：</p>
+<ol>
+<li>make clean：清理文件</li>
+<li>make all：生成文件</li>
+<li>cd bin：切换到二进制文件目录</li>
+<li>.&#x2F;server： 启动服务端</li>
+<li>ps -ef | grep -w “.&#x2F;server” | grep -v grep：查看服务端进程（服务端父进程9949作为后台守护进程启动；此时无客户端连接，所以无服务端子进程）</li>
+<li>.&#x2F;client_select：启动客户端client_select，发送消息”client_select”</li>
+<li>.&#x2F;client_client_poll：启动客户端client_poll，发送消息”client_poll”</li>
+<li>.&#x2F;client_epoll：启动client_epoll，发送消息”client_epoll”</li>
+<li>Ctrl+C：使客户端client_select异常终止</li>
+<li>Ctrl+D：使客户端client_poll正常终止</li>
+<li>kill 9949：终止服务端父进程9949</li>
+<li>ps -ef | grep -w “.&#x2F;server” | grep -v grep：查看服务端进程（服务端父进程9949终止；服务端子进程10241仍与客户端client_epoll连接）</li>
+<li>客户端client_epoll，发送消息”client_epoll2”，能够正常通信</li>
+<li>kill 10241：终止服务端子进程10241，客户端client_epoll被迫终止</li>
+</ol>
+<p>server：</p>
+<p><img src="/../img/daemon_process/server.png" alt="在这里插入图片描述"><br>client_select：</p>
+<p><img src="/../img/daemon_process/client_select.png" alt="在这里插入图片描述"></p>
+<p>client_poll：</p>
+<p><img src="/../img/daemon_process/client_poll.png" alt="在这里插入图片描述"></p>
+<p>client_epoll：</p>
+<p><img src="/../img/daemon_process/client_epoll.png" alt="在这里插入图片描述"></p>
+<p>log.txt：</p>
+<p><img src="/../img/daemon_process/logtxt.png" alt="在这里插入图片描述"></p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>网络编程代码实例：守护进程版。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《UNIX环境高级编程（第3版）》作者：W.Richard Stevens，Stephen A.Rago</li>
+<li>《UNIX网络编程（第3版）》作者：W.Richard Stevens，Bill Fenner，Andrew M.Rudoff</li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/">http://example.com/2023/05/12/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%AE%88%E6%8A%A4%E8%BF%9B%E7%A8%8B%E7%89%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">环境和网络编程</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/05/16/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%EF%BC%88IPC%EF%BC%89/" title="环境编程代码实例：进程间通信（IPC）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">环境编程代码实例：进程间通信（IPC）</div></div></a></div><div class="next-post pull-right"><a href="/2023/05/01/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9AIO%E5%A4%8D%E7%94%A8%E7%89%88/" title="网络编程代码实例：IO复用版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">网络编程代码实例：IO复用版</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/04/16/IRC%EF%BC%88Internet%20Relay%20Chat%EF%BC%89%EF%BC%88%E5%9B%A0%E7%89%B9%E7%BD%91%E4%B8%AD%E7%BB%A7%E8%81%8A%E5%A4%A9%EF%BC%89%E5%8D%8F%E8%AE%AE%E2%80%94%E2%80%94RFC1459%E6%96%87%E6%A1%A3%E8%A6%81%E7%82%B9%E6%80%BB%E7%BB%93/" title="IRC（Internet Relay Chat）（因特网中继聊天）协议——RFC1459文档要点总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-16</div><div class="title">IRC（Internet Relay Chat）（因特网中继聊天）协议——RFC1459文档要点总结</div></div></a></div><div><a href="/2023/05/16/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%EF%BC%88IPC%EF%BC%89/" title="环境编程代码实例：进程间通信（IPC）"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-16</div><div class="title">环境编程代码实例：进程间通信（IPC）</div></div></a></div><div><a href="/2023/10/25/%E7%8E%AF%E5%A2%83%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E2%80%9C%E5%8A%A0_%E5%8D%B8%E8%BD%BD%E2%80%9D%20Zend%20Framework%202/" title="环境编程代码实例：“加&#x2F;卸载” Zend Framework 2"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-25</div><div class="title">环境编程代码实例：“加&#x2F;卸载” Zend Framework 2</div></div></a></div><div><a href="/2023/05/01/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9AIO%E5%A4%8D%E7%94%A8%E7%89%88/" title="网络编程代码实例：IO复用版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-05-01</div><div class="title">网络编程代码实例：IO复用版</div></div></a></div><div><a href="/2023/04/24/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE%EF%BC%88TCP%EF%BC%89%E7%AE%80%E5%8D%95%E7%89%88/" title="网络编程代码实例：传输控制协议（TCP）简单版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-24</div><div class="title">网络编程代码实例：传输控制协议（TCP）简单版</div></div></a></div><div><a href="/2023/04/26/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E5%AE%9E%E4%BE%8B%EF%BC%9A%E5%A4%9A%E8%BF%9B%E7%A8%8B%E7%89%88/" title="网络编程代码实例：多进程版"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-04-26</div><div class="title">网络编程代码实例：多进程版</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E4%BB%93%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">代码仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AE%B9"><span class="toc-number">3.</span> <span class="toc-text">内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">4.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-number">5.</span> <span class="toc-text">代码</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">6.</span> <span class="toc-text">结果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">8.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">9.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

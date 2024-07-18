@@ -1,0 +1,518 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>设计模式总结 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言设计模式总结。  面向对象的特性：3点 封装 继承 多态   编程代码的原则&#x2F;面向对象的优势：4点 可维护 可复用 可扩展 可灵活&#x2F;灵活性好   统一建模语言（UML）图的基本关系：6种 继承：实线，三角箭头，指向被继承类 实现：虚线，三角箭头，指向被实现接口 依赖：虚线，箭头，指向被依赖者 关联：实线，箭头，指向被关联者 聚合：空心菱形，实线箭头，指向被聚合者 组合：实心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式总结">
+<meta property="og:url" content="http://example.com/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言设计模式总结。  面向对象的特性：3点 封装 继承 多态   编程代码的原则&#x2F;面向对象的优势：4点 可维护 可复用 可扩展 可灵活&#x2F;灵活性好   统一建模语言（UML）图的基本关系：6种 继承：实线，三角箭头，指向被继承类 实现：虚线，三角箭头，指向被实现接口 依赖：虚线，箭头，指向被依赖者 关联：实线，箭头，指向被关联者 聚合：空心菱形，实线箭头，指向被聚合者 组合：实心">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-08-22T02:41:29.000Z">
+<meta property="article:modified_time" content="2023-04-13T03:03:40.720Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="设计模式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '设计模式总结',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-13 11:03:40'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">设计模式总结</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-22T02:41:29.000Z" title="发表于 2022-08-22 10:41:29">2022-08-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-13T03:03:40.720Z" title="更新于 2023-04-13 11:03:40">2023-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="设计模式总结"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>设计模式总结。</p>
+<hr>
+<h1 id="面向对象的特性：3点"><a href="#面向对象的特性：3点" class="headerlink" title="面向对象的特性：3点"></a>面向对象的特性：3点</h1><ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+<hr>
+<h1 id="编程代码的原则-面向对象的优势：4点"><a href="#编程代码的原则-面向对象的优势：4点" class="headerlink" title="编程代码的原则&#x2F;面向对象的优势：4点"></a>编程代码的原则&#x2F;面向对象的优势：4点</h1><ul>
+<li>可维护</li>
+<li>可复用</li>
+<li>可扩展</li>
+<li>可灵活&#x2F;灵活性好</li>
+</ul>
+<hr>
+<h1 id="统一建模语言（UML）图的基本关系：6种"><a href="#统一建模语言（UML）图的基本关系：6种" class="headerlink" title="统一建模语言（UML）图的基本关系：6种"></a>统一建模语言（UML）图的基本关系：6种</h1><ul>
+<li>继承：实线，三角箭头，指向被继承类</li>
+<li>实现：虚线，三角箭头，指向被实现接口</li>
+<li>依赖：虚线，箭头，指向被依赖者</li>
+<li>关联：实线，箭头，指向被关联者</li>
+<li>聚合：空心菱形，实线箭头，指向被聚合者</li>
+<li>组合：实心菱形，实线箭头，指向被组合者</li>
+</ul>
+<p><strong>继承和实现关系的区别：</strong></p>
+<ul>
+<li>（抽象）类&#x2F;继承和接口&#x2F;实现在一定程度上可相互转换代替</li>
+<li>（抽象）类：抽象类型，对象之间有关系，属于同一类型，使用继承关系。如：雁和鸟，雁是鸟类型</li>
+<li>接口：抽象行为，对象之间无关系，有共同行为，使用实现关系。如：飞机和鸟，都有飞行的行为</li>
+</ul>
+<p><strong>依赖、关联、聚合和组合的区别：</strong><br>依赖：</p>
+<ul>
+<li>表现：方法中的形式参数、局部变量和静态方法调用</li>
+<li>侧重：临时性</li>
+</ul>
+<p>关联：</p>
+<ul>
+<li>表现：方法中的形式参数，类中的成员字段</li>
+<li>侧重：长期性；对象间是平等的，对象了解对象。如：企鹅了解气候</li>
+</ul>
+<p>聚合：</p>
+<ul>
+<li>表现：类中的成员字段</li>
+<li>侧重：长期性；对象间是不平等的，对象包含对象；整体和部分的可分割关系。如：雁群和雁</li>
+</ul>
+<p>组合：</p>
+<ul>
+<li>表现：类中创建、删除的对象（管理对象的生命周期）</li>
+<li>侧重：长期性；对象间是不平等的，对象包含对象；整体和部分的不可分割关系。如：鸟和翅膀</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>依赖、关联、聚合和组合关系大多依据语义而不是实现进行判断</li>
+</ul>
+<p>弱强程度：</p>
+<ul>
+<li>依赖&lt;关联&lt;聚合&lt;组合</li>
+</ul>
+<hr>
+<h1 id="设计模式的原则：7种"><a href="#设计模式的原则：7种" class="headerlink" title="设计模式的原则：7种"></a>设计模式的原则：7种</h1><p>开放-封闭&#x2F;开-闭原则（OCP）</p>
+<ul>
+<li><p>描述：对扩展开放，对修改关闭</p>
+</li>
+<li><p>应用：可扩展新代码，不可&#x2F;尽量不修改旧代码</p>
+</li>
+</ul>
+<p>依赖倒转&#x2F;置原则（DIP）：</p>
+<ul>
+<li><p>描述：高层模块不应该依赖低层模块，两种模块都应该依赖抽象；抽象不应该依赖细节，细节应该依赖抽象（其中的“不应该”和“应该”是“依赖倒转”的体现）</p>
+</li>
+<li><p>应用：不面向实现编程，面向接口&#x2F;抽象类编程；使用抽象类&#x2F;接口作为变量、参数</p>
+</li>
+</ul>
+<p>单一职责原则（SRP）：</p>
+<ul>
+<li>描述：类的逻辑&#x2F;功能&#x2F;职责单一；引起类变化的原因应该有且仅有一个</li>
+<li>应用：拆分业务对象&#x2F;逻辑&#x2F;功能&#x2F;职责</li>
+</ul>
+<p>最少知识原则&#x2F;迪米特法则（LoD）</p>
+<ul>
+<li><p>描述：类间弱耦合；类间间接而不直接通信</p>
+</li>
+<li><p>应用：尽可能封装类；使用第三者转发类间的调用</p>
+</li>
+</ul>
+<p>里氏代换原则（LSP）</p>
+<ul>
+<li>描述：子类型必须能够代换其父类型；子类可扩展父类功能，不可修改父类功能</li>
+<li>本质：面向对象的多态特性</li>
+<li>应用：使用子类扩展业务逻辑</li>
+</ul>
+<p>接口隔离原则（ISP）：</p>
+<ul>
+<li>描述：客户端不应该依赖不需要的接口；类间关系应该建立在最小的接口上</li>
+<li>应用：依据业务逻辑拆分复杂多用接口为简单专用接口</li>
+</ul>
+<p>合成&#x2F;聚合复用原则（C&#x2F;ARP）</p>
+<ul>
+<li>描述：类间尽量使用依赖、关联、聚合和组合关系，尽量不使用继承关系</li>
+<li>应用：类间尽量使用依赖、关联、聚合和组合关系，尽量不使用继承关系</li>
+</ul>
+<p>设计模式原则的关系（记忆方式）：</p>
+<ul>
+<li>总体规则：开放-封闭&#x2F;开-闭原则（OCP），依赖倒转&#x2F;置原则（DIP）</li>
+<li>设计模式的核心是面向对象</li>
+<li>面向对象的封装：单一职责原则（SRP），最少知识原则&#x2F;迪米特法则（LoD）</li>
+<li>面向对象的继承和多态：里氏代换原则（LSP），接口隔离原则（ISP）</li>
+<li>类间关系的描述——合成复用原则（C&#x2F;ARP）</li>
+</ul>
+<hr>
+<h1 id="设计模式的类型：3种"><a href="#设计模式的类型：3种" class="headerlink" title="设计模式的类型：3种"></a>设计模式的类型：3种</h1><p>依据意图：</p>
+<ul>
+<li>创建型：负责提供创建对象的机制</li>
+<li>结构型：负责将对象组装成较复杂的结构，同时保持结构的灵活和高效</li>
+<li>行为型：负责对象间的高效沟通和职责委派</li>
+</ul>
+<hr>
+<h1 id="创建型设计模式：6种"><a href="#创建型设计模式：6种" class="headerlink" title="创建型设计模式：6种"></a>创建型设计模式：6种</h1><p>单例模式（Singleton）：</p>
+<ul>
+<li>描述：保证一个类仅有一个实例，并提供一个访问它的全局访问点</li>
+<li>关键实现：单例类有：私有静态单例类对象字段A，私有构造方法B，公有静态获取单例类对象方法C。客户端单例类对象调用C-&gt;可能调用B，获得A</li>
+<li>类型：饿汉式，懒汉式</li>
+<li>相关内容：线程安全，双重锁定，静态初始化</li>
+<li><strong>类比：</strong> 木星是唯一的，“木星”、“太阳系最大的行星”和“Jupiter”称谓都是指木星</li>
+</ul>
+<p>简单工厂模式（Simple Factory）：</p>
+<ul>
+<li>关键实现：客户端调用简单工厂类的静态方法：判断并创建产品类对象</li>
+<li>相关内容：反射</li>
+<li>其他：不属于23种GoF设计模式之一。因为违背开放-封闭&#x2F;开-闭原则（OCP）：扩展需要修改简单工厂类：增加产品类对象的判断和创建代码</li>
+<li><strong>类比：</strong> 建造汽车工厂，让汽车工厂生产引擎产品和轮胎产品</li>
+</ul>
+<p> 工厂方法模式（Factory Method）：</p>
+<ul>
+<li>描述：定义一个用于创建对象的接口，让子类决定实例化哪一个类。工厂方法使一个类的实例化延迟到其子类</li>
+<li>关键实现：客户端判断并创建具体工厂类对象A，A创建具体产品类对象</li>
+<li>相关内容：反射</li>
+<li><strong>类比：</strong> 建造汽车引擎工厂，让汽车引擎工厂生产引擎产品；建造汽车轮胎工厂，让汽车轮胎工厂生产轮胎产品</li>
+</ul>
+<p>抽象工厂模式（Abstract Factory）：</p>
+<ul>
+<li>描述：提供一个创建一系列相关或相互依赖对象的接口，而无需指定它们具体的类</li>
+<li>关键实现：工厂和产品表现二&#x2F;多维结构：客户端判断并创建具体工厂类对象A，一个A，可创建多个同系列不同种类的具体产品类对象</li>
+<li>相关内容：反射，配置文件</li>
+<li><strong>类比：</strong> 建造A品牌汽车工厂，让A品牌汽车工厂生产A品牌引擎产品和A品牌轮胎产品；建造B品牌汽车工厂，让B品牌汽车工厂生产B品牌引擎产品和B品牌轮胎产品（系列&#x2F;风格&#x2F;品牌和种类是二维结构）</li>
+</ul>
+<p>原型模式（Prototype）：</p>
+<ul>
+<li>描述：用原型实例指定创建对象的种类，并且通过拷贝这些原型创建新的对象</li>
+<li>关键实现：客户端原型类对象调用原型类的克隆方法-&gt;调用原型类的构造方法：参数接收当前原型类对象A（this），创建并返回A的副本</li>
+<li>相关内容：浅拷贝和深拷贝</li>
+<li><strong>类比：</strong> 细胞的有丝分裂&#x2F;克隆</li>
+</ul>
+<p>建造者模式（Builder）：</p>
+<ul>
+<li>描述：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示 </li>
+<li>关键实现：客户端指挥者类对象调用指挥者类的指挥方法：参数接收具体建造者类对象A（建造过程）-&gt;A调用具体建造者类的具体获取产品方法（建造结果）</li>
+<li><strong>类比：</strong> 创建指挥机器（指挥机器封装建造过程的内容和时序：如建造房屋需要建造墙壁和房门，先建造墙壁后建造房门），创建建造机器（建造机器封装产品的各个建造细节：如建造墙壁的方式，建造房门的方式）。让指挥机器建造房屋-&gt;指挥机器指挥房屋建造机器建造房门产品和墙壁产品</li>
+</ul>
+<hr>
+<h1 id="结构型设计模式：7种"><a href="#结构型设计模式：7种" class="headerlink" title="结构型设计模式：7种"></a>结构型设计模式：7种</h1><p>代理模式（Proxy）：</p>
+<ul>
+<li>描述：为其他对象提供一种代理以控制对这个对象的访问</li>
+<li>关键实现：代理类（代理者）与具体服务类（被代理者）继承&#x2F;实现相同的抽象服务类&#x2F;接口。客户端代理类对象调用代理类的方法-&gt;具体服务类对象调用具体服务类的方法（代理过程）</li>
+<li><strong>类比：</strong> 信用卡和现金都能支付，使用信用卡代替现金支付</li>
+</ul>
+<p>适配器模式（Adapter）：</p>
+<ul>
+<li>描述：将一个类的接口转换成客户希望的另外一个接口。使得原本由于接口不兼容而不能一起工作的那些类可以一起工作</li>
+<li>关键实现：需适配类（被适配者）和目标类（适配者）的接口不同，适配器类（中间者）和目标类（适配者）的接口相同。客户端目标类类型的适配器类对象调用适配器类的方法-&gt;需适配类对象调用需适配类的方法（适配过程）</li>
+<li>类型：类适配器模式，对象适配器模式</li>
+<li><strong>类比：</strong> 电源适配器适配不同的源电压和电器，源电压不同电器依然能正常工作</li>
+</ul>
+<p>外观模式（Facade）：</p>
+<ul>
+<li>描述：为子系统中的一组接口提供一个一致的界面，此模式定义了一个高层接口，这个接口使得这一子系统更加容易使用</li>
+<li>关键实现：客户端外观类对象调用外观类的方法（管理者，搭配子系统类方法的调用内容和时序&#x2F;步骤）-&gt;子系统类对象调用子系统类的方法（被管理者）</li>
+<li><strong>类比：</strong> 安装电源总开关并连接电灯电源开关和空调电源开关，关闭电源总开关可关闭电灯电源和空调电源</li>
+</ul>
+<p> 装饰模式（Decorator）：</p>
+<ul>
+<li>描述：动态地给一个对象添加一些额外的职责，就增加功能来说，装饰模式比生成子类更加灵活</li>
+<li>关键实现：装饰类（装饰者）和组件类（被装饰者）有相同接口。客户端具体装饰类对象A调用设置方法：参数接收具体组件类对象B（装饰过程），A调用方法-&gt;B调用具体组件类的方法（固有内容），执行其他内容（装饰内容）</li>
+<li><strong>类比：</strong> 人类穿衣服，可以选择穿毛衣、夹克或者风衣</li>
+</ul>
+<p>组合模式（Composite）：</p>
+<ul>
+<li>描述：将对象组合成树形结构以表示“部分-整体”的层次结构。使得用户对单个对象和组合对象的使用具有一致性</li>
+<li>关键实现：组合类对象（树根）和叶子类对象（树叶）有相同接口A。客户端组合类对象B（树根）调用添加方法：参数接收组合类对象C（树枝）或叶子类对象D（树叶），A调用方法B-&gt;C递归调用B，D调用B</li>
+<li>相关内容：透明方式，安全方式</li>
+<li><strong>类比：</strong> 军事命令依据军队的层次结构传递：司令-&gt;军-&gt;师-&gt;旅-&gt;团-&gt;营-&gt;连-&gt;排-&gt;士兵</li>
+</ul>
+<p>桥接模式（Bridge）：</p>
+<ul>
+<li>描述：将抽象部分与它的实现部分分离，使它们都可以独立地变化</li>
+<li>关键实现：客户端抽象抽象类类型的具体抽象类对象A调用设置方法：参数接收抽象实现类类型的具体实现类对象B，A调用具体抽象类方法-&gt;B调用具体实现类方法</li>
+<li><strong>类比：</strong> A品牌手机安装（不知道软件的实现细节）A品牌通讯录和A品牌游戏。反之，A品牌手机自带实现（知道软件的实现细节，每品牌手机都要自带实现相关软件）A品牌通讯录和A品牌游戏</li>
+</ul>
+<p>享元模式（Flyweight）：</p>
+<ul>
+<li>描述：运用共享技术有效地支持大量大量细粒度的对象</li>
+<li>关键实现：享元类和不共享类有相同接口A。客户端享元工厂类对象调用方法：参数接收内容（键），查找散列&#x2F;哈希表，创建、记录并获取或直接获取享元类对象B（值，共享内容&#x2F;内部状态），B调用方法：参数接收内容（不共享内容&#x2F;外部状态），执行相关操作。不共享类对象（不共享内容&#x2F;外部状态）和B实现类似</li>
+<li><strong>类比：</strong> 相似的网站使用同一服务器资源、系统和实例，依据网站所有者的不同显示不同页面</li>
+</ul>
+<hr>
+<h1 id="行为型设计模式：11种"><a href="#行为型设计模式：11种" class="headerlink" title="行为型设计模式：11种"></a>行为型设计模式：11种</h1><p>模板方法模式（Template Method）：</p>
+<ul>
+<li>描述：定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤</li>
+<li>关键实现：客户端抽象类类型的具体类对象调用抽象类的模板方法：定义多个步骤方法的组合内容和执行时序（（算法）模板，不变化行为）-&gt;调用抽象类的步骤方法-&gt;调用具体类的步骤方法（具体步骤实现，变化行为）（面向对象的多态特性）</li>
+<li><strong>类比：</strong> 房屋建造的步骤和时序固定：先打地基，后建墙壁，打地基的方式，墙壁类型的选择不固定</li>
+</ul>
+<p>策略模式（Strategy）：</p>
+<ul>
+<li>描述：定义了算法家族，分别封装起来，让它们之间可以互相替换，让算法的变化，不会影响到使用算法的客户</li>
+<li>关键实现：客户端上下文类对象调用上下文类的方法-&gt;抽象策略类类型的具体策略类对象调用具体策略类的方法（多态特性，同系列不同类型算法）</li>
+<li>相关内容：在上下文类中使用简单工厂模式判断并创建抽象策略类类型的具体策略类对象</li>
+<li><strong>类比：</strong> 陆上交通方式可以选择自行车、公交车或出租车</li>
+</ul>
+<p>职责链模式（Chain of Responsibility）</p>
+<ul>
+<li>描述：使多个对象都有机会处理请求，从而避免请求的发送者和接收者之间的耦合关系。将这个对象连成一条链，并沿着这条链传递该请求，直到有一个对象处理它为止</li>
+<li>关键实现：客户端抽象处理类类型的具体处理类对象A调用设置抽象处理类类型的具体处理类对象B为字段方法（指定下个处理者），A调用具体处理类的具体处理方法：处理请求（当前处理者有权处理），或B调用具体处理类的具体处理方法(当前处理者无权处理，交付给下个处理者处理）</li>
+<li><strong>类比：</strong> 联系客户服务询问电脑问题，若自动服务的方法无效就转接人工服务</li>
+</ul>
+<p>状态模式（State）：</p>
+<ul>
+<li>描述：当一个对象的内在状态改变时允许改变其行为，这个对象看起来像是改变了其类</li>
+<li>关键实现：客户端上下文类对象A调用设置方法：参数接收抽象状态类类型的具体状态类对象B（当前状态，设置当前状态），A调用请求方法-&gt;B调用处理方法：参数发送A（this）-&gt;调用其他抽象状态类类型的具体状态类的构造方法创建抽象状态类类型的具体状态类对象C设置A（新状态，设置新状态）</li>
+<li>理解：有上下文类对象A，抽象状态类类型的具体状态类对象B（当前状态）和其他抽象状态类类型的具体状态类对象C（新状态）。A设置当前状态为B：A持有B，A修改状态-&gt;<strong>B处理状态：B持有A-&gt;B设置A的新状态为C：A持有C</strong>（A字段B的改变委托给B修改成C）</li>
+<li>其他：相对复杂的状态转换条件表达式-&gt;相对简单的不同状态类；运行时动态修改状态行为</li>
+<li><strong>类比：</strong> 手机在锁定状态时， 按键解锁，手机在解锁状态时， 按键执行功能</li>
+</ul>
+<p>命令模式（Command）：</p>
+<ul>
+<li>描述：将一个请求封装为一个对象，从而使你可用不同的请求对客户进行参数化；对请求排队或记录请求日志，以及支持可撤销的操作</li>
+<li>关键实现：客户端抽象命令类类型的具体命令类对象B调用具体命令类的设置接收者类对象C为字段方法，发送者类对象A调用发送者类的设置抽象命令类类型的具体命令类对象B为字段方法，A调用发送者类的方法-&gt;B调用具体命令类的方法-&gt;C调用接收者类的方法（发送者类委托命令类，命令类委托接收者类；反向创建，正向通知）</li>
+<li>相关内容：有记录、查找、撤销和重做操作的命令表&#x2F;日志</li>
+<li><strong>类比：</strong> 顾客点餐到订单，服务员记录订单并通知厨师，厨师依据订单做餐</li>
+</ul>
+<p>观察者模式（Observer）：</p>
+<ul>
+<li>描述：定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都得到通知并被自动更新</li>
+<li>关键实现：客户端具体目标类对象A调用状态设置方法（状态改变），A调用通知方法（发送通知）-&gt;遍历抽象观察者类类型的具体观察者类对象B集合字段-&gt;B调用具体观察者类的更新方法（接收通知并自动更新）（目标通知观察者更新过程）</li>
+<li><strong>类比：</strong> 客户订阅报纸，出版社发布新一期报纸时通知客户</li>
+</ul>
+<p>备忘录模式（Memento）：</p>
+<ul>
+<li>描述：在不破坏封装性的前提下，捕获一个对象的内部状态，并在该对象之外保存这个状态。这样以后就可将该对象恢复到原先保存的状态</li>
+<li>关键实现：客户端发起者类对象A调用创建备忘录方法-&gt;创建备忘录类对象B记录状态-&gt;B保存在管理者类对象C（保存记录），A调用恢复备忘录方法-&gt;从C获取B恢复状态（恢复记录）</li>
+<li>类型：基于嵌套类的实现，基于接口的实现</li>
+<li>相关内容：事务回滚&#x2F;命令模式（Command）的撤销操作-&gt;备忘录模式（Memento）</li>
+<li><strong>类比：</strong> 游戏进度的保存和恢复</li>
+</ul>
+<p>迭代器模式（Iterator）：</p>
+<ul>
+<li>描述：提供一种方法顺序访问一个聚合对象中各个元素，而又不暴露该对象的内部表示</li>
+<li>关键实现：客户端当前具体集合类对象A调用具体集合类的具体创建迭代器方法创建抽象迭代器类类型的具体迭代器类对象B：参数发送A（this）（一个集合有多个迭代器，每个迭代器都持有集合），B调用具体迭代器类的具体获取起始对象方法和具体获取下个对象方法-&gt;A调用具体集合类的具体获取起始对象方法和具体获取下个对象方法（迭代器从集合中获取起始迭代器和下个迭代器）</li>
+<li>其他：部分编程语言已封装实现迭代&#x2F;遍历接口</li>
+<li><strong>类比：</strong> 旅游向导带领旅客依次参观各个景点</li>
+</ul>
+<p>解释器模式（Interpreter）：</p>
+<ul>
+<li>描述：给定一个语言，定义它的文法的一种表示，并定义一个解释器，这个解释器使用该表示来解释语言中的句子</li>
+<li>关键实现：客户端抽象表达式类类型的非终结符表达式类对象（树枝）调用非终结符表达式类的具体解释方法-&gt;抽象表达式类类型的终结符表达式类对象（树叶）调用具体解释方法：参数接收上下文类对象，执行相关操作（反向创建：先创建树枝，后创建树叶；正向解释：先解释树枝，后解释树叶；可能是树状递归的解释方式）</li>
+<li><strong>类比：</strong> 客户语音命令音箱播放音乐，音箱解释器将语音解释成信息，将信息解释成指令并完成任务</li>
+</ul>
+<p>中介者模式（Mediator）：</p>
+<ul>
+<li>描述：用一个中介对象来封装一系列的对象交互。中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互</li>
+<li>关键实现：客户端当前具体组件类对象A和其他具体组件类对象C调用抽象组件类的设置抽象中介者类类型的具体中介者类对象为字段方法（组件A和组件C认识中介者B），具体中介者类对象B调用具体中介者类的设置具体组件类对象为字段方法（B认识A和C），A调用具体组件类的具体发送方法：参数接收信息（A发送信息）-&gt;B调用具体中介者类的具体通知方法：参数接收A（this）和信息（A委托B发送通知）-&gt;C调用具体组件类的具体接收方法：参数接收信息（C接收B的通知）</li>
+<li>理解：有组件A，中介者B，组件C。A和C认识B，B认识A和C，A发送信息-&gt;A委托B发送通知-&gt;C接收B的通知</li>
+<li><strong>类比：</strong> 当前用户通过手机和网络发送信息，其他用户通过手机和网络接收信息</li>
+</ul>
+<p>访问者模式（Visitor）：</p>
+<ul>
+<li>描述：表示一个作用于某对象结构中的各元素的操作。它使你可以在不改变各元素的类的前提下定义作用于这些元素的新操作</li>
+<li>关键实现：客户端对象结构类对象A调用对象结构类的接收方法：参数接收抽象访问者类类型的具体访问者类对象B，遍历抽象元素类类型的具体元素类对象C集合-&gt;C调用具体元素类的接收方法：参数接收B-&gt;B调用具体访问者类的访问方法，参数接收C（this），使用C执行相关操作</li>
+<li>理解：B的访问过程：客户端-&gt;A（第一次分派）-&gt;C-&gt;B（第二次分派），B使用C</li>
+<li>相关内容：双分派</li>
+<li><strong>类比：</strong> 保险推销员依据建筑物类型提供不同保单：为居民楼推销医疗保险，为银行推销失窃保险</li>
+<li>类比理解：稳定的数据结构：医疗保险和失窃保险，变化的算法&#x2F;行为&#x2F;访问者：居民楼和银行。访问者访问：保险推销员依据建筑物类型（第一次分派），提供不同保单（保单中信息和建筑物类型相关）（第二次分派）</li>
+</ul>
+<hr>
+<h1 id="设计模式的记忆方式-总结"><a href="#设计模式的记忆方式-总结" class="headerlink" title="设计模式的记忆方式&#x2F;总结"></a>设计模式的记忆方式&#x2F;总结</h1><p>面向对象特性的体现：</p>
+<ul>
+<li>所有设计模式都基于面向对象，都体现封装特性</li>
+<li>单例模式（Singleton），外观模式（Facade），备忘录模式（Memento）未体现继承和多态特性</li>
+</ul>
+<p>创建型设计模式的简单复杂性：</p>
+<ul>
+<li>相对简单：单例模式（Singleton），简单工厂模式（Simple Factory），原型模式（Prototype）</li>
+<li>相对不简单不复杂：工厂方法模式（Factory Method）</li>
+<li>相对复杂：抽象工厂模式（Abstract Factory），建造者模式（Builder）</li>
+</ul>
+<p>结构型设计模式的简单复杂性：</p>
+<ul>
+<li>相对简单：代理模式（Proxy），适配器模式（Adapter），外观模式（Facade）</li>
+<li>相对不简单不复杂：组合模式（Composite），桥接模式（Bridge）</li>
+<li>相对复杂：装饰模式（Decorator），享元模式（Flyweight）</li>
+</ul>
+<p>行为型设计模式的简单复杂性：</p>
+<ul>
+<li>相对简单：模板方法模式（Template Method），策略模式（Strategy），备忘录模式（Memento）</li>
+<li>相对不简单不复杂：职责链模式（Chain of Responsibility），命令模式（Command），观察者模式（Observer），迭代器模式（Iterator），解释器模式（Interpreter）</li>
+<li>相对复杂：状态模式（State），中介者模式（Mediator），访问者模式（Visitor）</li>
+</ul>
+<p>创建型设计模式的关系：</p>
+<ul>
+<li>三工厂：简单工厂模式（Simple Factory），工厂方法模式（Factory Method），抽象工厂模式（Abstract Factory）</li>
+</ul>
+<p>结构型设计模式的关系：</p>
+<ul>
+<li>结构型设计模式中除享元模式（Flyweight），其他6种设计模式：代理模式（Proxy），适配器模式（Adapter），外观模式（Facade），装饰模式（Decorator），桥接模式（Bridge）的关键实现相似：使用关联、聚合&#x2F;组合关系，职责委托</li>
+<li>外观模式（Facade）侧重搭配不同行为方案；建造者模式（Builder）侧重相同过程建造不同产品</li>
+<li>装饰模式（Decorator）侧重装饰过程不稳定&#x2F;灵活；建造者模式（Builder）侧重建造过程稳定</li>
+<li>享元模式（Flyweight）和单例模式（Singleton）的关键实现类似</li>
+<li>享元模式（Flyweight）侧重实例多个，不可变化；单例模式（Singleton）侧重实例一个，可变化</li>
+</ul>
+<p>行为型设计模式的关系：</p>
+<ul>
+<li>策略模式（Strategy）侧重多样表现的行为；简单工厂模式（Simple Factory）侧重多样实例的创建</li>
+<li>策略模式（Strategy）使用关联、聚合&#x2F;组合关系，职责委托</li>
+<li>策略模式（Strategy）侧重算法系列相同，类型不同；模板方法模式（Template Method）侧重算法过程相同，具体步骤实现不同</li>
+<li>职责链模式（Chain of Responsibility）侧重委托传递；代理模式（Proxy）侧重职责委托</li>
+<li>命令模式（Command）侧重发送者、命令和接收者三者间的委托传递，三者身份&#x2F;职责不同；职责链模式（Chain of Responsibility）侧重多者间的委托传递，多者地位&#x2F;权限不同，职责相似</li>
+<li>观察者模式（Observer）侧重一个通知者发送通知，多个观察者接收通知并自动更新，通知者和观察者的行为关系浅、不相关：只是通知关系；命令模式（Command）侧重发送者、命令和接收者间的职责&#x2F;命令委托传递，三者的行为关系深、相关：为共同完成行为的命令关系</li>
+<li>备忘录模式（Memento）侧重状态的记录和恢复；命令模式（Command）侧重命令的记录和传递</li>
+<li>迭代器模式（Iterator）侧重分离集合对象的遍历行为；职责链模式（Chain of Responsibility）侧重委托的传递和处理</li>
+<li>解释器模式（Interpreter）侧重分离解释行为，可能是树状递归的解释方式；组合模式（Composite）侧重处理组织结构，大多数是树状递归的组织结构</li>
+<li>中介者模式（Mediator）侧重当前组件的消息通过中介者通知其他组件；观察者模式（Observer）侧重通知者的状态发生变化就通知观察者</li>
+<li>访问者模式（Visitor）侧重分离稳定的数据结构和变化的算法&#x2F;行为&#x2F;访问者。算法访问数据结构（第一次分派），依据数据结构执行相关操作（第二次分派）；状态模式（State）侧重状态变化，状态互相知道其他存在；策略模式（Strategy）侧重策略选择，策略互相不知道其他存在</li>
+</ul>
+<hr>
+<h1 id="架构模式简述"><a href="#架构模式简述" class="headerlink" title="架构模式简述"></a>架构模式简述</h1><ul>
+<li>模型视图控制器模式（MVC）是多种设计模式（组合模式（Composite），策略模式（Strategy）和观察者模式（Observer））的综合应用，归为架构模式</li>
+<li>典型三层架构：表示层，业务逻辑层，数据访问层</li>
+<li>客户机&#x2F;服务器（C&#x2F;S）架构，浏览器&#x2F;服务器（B&#x2F;S）架构，客户机&#x2F;服务器（C&#x2F;S）和浏览器&#x2F;服务器（B&#x2F;S）混合架构</li>
+</ul>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>设计模式总结。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《大话设计模式》作者：程杰</li>
+<li><a target="_blank" rel="noopener" href="https://refactoringguru.cn/design-patterns">常用设计模式有哪些？ (refactoringguru.cn)</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249/article/details/126137824">设计模式概述_夜悊的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249/article/details/126052943">创建型设计模式总结_夜悊的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249/article/details/126156063">结构型设计模式总结_夜悊的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249/article/details/126137029">行为型设计模式总结_夜悊的博客-CSDN博客</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_31367877/article/details/90980401">依赖、关联、聚合和组合之间区别_木易不是楊的博客-CSDN博客_关联和聚合的区别</a></li>
+<li><a target="_blank" rel="noopener" href="https://m.php.cn/faq/470016.html">设计模式六大原则是什么-常见问题-PHP中文网</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/243262388">GoF设计模式(十五)：Interpreter Pattern 解释器模式 - 知乎 (zhihu.com)</a></li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/">http://example.com/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/23/%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="串模式匹配的C++语言描述实现模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">串模式匹配的C++语言描述实现模板</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/21/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="行为型设计模式总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">行为型设计模式总结</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-25</div><div class="title">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</div></div></a></div><div><a href="/2023/12/19/%E4%BB%A3%E7%90%86%E5%92%8C%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="代理和适配器模式（结构型设计模式）的 C++ 代码示例模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-19</div><div class="title">代理和适配器模式（结构型设计模式）的 C++ 代码示例模板</div></div></a></div><div><a href="/2022/08/09/%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="创建型设计模式总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-09</div><div class="title">创建型设计模式总结</div></div></a></div><div><a href="/2023/11/21/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="单例模式（创建型设计模式）的 C++ 代码示例模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-21</div><div class="title">单例模式（创建型设计模式）的 C++ 代码示例模板</div></div></a></div><div><a href="/2023/11/20/%E5%8E%9F%E5%9E%8B%E5%92%8C%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="原型和建造者模式（创建型设计模式）的 C++ 代码示例模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-11-20</div><div class="title">原型和建造者模式（创建型设计模式）的 C++ 代码示例模板</div></div></a></div><div><a href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-24</div><div class="title">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E7%89%B9%E6%80%A7%EF%BC%9A3%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">面向对象的特性：3点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%96%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%9A%84%E5%8E%9F%E5%88%99-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BC%98%E5%8A%BF%EF%BC%9A4%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">编程代码的原则&#x2F;面向对象的优势：4点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%9F%E4%B8%80%E5%BB%BA%E6%A8%A1%E8%AF%AD%E8%A8%80%EF%BC%88UML%EF%BC%89%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB%EF%BC%9A6%E7%A7%8D"><span class="toc-number">4.</span> <span class="toc-text">统一建模语言（UML）图的基本关系：6种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%8E%9F%E5%88%99%EF%BC%9A7%E7%A7%8D"><span class="toc-number">5.</span> <span class="toc-text">设计模式的原则：7种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%B1%BB%E5%9E%8B%EF%BC%9A3%E7%A7%8D"><span class="toc-number">6.</span> <span class="toc-text">设计模式的类型：3种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A6%E7%A7%8D"><span class="toc-number">7.</span> <span class="toc-text">创建型设计模式：6种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A7%E7%A7%8D"><span class="toc-number">8.</span> <span class="toc-text">结构型设计模式：7种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9A11%E7%A7%8D"><span class="toc-number">9.</span> <span class="toc-text">行为型设计模式：11种</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E8%AE%B0%E5%BF%86%E6%96%B9%E5%BC%8F-%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">设计模式的记忆方式&#x2F;总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E7%AE%80%E8%BF%B0"><span class="toc-number">11.</span> <span class="toc-text">架构模式简述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">12.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">13.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">14.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

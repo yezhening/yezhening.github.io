@@ -1,0 +1,381 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>“计算机系统概述”学习笔记 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言计算机组成原理的知识抽象、晦涩、不易理解并记忆，在此对“计算机系统概述”一章中字长和字、翻译和编译等部分相似概念进行比较区分，并总结记忆方法。  字、机器字长&#x2F;字长、存储字长、指令字长和数据字长字：  表示被处理信息的单位 度量数据类型的宽度 存储字：一个存储单元中二进制代码的组合 指令字：一个指令中二进制代码的组合 示例：某机器定义一个字为16位  机器字长&#x2F;字长：  计">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“计算机系统概述”学习笔记">
+<meta property="og:url" content="http://example.com/2022/04/21/%E2%80%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言计算机组成原理的知识抽象、晦涩、不易理解并记忆，在此对“计算机系统概述”一章中字长和字、翻译和编译等部分相似概念进行比较区分，并总结记忆方法。  字、机器字长&#x2F;字长、存储字长、指令字长和数据字长字：  表示被处理信息的单位 度量数据类型的宽度 存储字：一个存储单元中二进制代码的组合 指令字：一个指令中二进制代码的组合 示例：某机器定义一个字为16位  机器字长&#x2F;字长：  计">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-04-21T10:04:50.000Z">
+<meta property="article:modified_time" content="2023-04-12T05:23:08.587Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2022/04/21/%E2%80%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '“计算机系统概述”学习笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-12 13:23:08'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">“计算机系统概述”学习笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-04-21T10:04:50.000Z" title="发表于 2022-04-21 18:04:50">2022-04-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-12T05:23:08.587Z" title="更新于 2023-04-12 13:23:08">2023-04-12</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="“计算机系统概述”学习笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>计算机组成原理的知识抽象、晦涩、不易理解并记忆，在此对“计算机系统概述”一章中字长和字、翻译和编译等部分相似概念<strong>进行比较区分，并总结记忆方法</strong>。</p>
+<hr>
+<h1 id="字、机器字长-字长、存储字长、指令字长和数据字长"><a href="#字、机器字长-字长、存储字长、指令字长和数据字长" class="headerlink" title="字、机器字长&#x2F;字长、存储字长、指令字长和数据字长"></a>字、机器字长&#x2F;字长、存储字长、指令字长和数据字长</h1><p>字：</p>
+<ul>
+<li><strong>表示</strong>被处理信息的单位</li>
+<li>度量数据类型的宽度</li>
+<li>存储字：一个存储单元中二进制代码的组合</li>
+<li>指令字：一个指令中二进制代码的组合</li>
+<li>示例：某机器定义一个字为<strong>16位</strong></li>
+</ul>
+<p>机器字长&#x2F;字长：</p>
+<ul>
+<li>计算机进行一次<strong>整数</strong>运算所能处理的二进制数据的位数</li>
+<li>中央处理器（CPU）用于整数运算的<strong>数据通路</strong>的宽度</li>
+<li>机器字长&#x3D;中央处理器CPU内部用于整数运算的运算器位数和通用寄存器（GPR）宽度</li>
+<li>反映计算机<strong>处理</strong>信息的能力。字长越长，数据的表示范围越大，计算机的计算精度越高</li>
+<li>示例：某<strong>64位</strong>机器。这里的“64位”指的是机器字长</li>
+</ul>
+<blockquote>
+<p>数据通路：数据流经的路径和路径上的部件，主要是进行数据存储、传输和运算的部件。如算术逻辑单元（ALU）和通用寄存器，<strong>浮点</strong>寄存器则不是</p>
+</blockquote>
+<p>存储字长：</p>
+<ul>
+<li>一个存储单元中所存储二进制代码的位数</li>
+</ul>
+<p>指令字长：</p>
+<ul>
+<li>一个指令字所包含二进制代码的位数</li>
+</ul>
+<p>数据字长：</p>
+<ul>
+<li>数据总线一次能并行传送信息的位数</li>
+<li>可能与数据寄存器（MDR）位数不同</li>
+</ul>
+<blockquote>
+<p>区别：字是<strong>表示</strong>数据的单位，机器字长是计算机&#x2F;中央处理器（CPU）一次能<strong>处理</strong>的数据的单位，其他字长是相应字所表示数据的二进制代码的位数</p>
+</blockquote>
+<hr>
+<h1 id="存储器组成"><a href="#存储器组成" class="headerlink" title="存储器组成"></a>存储器组成</h1><p>组件由大到小（大包含小）依次为：</p>
+<ul>
+<li>计算机系统&#x3D;计算机硬件系统+计算机软件系统</li>
+<li>计算机硬件系统&#x3D;存储器+控制器+运算器+输入设备+输出设备</li>
+<li>存储器&#x3D;主存储器（内存储器）+辅助存储器（外存储器）</li>
+<li>主存储器&#x3D;地址寄存器（MAR）+存储体+数据寄存器（MDR）+时序控制逻辑</li>
+<li>存储体&#x3D;若干存储单元</li>
+<li>存储单元&#x3D;若干存储元件</li>
+<li>每个存储元件存储一位二进制代码</li>
+</ul>
+<blockquote>
+<p>注意：现代计算机的地址寄存器（MAR）和数据寄存器（MDR）在中央处理器（CPU）中</p>
+</blockquote>
+<hr>
+<h1 id="运算器组成"><a href="#运算器组成" class="headerlink" title="运算器组成"></a>运算器组成</h1><ul>
+<li>算术逻辑单元（ALU）</li>
+<li>累加器（ACC）</li>
+<li>乘商寄存器（MQ）</li>
+<li>操作数寄存器（X）</li>
+<li>变址寄存器（IX）</li>
+<li>基址寄存器（BR）</li>
+<li>程序状态寄存器（PSW）（标志寄存器）</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>其中， 算术逻辑单元（ALU）、累加器（ACC）、乘商寄存器（MQ）和操作数寄存器（X）是必须具备的</p>
+</blockquote>
+<hr>
+<h1 id="控制器组成"><a href="#控制器组成" class="headerlink" title="控制器组成"></a>控制器组成</h1><ul>
+<li>程序计数器（PC）</li>
+<li>指令寄存器（IR）</li>
+<li>控制单元（CU）</li>
+</ul>
+<hr>
+<h1 id="计算机系统的层次结构"><a href="#计算机系统的层次结构" class="headerlink" title="计算机系统的层次结构"></a>计算机系统的层次结构</h1><ul>
+<li>第一级：微程序机器层（微指令系统）：硬件执行微指令</li>
+<li>第二级：传统机器语言层（用机器语言的机器）：微程序解释机器指令</li>
+<li>第三级：操作系统层（操作系统机器）：机器语言解释操作系统</li>
+<li>第四级：汇编语言层（汇编语言机器）：汇编程序翻译成机器语言程序</li>
+<li>第五级：高级语言层（高级语言机器）：编译程序翻译成汇编语言程序</li>
+<li>第六级：应用程序层</li>
+<li>…</li>
+</ul>
+<blockquote>
+<p>注意： 计算机系统的层次结构目前尚无统一标准</p>
+</blockquote>
+<hr>
+<h1 id="指令执行过程"><a href="#指令执行过程" class="headerlink" title="指令执行过程"></a>指令执行过程</h1><ol start="0">
+<li>程序执行前，先将程序第一条指令的地址存到程序计数器（PC）中</li>
+<li>从程序计数器（PC）中取指令</li>
+<li>对指令译码；计算下条指令地址</li>
+<li>根据指令，取操作数并执行</li>
+<li>将操作结果存到存储器中</li>
+</ol>
+<hr>
+<h1 id="指令详细数据流向"><a href="#指令详细数据流向" class="headerlink" title="指令详细数据流向"></a>指令详细数据流向</h1><p>1.从程序计数器（PC）中取指令：PC-&gt;MAR-&gt;M-&gt;MDR-&gt;IR</p>
+<ul>
+<li>从程序计数器（PC）中取<strong>指令地址</strong></li>
+</ul>
+<blockquote>
+<p>注意：程序计数器（PC）中存放的是将执行指令的地址，实际指令应从主存储器获取。概括指令执行过程时常用“从程序计数器（PC）中取<strong>指令</strong>”简化过程</p>
+</blockquote>
+<ul>
+<li>将程序计数器（PC）中的指令地址传输给地址寄存器（MAR）</li>
+<li>将地址寄存器（MAR）中的指令地址传输给地址线——准备1</li>
+<li>控制器将读信号传输给读&#x2F;写信号线——准备2</li>
+<li>主存储器根据地址线上的指令地址和读信号，从指定存储单元取<strong>指令</strong></li>
+<li>主存储器将指令传输到数据线</li>
+<li>数据线将指令传输到数据寄存器（MDR）</li>
+<li>数据寄存器（MDR）将指令传输到指令寄存器（IR）</li>
+</ul>
+<p>2.对指令译码；计算下条指令地址：IR-&gt;CU；(PC)+1-&gt;PC</p>
+<ul>
+<li>控制器根据指令寄存器（IR）中指令的<strong>操作码</strong>，生成相应的控制信号，传输到不同的执行部件</li>
+<li>程序计数器（PC）计算下条指令地址</li>
+</ul>
+<p>3.根据指令，取操作数并执行：IR-&gt;MAR-&gt;M-&gt;MDR-&gt;ACC</p>
+<ul>
+<li>从指令寄存器（IR）中取指令的<strong>地址码</strong></li>
+<li>将指令寄存器（IR）中指令的地址码传输到地址寄存器（MAR）</li>
+<li>将地址寄存器（MAR）中指令的地址码传输到地址线——准备1</li>
+<li>控制器将读信号传输给读&#x2F;写信号线——准备2</li>
+<li>主存储器根据地址线上的指令地址和读信号，从指定存储单元取<strong>操作数</strong></li>
+<li>主存储器将操作数传输到数据线</li>
+<li>数据线将操作数传输到数据寄存器（MDR）</li>
+<li>数据寄存器（MDR）将操作数传输到相应的运算寄存器中，如累加器（ACC）</li>
+</ul>
+<p>4.将操作结果存到存储器中</p>
+<blockquote>
+<p>注意观察1、3步骤，PC-&gt;MAR-&gt;地址线-&gt;M-&gt;数据线-&gt;MDR-&gt;取地址或操作数-&gt;IR或相应的运算寄存器，这一过程是基本的</p>
+</blockquote>
+<hr>
+<h1 id="源程序翻译成可执行文件的过程"><a href="#源程序翻译成可执行文件的过程" class="headerlink" title="源程序翻译成可执行文件的过程"></a>源程序翻译成可执行文件的过程</h1><ul>
+<li>预处理：文件名.c -&gt; 文件名.i。结果是源程序，文本文件</li>
+<li>编译：文件名.i -&gt; 文件名.s。结果是汇编程序，文本文件</li>
+<li>汇编：文件名.s -&gt; 文件名.o。结果是可重定位目标程序，二进制文件</li>
+<li>连接：文件名.o -&gt; 文件名。结果是可执行程序，二进制文件</li>
+</ul>
+<hr>
+<h1 id="翻译、编译和解释和汇编程序"><a href="#翻译、编译和解释和汇编程序" class="headerlink" title="翻译、编译和解释和汇编程序"></a>翻译、编译和解释和汇编程序</h1><p>翻译程序有两种：</p>
+<ul>
+<li>编译程序</li>
+<li>解释程序</li>
+</ul>
+<p>编译程序：</p>
+<ul>
+<li>作用阶段：源程序翻译成<strong>可执行程序</strong>前——运行前</li>
+<li>将高级语言源程序一次全部翻译成可执行程序</li>
+<li>只要源程序未改动，就无须再一次翻译，可直接运行可执行程序</li>
+</ul>
+<blockquote>
+<p>注意：这里“编译程序”的“编译”概念是对“源程序翻译成可执行文件的过程”的概括</p>
+</blockquote>
+<p>解释程序：</p>
+<ul>
+<li>作用阶段： 源程序边翻译边运行——运行时</li>
+<li>将高级语言源程序的一条语句翻译成对应的机器语言，并立即执行</li>
+<li>不生成可执行程序</li>
+</ul>
+<p>汇编程序：</p>
+<ul>
+<li>将汇编语言源程序翻译成机器语言程序</li>
+</ul>
+<blockquote>
+<p>区分：</p>
+<ul>
+<li>编译程序：高级语言程序-&gt;机器语言程序</li>
+<li>汇编程序：汇编语言程序-&gt;机器语言程序</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="地址寄存器（MAR）和数据寄存器（MDR）的位数"><a href="#地址寄存器（MAR）和数据寄存器（MDR）的位数" class="headerlink" title="地址寄存器（MAR）和数据寄存器（MDR）的位数"></a>地址寄存器（MAR）和数据寄存器（MDR）的位数</h1><p>地址寄存器（MAR）的位数：</p>
+<ul>
+<li>主存储器的存储体中存储单元的个数</li>
+<li>程序计数器（PC）的长度</li>
+<li>指令的地址码长度（指令&#x3D;地址码+操作码）</li>
+</ul>
+<blockquote>
+<p>记忆：<strong>地址</strong>寄存器（MAR）存放指令的地址，用于寻址。存储单元、程序计数器（PC）和指令的地址码都与地址相关</p>
+</blockquote>
+<p>数据寄存器（MDR）的位数：</p>
+<ul>
+<li>存储字长</li>
+<li>存储在一个存储单元中的二进制代码位数</li>
+</ul>
+<blockquote>
+<p>记忆：<strong>数据</strong>寄存器（MDR）用于暂存数据。存储字长与数据相关</p>
+</blockquote>
+<h1 id="中央处理器（CPU）的时间性能指标"><a href="#中央处理器（CPU）的时间性能指标" class="headerlink" title="中央处理器（CPU）的时间性能指标"></a>中央处理器（CPU）的时间性能指标</h1><p> 中央处理器（CPU）时钟周期&#x2F;<strong>时钟周期</strong>：</p>
+<ul>
+<li>执行指令的一个<strong>动作&#x2F;步骤</strong>至少需要的<strong>时间</strong></li>
+<li>中央处理器（CPU）最小的时间单位</li>
+<li>中央处理器（CPU）始终频域&#x2F;主频的倒数</li>
+</ul>
+<p>每条指令的时钟周期数（CPI）&#x2F;<strong>指令周期</strong>:</p>
+<ul>
+<li>执行一条<strong>指令</strong>需要的中央处理器（CPU）时钟周期<strong>数</strong></li>
+<li>对一台机器或一个程序，指机器或程序指令集中所有指令执行需要的平均中央处理器（CPU）时钟周期数</li>
+</ul>
+<p> 中央处理器（CPU）执行时间：</p>
+<ul>
+<li>运行一个<strong>程序</strong>需要的<strong>时间</strong></li>
+<li>中央处理器（CPU）时钟周期数×中央处理器（CPU）时钟周期</li>
+<li>（指令条数×每条指令的时钟周期数（CPI））×中央处理器（CPU）时钟周期</li>
+</ul>
+<blockquote>
+<p>公式记忆：单位时间个数×单位时间<br>公式扩展：</p>
+<ul>
+<li>中央处理器（CPU）时钟周期&#x3D;1÷中央处理器（CPU）始终频域&#x2F;主频</li>
+<li>中央处理器（CPU）时钟周期数&#x3D;指令条数×每条指令的时钟周期数（CPI）</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>记忆：概念描述的对象由小到大：指令的一个<strong>动作&#x2F;步骤</strong>，<strong>指令</strong>，<strong>程序</strong></p>
+</blockquote>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>计算机组成原理的知识抽象、晦涩、不易理解并记忆。建议学习时结合示例，分别或集中对比相似概念，在理解的基础上<strong>使用自己的语言</strong>（因为在不同资料对同一个概念描述的用词不同，容易造成误解）总结区分、记忆技巧。</p>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>《2023年计算机组成原理考研复习指导》组编：王道论坛</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/04/21/%E2%80%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">http://example.com/2022/04/21/%E2%80%9C%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">计算机组成原理</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/04/23/%E9%A1%BA%E5%BA%8F%E8%A1%A8%E7%9A%84C_C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="顺序表的C_C++语言描述实现模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">顺序表的C_C++语言描述实现模板</div></div></a></div><div class="next-post pull-right"><a href="/2022/04/17/%E6%8C%87%E9%92%88%E3%80%81%E5%BC%95%E7%94%A8%E5%92%8C%E5%B8%B8%E9%87%8F%E7%9A%84%E5%85%B3%E7%B3%BB/" title="指针、引用和常量的关系"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">指针、引用和常量的关系</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/06/10/%E2%80%9C%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88CPU%EF%BC%89%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“中央处理器（CPU）”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-06-10</div><div class="title">“中央处理器（CPU）”学习提纲</div></div></a></div><div><a href="/2022/05/19/%E2%80%9C%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F%E2%80%9D%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="“存储系统”学习笔记"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-19</div><div class="title">“存储系统”学习笔记</div></div></a></div><div><a href="/2022/07/13/%E2%80%9C%E6%80%BB%E7%BA%BF%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“总线”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-13</div><div class="title">“总线”学习提纲</div></div></a></div><div><a href="/2022/05/24/%E2%80%9C%E6%8C%87%E4%BB%A4%E7%B3%BB%E7%BB%9F%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“指令系统”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-24</div><div class="title">“指令系统”学习提纲</div></div></a></div><div><a href="/2022/07/28/%E2%80%9C%E6%95%B0%E6%8D%AE%E7%9A%84%E8%A1%A8%E7%A4%BA%E5%92%8C%E8%BF%90%E7%AE%97%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“数据的表示和运算”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-28</div><div class="title">“数据的表示和运算”学习提纲</div></div></a></div><div><a href="/2022/07/15/%E2%80%9C%E8%BE%93%E5%85%A5_%E8%BE%93%E5%87%BA%EF%BC%88I_O%EF%BC%89%E7%B3%BB%E7%BB%9F%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“输入&#x2F;输出（I&#x2F;O）系统”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-15</div><div class="title">“输入&#x2F;输出（I&#x2F;O）系统”学习提纲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%97%E3%80%81%E6%9C%BA%E5%99%A8%E5%AD%97%E9%95%BF-%E5%AD%97%E9%95%BF%E3%80%81%E5%AD%98%E5%82%A8%E5%AD%97%E9%95%BF%E3%80%81%E6%8C%87%E4%BB%A4%E5%AD%97%E9%95%BF%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AD%97%E9%95%BF"><span class="toc-number">2.</span> <span class="toc-text">字、机器字长&#x2F;字长、存储字长、指令字长和数据字长</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-number">3.</span> <span class="toc-text">存储器组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-number">4.</span> <span class="toc-text">运算器组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%BB%84%E6%88%90"><span class="toc-number">5.</span> <span class="toc-text">控制器组成</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84"><span class="toc-number">6.</span> <span class="toc-text">计算机系统的层次结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">指令执行过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E8%AF%A6%E7%BB%86%E6%95%B0%E6%8D%AE%E6%B5%81%E5%90%91"><span class="toc-number">8.</span> <span class="toc-text">指令详细数据流向</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BA%90%E7%A8%8B%E5%BA%8F%E7%BF%BB%E8%AF%91%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">9.</span> <span class="toc-text">源程序翻译成可执行文件的过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BF%BB%E8%AF%91%E3%80%81%E7%BC%96%E8%AF%91%E5%92%8C%E8%A7%A3%E9%87%8A%E5%92%8C%E6%B1%87%E7%BC%96%E7%A8%8B%E5%BA%8F"><span class="toc-number">10.</span> <span class="toc-text">翻译、编译和解释和汇编程序</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%B0%E5%9D%80%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88MAR%EF%BC%89%E5%92%8C%E6%95%B0%E6%8D%AE%E5%AF%84%E5%AD%98%E5%99%A8%EF%BC%88MDR%EF%BC%89%E7%9A%84%E4%BD%8D%E6%95%B0"><span class="toc-number">11.</span> <span class="toc-text">地址寄存器（MAR）和数据寄存器（MDR）的位数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%AD%E5%A4%AE%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88CPU%EF%BC%89%E7%9A%84%E6%97%B6%E9%97%B4%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">12.</span> <span class="toc-text">中央处理器（CPU）的时间性能指标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">13.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">14.</span> <span class="toc-text">作者的话</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">15.</span> <span class="toc-text">参考资料</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

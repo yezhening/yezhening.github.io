@@ -1,0 +1,832 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>“查找”学习提纲（二）——树型查找和散列查找 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言“查找”学习提纲（二）——树型查找和散列查找。  代码模板 二叉排序树的C++语言描述实现模板_夜悊的博客-CSDN博客   二叉排序&#x2F;查找&#x2F;搜索树查找适用 动态表-&gt;二叉排序树   性能时间复杂度：O(logn)~O(n)。n为数据规模  时间复杂度：树的深度&#x2F;高度 O(logn)。n为数据规模（树是平衡树） O(n)。n为数据规模（树是斜树）  空间复杂">
+<meta property="og:type" content="article">
+<meta property="og:title" content="“查找”学习提纲（二）——树型查找和散列查找">
+<meta property="og:url" content="http://example.com/2022/09/19/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%A0%91%E5%9E%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言“查找”学习提纲（二）——树型查找和散列查找。  代码模板 二叉排序树的C++语言描述实现模板_夜悊的博客-CSDN博客   二叉排序&#x2F;查找&#x2F;搜索树查找适用 动态表-&gt;二叉排序树   性能时间复杂度：O(logn)~O(n)。n为数据规模  时间复杂度：树的深度&#x2F;高度 O(logn)。n为数据规模（树是平衡树） O(n)。n为数据规模（树是斜树）  空间复杂">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2022-09-19T13:14:19.000Z">
+<meta property="article:modified_time" content="2023-04-13T03:24:56.112Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="数据结构">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2022/09/19/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%A0%91%E5%9E%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '“查找”学习提纲（二）——树型查找和散列查找',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-13 11:24:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">“查找”学习提纲（二）——树型查找和散列查找</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-19T13:14:19.000Z" title="发表于 2022-09-19 21:14:19">2022-09-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-13T03:24:56.112Z" title="更新于 2023-04-13 11:24:56">2023-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="“查找”学习提纲（二）——树型查找和散列查找"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>“查找”学习提纲（二）——树型查找和散列查找。</p>
+<hr>
+<h1 id="代码模板"><a href="#代码模板" class="headerlink" title="代码模板"></a>代码模板</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249/article/details/126798146">二叉排序树的C++语言描述实现模板_夜悊的博客-CSDN博客</a></li>
+</ul>
+<hr>
+<h1 id="二叉排序-查找-搜索树查找"><a href="#二叉排序-查找-搜索树查找" class="headerlink" title="二叉排序&#x2F;查找&#x2F;搜索树查找"></a>二叉排序&#x2F;查找&#x2F;搜索树查找</h1><h2 id="适用"><a href="#适用" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>动态表-&gt;二叉排序树</li>
+</ul>
+<hr>
+<h2 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h2><p>时间复杂度：O(logn)~O(n)。n为数据规模</p>
+<ul>
+<li>时间复杂度：树的深度&#x2F;高度</li>
+<li>O(logn)。n为数据规模（树是平衡树）</li>
+<li>O(n)。n为数据规模（树是斜树）</li>
+</ul>
+<p>空间复杂度：O(n)。n为数据规模</p>
+<ul>
+<li>空间复杂度：二叉排序树的大小或递归调用栈的规模&#x2F;树的深度&#x2F;高度：</li>
+<li>O(1)。未使用额外辅助空间（不包括二叉排序树的大小；迭代法）</li>
+<li>O(logn)。n为数据规模（不包括二叉排序树的大小；递归法，树是平衡树）</li>
+<li>O(n)。n为数据规模（包括二叉排序树的大小；递归法，树是斜数）</li>
+</ul>
+<blockquote>
+<p>插入和删除的时间复杂度：O(logn)。n为数据规模（平均情况）</p>
+</blockquote>
+<hr>
+<h2 id="代码模板-1"><a href="#代码模板-1" class="headerlink" title="代码模板"></a>代码模板</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找   前序遍历   递归法</span></span><br><span class="line"><span class="comment">//适用：</span></span><br><span class="line"><span class="comment">//动态表-&gt;二叉排序树</span></span><br><span class="line"><span class="comment">//时间复杂度：O(logn)~O(n)。n为数据规模</span></span><br><span class="line"><span class="comment">//时间复杂度：树的深度/高度</span></span><br><span class="line"><span class="comment">// O(logn)。n为数据规模（二叉排序树是平衡树）</span></span><br><span class="line"><span class="comment">// O(n)。n为数据规模（二叉排序树是斜树）</span></span><br><span class="line"><span class="comment">//空间复杂度：</span></span><br><span class="line"><span class="comment">//空间复杂度：二叉排序树的大小或递归调用栈的规模/树的深度/高度：</span></span><br><span class="line"><span class="comment">// O(1)。未使用额外辅助空间（不包括二叉排序树的大小；迭代法）</span></span><br><span class="line"><span class="comment">// O(n)。n为数据规模（包括二叉排序树的大小；递归法）</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">searchBSTree</span><span class="params">(<span class="keyword">struct</span> BSTNode *root, ELEM_TYPE key)</span> <span class="comment">//参数：根结点指针，需插入的关键字    返回值：查找成功为true，查找失败为false</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="comment">//空树  无查找位置</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//非空树   递归查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (key == root-&gt;key) <span class="comment">//需插入的关键字等于根结点的关键字</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//查找成功</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (key &lt; root-&gt;key) <span class="comment">//需插入的关键字小于根结点的关键字</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBSTree</span>(root-&gt;lChild, key); <span class="comment">//查找左子树</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; root-&gt;key) <span class="comment">//需插入的关键字大于根结点的关键字</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">searchBSTree</span>(root-&gt;rChild, key); <span class="comment">//查找右子树</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查找   前序遍历   迭代法</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">searchBSTree2</span><span class="params">(<span class="keyword">struct</span> BSTNode *root, ELEM_TYPE key)</span> <span class="comment">//参数：根结点指针，需插入的关键字    返回值：查找成功为true，查找失败为false</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (root == <span class="literal">nullptr</span>) <span class="comment">//空树  无查找位置</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//查找失败</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="comment">//非空树   迭代查找</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (root != <span class="literal">nullptr</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (key == root-&gt;key) <span class="comment">//需插入的关键字等于根结点的关键字</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>; <span class="comment">//查找成功</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (key &lt; root-&gt;key) <span class="comment">//需插入的关键字小于根结点的关键字</span></span><br><span class="line">            &#123;</span><br><span class="line">                root = root-&gt;lChild; <span class="comment">//查找左子树</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (key &gt; root-&gt;key) <span class="comment">//需插入的关键字大于根结点的关键字</span></span><br><span class="line">            &#123;</span><br><span class="line">                root = root-&gt;rChild; <span class="comment">//查找右子树</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//未查找成功返回，则查找失败</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//删除</span></span><br><span class="line"><span class="comment">//对删除结点node：</span></span><br><span class="line"><span class="comment">// 1.是叶子节点：直接删除node</span></span><br><span class="line"><span class="comment">// 2.有一棵左子树或右子树：子树作为node的双亲结点的子树，删除node（子树拼接）</span></span><br><span class="line"><span class="comment">// 3.有左右两棵子树：</span></span><br><span class="line"><span class="comment">//取node的左子树的最大关键字结点或右子树的最小关键字结点替换node，删除node-&gt;第1或2情况（取左最小或右最大替换）</span></span><br><span class="line"><span class="comment">//取中序遍历时，node的直接前驱结点或直接后继结点替换node，删除node-&gt;第1或2情况（取直接前驱或直接后继替换）</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="折半查找和二叉排序树查找总结"><a href="#折半查找和二叉排序树查找总结" class="headerlink" title="折半查找和二叉排序树查找总结"></a>折半查找和二叉排序树查找总结</h1><ul>
+<li>过程相似</li>
+</ul>
+<p>折半查找：</p>
+<ul>
+<li><strong>二叉判定树</strong>唯一</li>
+<li>插入和删除的时间复杂度为O(n)。n为数据规模</li>
+<li>适用有序顺序表</li>
+</ul>
+<p>二叉排序树查找：</p>
+<ul>
+<li>二叉排序树不唯一（关键字相同，插入顺序不同）</li>
+<li>插入和删除的时间复杂度为O(logn)。n为数据规模（平均情况）</li>
+<li>适用动态表</li>
+</ul>
+<hr>
+<h1 id="平衡二叉（排序）树-AVL树"><a href="#平衡二叉（排序）树-AVL树" class="headerlink" title="平衡二叉（排序）树&#x2F;AVL树"></a>平衡二叉（排序）树&#x2F;AVL树</h1><blockquote>
+<p>注意：平衡二叉树是特殊的二叉排序树</p>
+</blockquote>
+<h2 id="构造相应层数的树至少需要的结点数"><a href="#构造相应层数的树至少需要的结点数" class="headerlink" title="构造相应层数的树至少需要的结点数"></a>构造相应层数的树至少需要的结点数</h2><p>由递推公式：</p>
+<ul>
+<li>0层：0</li>
+<li>1层：1（根结点在第1层）</li>
+<li>2层：2</li>
+<li>…</li>
+<li>h层：构造h-2层的树至少需要的结点数+构造h-1层的树至少需要的结点数+1</li>
+</ul>
+<hr>
+<h2 id="平衡调整的过程"><a href="#平衡调整的过程" class="headerlink" title="平衡调整的过程"></a>平衡调整的过程</h2><ol>
+<li>确定最小失衡&#x2F;不平衡子树：插入路径上离插入结点最近的平衡因子的绝对值大于1的结点为根的子树</li>
+<li>调整子树的平衡</li>
+</ol>
+<hr>
+<h2 id="平衡调整的类型"><a href="#平衡调整的类型" class="headerlink" title="平衡调整的类型"></a>平衡调整的类型</h2><p>LL型：</p>
+<ul>
+<li>名称：LL调整；右单旋转调整</li>
+<li>现象：插入结点在最小不平衡树根结点A的左（L）孩子B的左（L）子树上</li>
+<li>状态：左高右低</li>
+<li>思想：左上右下；右单旋转</li>
+<li>过程：B作根，B的右子树挂接到A的左子树，A成B的右孩子</li>
+</ul>
+<p>RR型：</p>
+<ul>
+<li>名称：RR调整；左单旋转调整</li>
+<li>现象：插入结点在最小不平衡树根结点A的右（R）孩子B的右（R）子树上</li>
+<li>状态：左低右高</li>
+<li>思想：左下右上；左单旋转</li>
+<li>过程：B作根，B的左子树挂接到A的右子树，A成B的左孩子</li>
+</ul>
+<p>LR型：</p>
+<ul>
+<li>名称：LR调整；先左后右双旋转调整</li>
+<li>现象：插入结点在最小不平衡树根结点A的左（L）孩子B的右（R）子树C上</li>
+<li>状态：左低中高右低</li>
+<li>思想：左下中上右下</li>
+<li>过程：C作根，C的左子树挂接到B的右子树，B成C的左孩子，C的右子树挂接到A的左子树，A成C的右孩子</li>
+</ul>
+<p>RL型：</p>
+<ul>
+<li>名称：RL调整；先右后左双旋转调整</li>
+<li>现象：插入结点在最小不平衡树根结点A的右（R）孩子B的左（L）子树C上</li>
+<li>状态：左低中高右低</li>
+<li>思想：左下中上右下</li>
+<li>过程：C作根，C的左子树挂接到A的右子树，A成C的左孩子，C的右子树挂接到B的左子树，B成C的右孩子</li>
+</ul>
+<p>插入和删除的平衡调整：</p>
+<ul>
+<li>过程和类型相似</li>
+<li>删除导致树高变化，可能需要回溯调整</li>
+</ul>
+<hr>
+<h1 id="平衡二叉排序树查找"><a href="#平衡二叉排序树查找" class="headerlink" title="平衡二叉排序树查找"></a>平衡二叉排序树查找</h1><h2 id="适用-1"><a href="#适用-1" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>动态表-&gt;平衡二叉排序树</li>
+</ul>
+<hr>
+<h2 id="性能-1"><a href="#性能-1" class="headerlink" title="性能"></a>性能</h2><p>平均查找长度（ASL）：</p>
+<ul>
+<li>平均查找长度（ASL）：树的深度&#x2F;高度</li>
+<li>O(logn)。n为数据规模</li>
+</ul>
+<p>时间复杂度： O(logn)。n为数据规模</p>
+<ul>
+<li>时间复杂度：树的深度&#x2F;高度</li>
+<li>O(logn)。n为数据规模</li>
+</ul>
+<p>空间复杂度：O(n)。n为数据规模</p>
+<ul>
+<li>空间复杂度：平衡二叉排序树的大小或递归调用栈的规模&#x2F;树的深度&#x2F;高度</li>
+<li>O(1)。未使用额外辅助空间（不包括平衡二叉排序树的大小；迭代法）</li>
+<li>O(logn)。n为数据规模（不包括B树的大小；递归法）</li>
+<li>O(n)。n为数据规模（包括平衡二叉排序树的大小）</li>
+</ul>
+<blockquote>
+<p>插入和删除的时间复杂度：O(logn)。n为数据规模</p>
+</blockquote>
+<hr>
+<h1 id="红黑（二叉排序）树"><a href="#红黑（二叉排序）树" class="headerlink" title="红黑（二叉排序）树"></a>红黑（二叉排序）树</h1><blockquote>
+<p>注意：红黑树是特殊的二叉排序树。大致&#x2F;非严格平衡</p>
+</blockquote>
+<h2 id="相关概念"><a href="#相关概念" class="headerlink" title="相关概念"></a>相关概念</h2><p>性质：</p>
+<ul>
+<li>结点是红色或黑色</li>
+<li>根结点是黑色</li>
+<li>叶子结点&#x2F;外部结点&#x2F;虚拟结点&#x2F;空结点是黑色</li>
+<li>不存在两个相邻的红色结点&#x2F;红色结点的双亲结点和孩子结点是黑色</li>
+<li>每个结点到任一叶子结点的简单路径，黑色结点的数量相同</li>
+</ul>
+<p>其他：</p>
+<ul>
+<li>引入n+1个叶子结点&#x2F;外部结点&#x2F;虚拟结点&#x2F;空结点，保证内部结点的左、右孩子结点非空。即：外部结点无数据，黑色；内部结点有数据，红色或黑色</li>
+<li>结点的黑高：结点到任一叶子结点的简单路径，不包括该结点的黑色结点数量&#x2F;黑色结点的数量-1（由性质5）</li>
+<li>结点的深度的差&#x3D;结点到任一叶子结点的简单路径，红色结点数量的差（由性质2和性质5）</li>
+<li>红色结点数量影响树的深度&#x2F;高度（由性质2和性质5）</li>
+</ul>
+<p>结论：</p>
+<ul>
+<li>根结点到叶子结点的最长路径不大于最短路径的两倍（由性质4和性质5）</li>
+<li>n个内部节点，树的高度不大于2log以2为底的(n+1)（由结论1）</li>
+</ul>
+<hr>
+<h2 id="红黑调整的基本操作"><a href="#红黑调整的基本操作" class="headerlink" title="红黑调整的基本操作"></a>红黑调整的基本操作</h2><ul>
+<li>旋转：左旋转和右旋转</li>
+<li>着色：红色和黑色</li>
+</ul>
+<hr>
+<h2 id="插入过程"><a href="#插入过程" class="headerlink" title="插入过程"></a>插入过程</h2><blockquote>
+<p>插入操作可能破坏性质4</p>
+</blockquote>
+<p>有：</p>
+<ul>
+<li>插入结点Z</li>
+<li>插入结点Z的双亲结点P</li>
+<li>插入结点Z的叔叔结点Y</li>
+<li>插入结点Z的爷爷结点PP</li>
+</ul>
+<ol>
+<li>Z涂红色</li>
+<li>补充Z的叶子结点</li>
+<li>插入：转分类讨论A</li>
+</ol>
+<p>分类讨论A：<strong>判断Z和P</strong></p>
+<ul>
+<li>Z是根结点：Z涂黑色</li>
+<li>Z不是根结点，P是黑色：不操作</li>
+<li>Z不是根结点，P是红色：转分类讨论B（<strong>Z和P破坏性质4</strong>）</li>
+</ul>
+<p>分类讨论B：<strong>判断Y、PP、P和Z</strong></p>
+<blockquote>
+<p>前提：Z是红色，P是红色，PP是黑色（插入前是合法的红黑（二叉排序）树，由性质2和4得）</p>
+</blockquote>
+<ul>
+<li>Y是黑色，Z是PP的左孩子的左孩子（LL）：右旋转，P涂黑色，PP涂红色</li>
+<li>Y是黑色，Z是PP的右孩子的右孩子（RR）：左旋转，P涂黑色，PP涂红色</li>
+</ul>
+<blockquote>
+<p>LL型：P作根，P的右子树挂接到PP的左子树，PP成P的右孩子；红红黑-&gt;红黑红<br>RR型：P作根，P的左子树挂接到PP的右子树，PP成P的左孩子；黑红红-&gt;红黑红</p>
+</blockquote>
+<ul>
+<li>Y是黑色，Z是PP的左孩子的右孩子（LR）：左旋转，右旋转，P涂黑色，PP涂红色</li>
+<li>Y是黑色，Z是PP的右孩子的左孩子（RL）：右旋转，左旋转，P涂黑色，PP涂红色</li>
+</ul>
+<blockquote>
+<p>LR型：Z的左子树挂接到P的右子树，Z成PP的左孩子，P成Z的左孩子，成LL型<br>RR型：Z的右子树挂接到P的左子树，Z成PP的右孩子，P成Z的右孩子，成RR型</p>
+</blockquote>
+<ul>
+<li>Y是红色：Y涂黑色，P涂黑色，PP涂红色（<strong>局部恢复性质4</strong>），将PP作为插入结点，转分类讨论A</li>
+</ul>
+<hr>
+<h2 id="删除过程"><a href="#删除过程" class="headerlink" title="删除过程"></a>删除过程</h2><blockquote>
+<p>删除操作可能破坏性质2、4和5</p>
+</blockquote>
+<ol>
+<li>转二叉排序树的删除操作</li>
+<li>转作双色结点</li>
+<li>转双色讨论</li>
+</ol>
+<p>二叉排序树的删除操作：对删除结点node</p>
+<ul>
+<li>是叶子节点：直接删除node</li>
+<li>有一棵左子树或右子树：子树作为node的双亲结点的子树，删除node（子树拼接）</li>
+<li>有左右两棵子树：取node的左子树的最大关键字结点或右子树的最小关键字结点替换node，删除node-&gt;第1或2情况（取左最小或右最大替换）。或取中序遍历时，node的直接前驱结点或直接后继结点替换node，删除node-&gt;第1或2情况（取直接前驱或直接后继替换）</li>
+</ul>
+<p>有：</p>
+<ul>
+<li>删除结点Z</li>
+<li>二叉排序树的删除操作后，替换删除结点Z的替换结点X</li>
+<li>X的双亲结点P</li>
+<li>X的兄弟结点W</li>
+<li>W的左孩子结点WL</li>
+<li>W的右孩子结点WR</li>
+<li>X是P的左孩子，W是P的右孩子</li>
+</ul>
+<p>作双色结点：</p>
+<ul>
+<li>假设替换结点X有两种颜色：原来的颜色（红色或黑色）和增加的黑色</li>
+</ul>
+<blockquote>
+<p>从Z继承增加的黑色：因为若Z是红色，删除Z不会破坏性质；若Z是黑色，删除会破坏性质</p>
+</blockquote>
+<blockquote>
+<p>假设替换结点X有两种颜色的目的：恢复性质5，破坏性质1</p>
+</blockquote>
+<blockquote>
+<p>后续操作的核心：恢复双色结点为单色结点&#x2F;性质1</p>
+</blockquote>
+<p>双色讨论：</p>
+<ul>
+<li>X是红色和黑色：删除红色，保留黑色</li>
+<li>X是黑色和黑色，X是根结点：不操作</li>
+<li>X是黑色和黑色，X不是根结点，转分类讨论A</li>
+</ul>
+<p>分类讨论A：</p>
+<ul>
+<li>转W是红色</li>
+<li>转W是黑色</li>
+</ul>
+<p>W是红色：</p>
+<ul>
+<li>由性质4：W是红色，则P、WL和WR是黑色</li>
+<li>处理：P涂红色，W涂黑色（P和W交换颜色）。X是P的左孩子，则P&#x2F;W左旋转（调整P到X一侧）。转W是黑色</li>
+</ul>
+<p>W是黑色：</p>
+<ul>
+<li>WL是红色，WR是黑色：转WL是红色，WR是黑色</li>
+<li>WL是红色或黑色，WR是红色：转WL是红色或黑色，WR是红色</li>
+<li>WL是黑色，WR是黑色：转WL是黑色，WR是黑色</li>
+</ul>
+<p>WL是红色，WR是黑色：</p>
+<ul>
+<li>RL型：红色结点WL是爷爷结点的右孩子W的左孩子</li>
+<li>RL型：W涂红色，WL涂黑色（W和WL交换颜色）。WL右旋（调整W为WL的右孩子）。转WL是红色或黑色，WR是红色</li>
+</ul>
+<p>WL是红色或黑色，WR是红色：</p>
+<ul>
+<li>W涂P的颜色，P涂黑色（W和P交换颜色），WR涂黑色（<strong>保持W一侧的黑高</strong>）。X是P的左孩子，P&#x2F;W左旋转（<strong>补充一黑色结点P到X一侧</strong>）。<strong>结束</strong></li>
+</ul>
+<p>WL是黑色，WR是黑色：</p>
+<ul>
+<li>X和W各提取一重黑色：X是黑色，W是红色</li>
+<li>由性质5，需要补偿该一重黑色：P有两种颜色：原来的颜色（红色或黑色）和增加的黑色</li>
+<li>将P作为替换结点X，转双色讨论</li>
+</ul>
+<hr>
+<h2 id="删除过程总结"><a href="#删除过程总结" class="headerlink" title="删除过程总结"></a>删除过程总结</h2><p>一、二叉排序树的删除操作：保持二叉排序树的性质</p>
+<p>二、作双色结点：恢复性质5，破坏性质1</p>
+<p>三、双色讨论：恢复性质1。转123</p>
+<p>1 若X红色+黑色：删除红色，保留黑色</p>
+<p>2 若X黑色+黑色，是根结点：不操作</p>
+<p>3 若X黑色+黑色，不是根结点：<strong>性质5真正被破坏</strong>。转(1)(2)</p>
+<p>(1) 若W红色：W涂黑色，P涂红色，W左旋。转(2)</p>
+<blockquote>
+<p>由性质4：W红色，P、WL和WR黑色<br>W涂黑色，W左旋：W成根替换P的位置，保持黑高<br>P涂红色，W左旋：P成W的左孩子，保持黑高<br>W左旋：W的WL子树挂接到P的右子树，WL成X的兄弟<br>目的：转换X的兄弟为黑色</p>
+</blockquote>
+<p>(2) 若W黑色</p>
+<p>① WL红色，WR黑色：WL涂黑色，W涂红色，WL右旋。转②</p>
+<blockquote>
+<p>由性质4：WL红色，P黑色<br>WL涂黑色，WL右旋：WL成根替换W的位置，保持黑高<br>P涂红色，W右旋：W成WL的右孩子，保持黑高<br>WL右旋：WL的右子树挂接到W的左子树，WL成X的兄弟<br>先：RL型。后：RR型<br>目的：转换W的右孩子为红色</p>
+</blockquote>
+<p>② WR红色：W涂红色，P涂黑色，WR涂黑色，W左旋</p>
+<blockquote>
+<p>由性质4：WR红色，W黑色<br>W涂红色，W左旋：W成根替换P的位置，原W侧的黑高-1，<strong>破坏性质5</strong><br>P涂黑色，W左旋：P成W的左孩子，X侧的黑高+1，X恢复单色，<strong>恢复性质1</strong><br>W左旋：W的左子树挂接到P的右子树，WR成X的兄弟<br>WR涂黑色：原W侧的黑高+1，<strong>恢复性质5</strong><br>目的：调整一黑色结点到X侧</p>
+</blockquote>
+<p>③ WL黑色，WR黑色：W涂红色，P作双色结点。转二</p>
+<blockquote>
+<p>X恢复单色，W涂红色：各提取一重黑色<br>P作双色结点：从X和W提取的黑色增加到P，保持黑高。P替换为X继续处理</p>
+</blockquote>
+<blockquote>
+<p>注意：X是P的右孩子，W是P的左孩子时，(1)(2)①②③有对称情况</p>
+</blockquote>
+<p><strong>总结(1)(2)①②③：</strong></p>
+<blockquote>
+<p>关于黑色提取：<br>(2)③：有重复黑色可提取，调整操作向上委托的同时能够保持黑高<br>(1)：W红色，不能提取黑色<br>(2)①：WL红色，WR黑色，由性质4，W黑色。若W提取黑色，W成红色，则W-&gt;WL和W-&gt;WR的黑高不同，破坏性质5<br>(2)②：WR红色，由性质4，W黑色。若W提取黑色，W成红色，则W和WR红色，破坏性质4</p>
+</blockquote>
+<blockquote>
+<p>关于目的：<br>(1)：转换为(2)<br>(2)①：转换为(2)②<br>(2)②：调整结束<br>(2)③：调整操作向上委托</p>
+</blockquote>
+<blockquote>
+<p>关于执行情况：<br>(2)③：唯一可重复执行的情况，每执行一次委托向上一层，最多次数是树的深度&#x2F;高度，为logn<br>有流程：(1)-&gt;(2)③，结束<br>最少流程：(2)②，结束<br>最多流程：(1)-&gt;(2)①-&gt;(2)②，结束<br>最多流程时，执行常数次的着色操作和至多三次的旋转操作</p>
+</blockquote>
+<hr>
+<h1 id="红黑二叉排序树查找"><a href="#红黑二叉排序树查找" class="headerlink" title="红黑二叉排序树查找"></a>红黑二叉排序树查找</h1><h2 id="适用-2"><a href="#适用-2" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>动态表-&gt;红黑二叉排序树</li>
+</ul>
+<hr>
+<h2 id="性能-2"><a href="#性能-2" class="headerlink" title="性能"></a>性能</h2><p>时间复杂度：O(logn)。n为数据规模</p>
+<ul>
+<li>时间复杂度：树的深度&#x2F;高度</li>
+<li>O(logn)。n为数据规模</li>
+</ul>
+<p>空间复杂度：O(n)。n为数据规模</p>
+<ul>
+<li>空间复杂度：红黑二叉排序树的大小或递归调用栈的规模&#x2F;树的深度&#x2F;高度</li>
+<li>O(1)。未使用额外辅助空间（不包括红黑二叉排序树的大小；迭代法）</li>
+<li>O(logn)。n为数据规模（不包括红黑二叉排序树树的大小；递归法）</li>
+<li>O(n)。n为数据规模（包括红黑二叉排序树的大小）</li>
+</ul>
+<blockquote>
+<p>插入和删除的时间复杂度：O(logn)。n为数据规模</p>
+</blockquote>
+<hr>
+<h1 id="二叉排序树查找、平衡二叉排序树查找和红黑二叉排序树查找总结"><a href="#二叉排序树查找、平衡二叉排序树查找和红黑二叉排序树查找总结" class="headerlink" title="二叉排序树查找、平衡二叉排序树查找和红黑二叉排序树查找总结"></a>二叉排序树查找、平衡二叉排序树查找和红黑二叉排序树查找总结</h1><ul>
+<li>平衡二叉排序树查找和红黑二叉排序树查找的一般性能优于二叉排序树查找</li>
+<li>若插入和删除操作相对少，查找操作相对多，适用平衡二叉排序树查找</li>
+<li>若插入和删除操作相对多，查找操作相对少，适用红黑二叉排序树查找</li>
+</ul>
+<hr>
+<h1 id="B树-B-树-平衡多路查找树"><a href="#B树-B-树-平衡多路查找树" class="headerlink" title="B树&#x2F;B-树&#x2F;平衡多路查找树"></a>B树&#x2F;B-树&#x2F;平衡多路查找树</h1><blockquote>
+<p>注意：-无意义，不念做B减树，念做B树</p>
+</blockquote>
+<blockquote>
+<p>B树是平衡多路查找树，但限制更强：叶子结点在同一层</p>
+</blockquote>
+<h2 id="相关概念-1"><a href="#相关概念-1" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li>树的阶&#x2F;度m：结点的分支数的最大值</li>
+<li>树的深度&#x2F;高度&#x2F;外存存取次数h（<strong>一般不包括叶子结点层</strong>）：log以m为底的(n+1) &lt;&#x3D; h &lt;&#x3D; log以[m&#x2F;2]上取整为底的[(n+1)&#x2F;2]+1。n为关键字数</li>
+</ul>
+<hr>
+<h2 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h2><ul>
+<li>若结点有n个子树，则有n-1个关键字</li>
+<li>若<strong>根结点不是叶子结点</strong>，则至少有2个子树。若结点是非根非叶子结点，则至少有[m&#x2F;2]上取整个子树。结点至多有m个子树</li>
+<li>非叶子结点的结构：（n,P0,K1,P1,K2,P2…Kn,Pn）。Ki（i&#x3D;1,2,…,n）为结点的关键字，K1&lt;K2&lt;…Kn。Pi（i&#x3D;0,1,…,n）为子树根结点指针，P(i-1)所指子树中所有结点的关键字&lt;Ki，Pi所指子树中所有结点的关键字&gt;Ki。n为结点的关键字数</li>
+<li>叶子结点在同一层，为外部结点&#x2F;虚拟结点&#x2F;空结点，不包含信息</li>
+</ul>
+<p>其他：</p>
+<ul>
+<li>若有n个关键字，则有n+1个叶子结点（叶子结点对应查找失败的情况）</li>
+</ul>
+<hr>
+<h2 id="插入过程-1"><a href="#插入过程-1" class="headerlink" title="插入过程"></a>插入过程</h2><ol>
+<li>确定结点中关键字数的范围：n为关键字数，有[m&#x2F;2]上取整-1 &lt;&#x3D; n &lt;&#x3D; m-1</li>
+<li>查找插入位置：若无插入位置，插入失败；若有插入位置，插入</li>
+<li>检查结点中关键字数：若n &lt;&#x3D; m-1，插入完成；若n &gt; m-1，结点拆分</li>
+</ol>
+<blockquote>
+<p>注意：<br>查找时，查找到叶子结点，表明有插入位置<br>插入时，插入到相应的<strong>最底层的</strong>非叶子结点</p>
+</blockquote>
+<p>结点拆分：</p>
+<ul>
+<li>结点中关键字数：n &#x3D; m &gt; m-1</li>
+<li>取第[m&#x2F;2]上取整个关键字K</li>
+<li>K的左指针指向第1~[m&#x2F;2]上取整-1个关键字</li>
+<li>K的右指针指向第[m&#x2F;2]上取整+1~m个关键字</li>
+<li>K插入双亲结点的相应位置中</li>
+<li>检查双亲结点中关键字数：若n &lt;&#x3D; m-1，插入完成；若n &gt; m-1，结点拆分</li>
+</ul>
+<hr>
+<h2 id="删除过程-1"><a href="#删除过程-1" class="headerlink" title="删除过程"></a>删除过程</h2><ol>
+<li>确定结点中关键字数的范围：n为关键字数，有[m&#x2F;2]上取整-1 &lt;&#x3D; n &lt;&#x3D; m-1</li>
+<li>查找删除位置：若无删除位置，删除失败；若有删除位置，检查结点中关键字数</li>
+<li>检查结点中关键字数：删除讨论1和2</li>
+</ol>
+<blockquote>
+<p>注意：<br>查找时，查找到非叶子结点，表明有删除位置<br>删除时，在相应的的非叶子结点上删除</p>
+</blockquote>
+<p>删除讨论1：删除的关键字不在最底层的非叶子结点上</p>
+<ul>
+<li>转换：删除的关键字在最底层的非叶子结点上</li>
+<li>类比二叉排序树的删除操作：在中序遍历中，查找删除结点的左子树的最大值或右子树的最小值结点&#x2F;直接前驱或直接后继结点</li>
+<li>关键字交换：取删除关键字X的相邻关键字Y，Y替换X（X不在最底层的非叶子结点上），删除Y（Y在最底层的非叶子结点上）</li>
+</ul>
+<p>删除讨论2：删除的关键字在最底层的非叶子结点上</p>
+<ul>
+<li>若n &gt; [m&#x2F;2]上取整-1：直接删除</li>
+<li>若n &#x3D; [m&#x2F;2]上取整-1，删除关键字结点的左兄弟结点<strong>或</strong>右兄弟结点的关键字 &gt; [m&#x2F;2]上取整-1：关键字借位ie。关键字流向：兄弟结点-&gt;双亲结点-&gt;当前结点</li>
+<li>若n &#x3D; [m&#x2F;2]上取整-1，删除关键字结点的左兄弟结点<strong>和</strong>右兄弟结点的关键字 &#x3D; [m&#x2F;2]上取整-1：结点合并。关键字流向：当前结点+双亲结点+兄弟结点；注意：可能导致双亲结点的关键字数不合法</li>
+</ul>
+<p>删除讨论总结：</p>
+<ul>
+<li>直接删除</li>
+<li>关键字交换</li>
+<li>关键字借位</li>
+<li>结点合并</li>
+</ul>
+<hr>
+<h1 id="B树查找"><a href="#B树查找" class="headerlink" title="B树查找"></a>B树查找</h1><h2 id="适用-3"><a href="#适用-3" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>动态表-&gt;B树</li>
+</ul>
+<hr>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><blockquote>
+<p>类似二叉排序树查找</p>
+</blockquote>
+<ol>
+<li>在B树中查找结点（在外存进行）</li>
+<li>在结点中查找关键字（在内存进行）。可使用线性查找</li>
+</ol>
+<hr>
+<h2 id="性能-3"><a href="#性能-3" class="headerlink" title="性能"></a>性能</h2><p>时间复杂度：O(logn)。n为数据规模</p>
+<ul>
+<li>时间复杂度：树的深度&#x2F;高度</li>
+<li>O(logn)。n为数据规模</li>
+</ul>
+<p>空间复杂度：O(n)。n为数据规模</p>
+<ul>
+<li>空间复杂度：B树的大小或递归调用栈的规模&#x2F;树的深度&#x2F;高度</li>
+<li>O(1)。未使用额外辅助空间（不包括B树的大小；迭代法）</li>
+<li>O(logn)。n为数据规模（不包括B树的大小；递归法）</li>
+<li>O(n)。n为数据规模（包括B树的大小）</li>
+</ul>
+<hr>
+<h1 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h1><h2 id="B-树与B树的区别"><a href="#B-树与B树的区别" class="headerlink" title="B+树与B树的区别"></a>B+树与B树的区别</h2><ul>
+<li>若结点有n个子树，则有n个关键字</li>
+<li>根结点关键字数n的取值范围：2 &lt;&#x3D; n &lt;&#x3D; m；除根结点关键字数n的取值范围：[m&#x2F;2]上取整 &lt;&#x3D; n &lt;&#x3D; m</li>
+<li>叶子结点包含信息：全部关键字和全部记录指针</li>
+<li>非叶子结点只起索引作用，索引项：有子树的最大关键字和子树指针，无最大关键字对应记录的存储地址</li>
+<li>有一个指针指向最小关键字的叶子结点，所有叶子结点链接成线性链表</li>
+</ul>
+<hr>
+<h1 id="B-树查找"><a href="#B-树查找" class="headerlink" title="B+树查找"></a>B+树查找</h1><h2 id="适用-4"><a href="#适用-4" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>动态表-&gt;B+树</li>
+</ul>
+<hr>
+<h2 id="方式"><a href="#方式" class="headerlink" title="方式"></a>方式</h2><ul>
+<li>从根结点开始：树型查找</li>
+<li>从最小关键字叶子结点开始：线性查找</li>
+</ul>
+<hr>
+<h2 id="性能-4"><a href="#性能-4" class="headerlink" title="性能"></a>性能</h2><p>时间复杂度：O(logn) | O(mlogn) | O(logmlogn)。n为数据规模，m为树的阶</p>
+<p>时间复杂度：查找结点时间（树型查找）×查找结点中关键字时间（线性查找）</p>
+<ul>
+<li>查找结点时间：O(logn)。n为数据规模（树的深度&#x2F;高度）</li>
+<li>查找结点中关键字时间：O(m)。m为树的阶（顺序查找）</li>
+<li>查找结点中关键字时间：O(logm)。m为树的阶（折半查找等）</li>
+</ul>
+<p>时间复杂度：访问外存的输入&#x2F;输出（I&#x2F;O）次数</p>
+<ul>
+<li>一次访问外存的输入&#x2F;输出（I&#x2F;O）读取一页</li>
+<li>页大小 &#x3D; 非叶子结点大小</li>
+<li>访问外存的输入&#x2F;输出（I&#x2F;O）次数 &#x3D; 树的深度&#x2F;高度：O(logn)。n为数据规模</li>
+</ul>
+<p>空间复杂度：O(n)。n为数据规模</p>
+<ul>
+<li>空间复杂度：B+树的大小或递归调用栈的规模&#x2F;树的深度&#x2F;高度</li>
+<li>O(1)。未使用额外辅助空间（不包括B+树的大小；迭代法）</li>
+<li>O(logn)。n为数据规模（不包括B+树的大小；递归法）</li>
+<li>O(n)。n为数据规模（包括B+树的大小）</li>
+</ul>
+<hr>
+<h1 id="其他特殊的多路查找树"><a href="#其他特殊的多路查找树" class="headerlink" title="其他特殊的多路查找树"></a>其他特殊的多路查找树</h1><ul>
+<li>2-3树：3阶B树</li>
+<li>2-3-4树：4阶B树</li>
+</ul>
+<hr>
+<h1 id="散列-哈希表"><a href="#散列-哈希表" class="headerlink" title="散列&#x2F;哈希表"></a>散列&#x2F;哈希表</h1><h2 id="相关概念-2"><a href="#相关概念-2" class="headerlink" title="相关概念"></a>相关概念</h2><ul>
+<li>查找表：存储记录&#x2F;关键字</li>
+<li>散列表：类比索引表和映射表，存储关键字和<strong>散列表地址</strong>的映射关系</li>
+<li>映射：h(key) &#x3D; addr。key为关键字，h()为散列函数 ，addr为散列表地址</li>
+<li>冲突&#x2F;碰撞：两个或两个以上的不同关键字，通过散列函数，映射到散列表相同地址</li>
+<li>同义词：<strong>对某个散列函数</strong>，能够发生冲突的不同关键字</li>
+<li>装填因子：散列表的装填程度。α &#x3D; n&#x2F;m。α为装填因子，n为散列表中的记录数，m为散列表的大小</li>
+</ul>
+<blockquote>
+<p>注意：散列表的平均查找长度（ASL）与α有关，与n和m无关</p>
+</blockquote>
+<hr>
+<h2 id="散列函数的构造原则"><a href="#散列函数的构造原则" class="headerlink" title="散列函数的构造原则"></a>散列函数的构造原则</h2><ul>
+<li>定义域包含查找表的所有关键字，值域取决于散列表的大小&#x2F;地址范围</li>
+<li>简单：能够在较短时间计算出结果</li>
+<li>尽量避免冲突：计算的散列表地址能等概率和均匀地分布在散列表中（<strong>理解</strong>）</li>
+</ul>
+<p>另：</p>
+<ul>
+<li>散列表的大小</li>
+<li>关键字的大小&#x2F;长度&#x2F;位数</li>
+<li>关键字的分布</li>
+<li>计算散列表地址的时间</li>
+<li>关键字查找的频率</li>
+</ul>
+<hr>
+<h2 id="散列函数的构造方法"><a href="#散列函数的构造方法" class="headerlink" title="散列函数的构造方法"></a>散列函数的构造方法</h2><p>直接定址法：</p>
+<ul>
+<li>方法：h(key) &#x3D; key或h(key) &#x3D; a × key + b(a和b为常数)</li>
+<li>特点：简单，均匀（关键字映射的散列表地址在散列表中分布均匀），<strong>不会产生冲突</strong></li>
+<li>适用：查找表的规模比较小；关键字的分布基本连续</li>
+</ul>
+<p>除留余数法：</p>
+<ul>
+<li>方法：h(key) &#x3D; key % <strong>p</strong>(m为散列表的大小，p为质数，有p &lt;&#x3D; m。一般取p为小于或等于散列表的大小的最大质数或不包含小于20质因子的合数，能够尽量避免冲突：若p &gt; m，则取余的散列表地址可能越界；质数的取余运算可以使散列表地址尽量均匀)</li>
+</ul>
+<p>平方取中法：</p>
+<ul>
+<li>方法：h(key) &#x3D; key²的中间几位数</li>
+<li>适用：未知关键字的分布；关键字的位数比较少，可能小于散列表地址需要的位数；关键字的每位取值比较不均匀</li>
+</ul>
+<p>数字分析法：</p>
+<ul>
+<li>方法：取关键字的若干数位，可进行旋转、反转和叠加等操作</li>
+<li>适用：关键字的位数比较多；关键字若干数位的取值比较均匀</li>
+</ul>
+<p>折叠法：</p>
+<ul>
+<li>方法：关键字从左到右分割成位数相等的几部分（最后一部分位数不够可短些），各部分求和，依据散列表的大小，取和的后几位</li>
+<li>适用：未知关键字的分布；关键字位数比较多</li>
+</ul>
+<p>随机数法：</p>
+<ul>
+<li>方法：h(key) &#x3D; random(key)。random()为随机函数。即关键字的随机函数值为散列表地址</li>
+<li>适用：各关键字的位数不相等</li>
+</ul>
+<blockquote>
+<p>注意：关键字不是数字，是符号，可通过ASCII码、Unicode码等转换为数字</p>
+</blockquote>
+<hr>
+<h2 id="冲突处理的方法"><a href="#冲突处理的方法" class="headerlink" title="冲突处理的方法"></a>冲突处理的方法</h2><p>开放定址法：</p>
+<ul>
+<li>含义：空闲散列表地址向同义词开放，也向非同义词开放</li>
+<li>理解：同义词通过散列函数映射到散列表地址A（固有的），非同义词通过散列函数映射到散列表地址B（固有的），在B发生冲突，通过冲突处理能够映射到A（变化的）</li>
+<li>发生冲突的散列表地址作自变量，通过冲突处理函数，映射到新的散列表地址</li>
+<li>数学递推公式：hi &#x3D; (h(key) + di) % <strong>m</strong>。m为散列表的大小，i为发生冲突的次数&#x2F;新散列表地址的计数值，0 &lt;&#x3D; i &lt;&#x3D; m，di为增量序列，key为关键字，h()为散列函数，h(key)为散列表地址，hi为新散列表地址</li>
+<li>数学递推公式中，确定di-&gt;确定冲突处理方法</li>
+<li>有线性探测法，平方探测法，双散列法，伪随机序列法</li>
+<li>注意：对散列表，不能物理删除关键字&#x2F;关键字-散列表地址映射（因为会<strong>截断</strong>其他该散列表地址的关键字的探测地址）。能逻辑删除关键字&#x2F;关键字-散列表地址映射（使用标记；需要定期维护散列表避免未利用表项过多）</li>
+</ul>
+<p>线性探测法：</p>
+<ul>
+<li>方法：di &#x3D; 0,1,…,m-1</li>
+<li>缺点：易出现聚集&#x2F;堆积问题（同义词和非同义词映射到相同的散列表地址）</li>
+</ul>
+<p>平方探测法&#x2F;二次探测法：</p>
+<ul>
+<li>方法：di &#x3D; 0²,1²,-1²,…,k²,-k²。k &lt;&#x3D; m&#x2F;2，m为可表示成4×k+3的质数</li>
+<li>缺点：不能<strong>探测</strong>到所有散列表地址，至少能探测到一半的散列表地址</li>
+</ul>
+<p>双散列法：</p>
+<ul>
+<li>方法：di &#x3D; i × h2(key)</li>
+<li>特点：最多m-1次探测回到第一次发生冲突的位置&#x2F;原散列表地址</li>
+</ul>
+<p>伪随机序列法：</p>
+<ul>
+<li>方法：di &#x3D; <strong>伪随机数</strong></li>
+<li>伪随机数：<strong>随机种子</strong>相同，每过程（冲突处理过程和查找过程）生成的伪随机数数列相同，数列中的伪随机数互不相同</li>
+</ul>
+<p>链地址法&#x2F;拉链法&#x2F;链接法：</p>
+<ul>
+<li>方法：同义词链接成单链表&#x2F;同义词子表，散列表的散列表地址表项不存储关键字，存储单链表头指针</li>
+<li>优点：散列表不会满</li>
+<li>缺点：增加遍历单链表的时间</li>
+</ul>
+<p>再散列函数法：</p>
+<ul>
+<li>方法：每冲突时，更换散列函数再计算</li>
+<li>优点：不易出现聚集&#x2F;堆积问题</li>
+<li>缺点：增加散列函数再计算时间</li>
+</ul>
+<p>公共溢出区法：</p>
+<ul>
+<li>方法：每冲突时，将关键字顺序存储到另一溢出表中</li>
+<li>适用：冲突少-&gt;溢出表相对散列表的规模小</li>
+</ul>
+<hr>
+<h1 id="散列查找"><a href="#散列查找" class="headerlink" title="散列查找"></a>散列查找</h1><h2 id="适用-5"><a href="#适用-5" class="headerlink" title="适用"></a>适用</h2><ul>
+<li>查找性能要求高，记录关系无要求</li>
+</ul>
+<hr>
+<h2 id="性能-5"><a href="#性能-5" class="headerlink" title="性能"></a>性能</h2><p>影响因素：</p>
+<ul>
+<li>散列函数</li>
+<li>冲突处理方法</li>
+<li>装填因子</li>
+</ul>
+<p>平均查找长度（ASL）&#x2F;平均比较次数：</p>
+<ul>
+<li>查找成功：依据<strong>关键字</strong>计算：每关键字的比较次数的和&#x2F;关键字数。每关键字的比较次数的和：（计算散列表地址）无冲突比较1次，有1次冲突（计算新散列表地址）比较2次，以此类推</li>
+<li>查找失败：依据<strong>散列表地址</strong>计算：每<strong>可以映射到的</strong>散列表地址上，比较到空散列表地址（<strong>比较空散列表地址算作比较1次</strong>）比较次数的和&#x2F;可以映射到的散列表地址数</li>
+</ul>
+<p>时间复杂度：O(1)</p>
+<p>空间复杂度：O(m)。m为散列表的大小</p>
+<hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="树型查找"><a href="#树型查找" class="headerlink" title="树型查找"></a>树型查找</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>适用</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>二叉排序树查找</td>
+<td>动态表-&gt;二叉排序树</td>
+<td>O(logn)~O(n)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>平衡二叉排序树查找</td>
+<td>动态表-&gt;平衡二叉排序树</td>
+<td>O(logn)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>红黑二叉排序树查找</td>
+<td>动态表-&gt;红黑二叉排序树</td>
+<td>O(logn)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>B树查找</td>
+<td>动态表-&gt;B树</td>
+<td>O(logn)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>B+树查找</td>
+<td>动态表-&gt;B+树</td>
+<td>O(logn) | O(mlogn) | O(logmlogn)</td>
+<td>O(n)</td>
+</tr>
+</tbody></table>
+<h2 id="散列查找-1"><a href="#散列查找-1" class="headerlink" title="散列查找"></a>散列查找</h2><table>
+<thead>
+<tr>
+<th>名称</th>
+<th>适用</th>
+<th>时间复杂度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>散列查找</td>
+<td>查找性能要求高，记录关系无要求</td>
+<td>O(1)</td>
+<td>O(m)</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《2023版数据结构高分笔记》主编：率辉</li>
+<li>《2023年计算机组成原理考研复习指导》组编：王道论坛</li>
+<li>《大话数据结构》作者：程杰</li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/402951795?ivk_sa=1025883i">B+ 树搜索时间复杂度到底是什么：mlogmN &#x2F; logN？ - 知乎 (zhihu.com)</a></li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/09/19/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%A0%91%E5%9E%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/">http://example.com/2022/09/19/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%BA%8C%EF%BC%89%E2%80%94%E2%80%94%E6%A0%91%E5%9E%8B%E6%9F%A5%E6%89%BE%E5%92%8C%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/09/21/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E6%80%BB%E7%BB%93/" title="“查找”学习提纲（三）——总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">“查找”学习提纲（三）——总结</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/10/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="二叉排序树的C++语言描述实现模板"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">二叉排序树的C++语言描述实现模板</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/10/19/%E2%80%9C%E5%9B%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“图”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-19</div><div class="title">“图”学习提纲</div></div></a></div><div><a href="/2022/09/23/%E2%80%9C%E6%8E%92%E5%BA%8F%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“排序”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-23</div><div class="title">“排序”学习提纲</div></div></a></div><div><a href="/2022/08/24/%E2%80%9C%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“数组、矩阵与广义表”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-24</div><div class="title">“数组、矩阵与广义表”学习提纲</div></div></a></div><div><a href="/2022/09/08/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE/" title="“查找”学习提纲（一）——线性查找"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-08</div><div class="title">“查找”学习提纲（一）——线性查找</div></div></a></div><div><a href="/2022/09/21/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%B8%89%EF%BC%89%E2%80%94%E2%80%94%E6%80%BB%E7%BB%93/" title="“查找”学习提纲（三）——总结"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-21</div><div class="title">“查找”学习提纲（三）——总结</div></div></a></div><div><a href="/2022/09/05/%E2%80%9C%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“树与二叉树”学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-05</div><div class="title">“树与二叉树”学习提纲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.</span> <span class="toc-text">代码模板</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F-%E6%9F%A5%E6%89%BE-%E6%90%9C%E7%B4%A2%E6%A0%91%E6%9F%A5%E6%89%BE"><span class="toc-number">3.</span> <span class="toc-text">二叉排序&#x2F;查找&#x2F;搜索树查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8"><span class="toc-number">3.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">性能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E6%A8%A1%E6%9D%BF-1"><span class="toc-number">3.3.</span> <span class="toc-text">代码模板</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E5%92%8C%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E6%80%BB%E7%BB%93"><span class="toc-number">4.</span> <span class="toc-text">折半查找和二叉排序树查找总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%EF%BC%88%E6%8E%92%E5%BA%8F%EF%BC%89%E6%A0%91-AVL%E6%A0%91"><span class="toc-number">5.</span> <span class="toc-text">平衡二叉（排序）树&#x2F;AVL树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E7%9B%B8%E5%BA%94%E5%B1%82%E6%95%B0%E7%9A%84%E6%A0%91%E8%87%B3%E5%B0%91%E9%9C%80%E8%A6%81%E7%9A%84%E7%BB%93%E7%82%B9%E6%95%B0"><span class="toc-number">5.1.</span> <span class="toc-text">构造相应层数的树至少需要的结点数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E8%B0%83%E6%95%B4%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-number">5.2.</span> <span class="toc-text">平衡调整的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E8%B0%83%E6%95%B4%E7%9A%84%E7%B1%BB%E5%9E%8B"><span class="toc-number">5.3.</span> <span class="toc-text">平衡调整的类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE"><span class="toc-number">6.</span> <span class="toc-text">平衡二叉排序树查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8-1"><span class="toc-number">6.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-1"><span class="toc-number">6.2.</span> <span class="toc-text">性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%EF%BC%88%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%EF%BC%89%E6%A0%91"><span class="toc-number">7.</span> <span class="toc-text">红黑（二叉排序）树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5"><span class="toc-number">7.1.</span> <span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E8%B0%83%E6%95%B4%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">7.2.</span> <span class="toc-text">红黑调整的基本操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E8%BF%87%E7%A8%8B"><span class="toc-number">7.3.</span> <span class="toc-text">插入过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B"><span class="toc-number">7.4.</span> <span class="toc-text">删除过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B%E6%80%BB%E7%BB%93"><span class="toc-number">7.5.</span> <span class="toc-text">删除过程总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%A2%E9%BB%91%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE"><span class="toc-number">8.</span> <span class="toc-text">红黑二叉排序树查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8-2"><span class="toc-number">8.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-2"><span class="toc-number">8.2.</span> <span class="toc-text">性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E3%80%81%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E5%92%8C%E7%BA%A2%E9%BB%91%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E6%80%BB%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">二叉排序树查找、平衡二叉排序树查找和红黑二叉排序树查找总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B%E6%A0%91-B-%E6%A0%91-%E5%B9%B3%E8%A1%A1%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-number">10.</span> <span class="toc-text">B树&#x2F;B-树&#x2F;平衡多路查找树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5-1"><span class="toc-number">10.1.</span> <span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E6%80%A7"><span class="toc-number">10.2.</span> <span class="toc-text">特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E8%BF%87%E7%A8%8B-1"><span class="toc-number">10.3.</span> <span class="toc-text">插入过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E8%BF%87%E7%A8%8B-1"><span class="toc-number">10.4.</span> <span class="toc-text">删除过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B%E6%A0%91%E6%9F%A5%E6%89%BE"><span class="toc-number">11.</span> <span class="toc-text">B树查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8-3"><span class="toc-number">11.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">11.2.</span> <span class="toc-text">过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-3"><span class="toc-number">11.3.</span> <span class="toc-text">性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-%E6%A0%91"><span class="toc-number">12.</span> <span class="toc-text">B+树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#B-%E6%A0%91%E4%B8%8EB%E6%A0%91%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">12.1.</span> <span class="toc-text">B+树与B树的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#B-%E6%A0%91%E6%9F%A5%E6%89%BE"><span class="toc-number">13.</span> <span class="toc-text">B+树查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8-4"><span class="toc-number">13.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F"><span class="toc-number">13.2.</span> <span class="toc-text">方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-4"><span class="toc-number">13.3.</span> <span class="toc-text">性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E7%89%B9%E6%AE%8A%E7%9A%84%E5%A4%9A%E8%B7%AF%E6%9F%A5%E6%89%BE%E6%A0%91"><span class="toc-number">14.</span> <span class="toc-text">其他特殊的多路查找树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%A3%E5%88%97-%E5%93%88%E5%B8%8C%E8%A1%A8"><span class="toc-number">15.</span> <span class="toc-text">散列&#x2F;哈希表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%A6%82%E5%BF%B5-2"><span class="toc-number">15.1.</span> <span class="toc-text">相关概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E5%8E%9F%E5%88%99"><span class="toc-number">15.2.</span> <span class="toc-text">散列函数的构造原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E5%87%BD%E6%95%B0%E7%9A%84%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95"><span class="toc-number">15.3.</span> <span class="toc-text">散列函数的构造方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B2%E7%AA%81%E5%A4%84%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">15.4.</span> <span class="toc-text">冲突处理的方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE"><span class="toc-number">16.</span> <span class="toc-text">散列查找</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%82%E7%94%A8-5"><span class="toc-number">16.1.</span> <span class="toc-text">适用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD-5"><span class="toc-number">16.2.</span> <span class="toc-text">性能</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">17.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%91%E5%9E%8B%E6%9F%A5%E6%89%BE"><span class="toc-number">17.1.</span> <span class="toc-text">树型查找</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%A3%E5%88%97%E6%9F%A5%E6%89%BE-1"><span class="toc-number">17.2.</span> <span class="toc-text">散列查找</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">18.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">19.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

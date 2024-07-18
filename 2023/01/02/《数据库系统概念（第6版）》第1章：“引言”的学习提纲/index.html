@@ -1,0 +1,395 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>《数据库系统概念（第6版）》第1章：“引言”的学习提纲 | 夜悊的技术小宅</title><meta name="author" content="夜悊"><meta name="copyright" content="夜悊"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="前言《数据库系统概念（第6版）》第1章：“引言”的学习提纲。   数据库管理系统（DBMS）包括数据库（DB）   1.1 数据库系统的应用 直接或间接地应用 应用广泛   1.2 数据库系统的目标文件处理系统的缺点：  数据的冗余和不一致 数据访问困难 数据孤立 完整性问题 原子性问题 并发访问异常 安全性问题 …  数据库系统需要改进上述缺点  1.3 数据视图1.3.1 数据抽象从低到高层：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《数据库系统概念（第6版）》第1章：“引言”的学习提纲">
+<meta property="og:url" content="http://example.com/2023/01/02/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC6%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%BC%95%E8%A8%80%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/index.html">
+<meta property="og:site_name" content="夜悊的技术小宅">
+<meta property="og:description" content="前言《数据库系统概念（第6版）》第1章：“引言”的学习提纲。   数据库管理系统（DBMS）包括数据库（DB）   1.1 数据库系统的应用 直接或间接地应用 应用广泛   1.2 数据库系统的目标文件处理系统的缺点：  数据的冗余和不一致 数据访问困难 数据孤立 完整性问题 原子性问题 并发访问异常 安全性问题 …  数据库系统需要改进上述缺点  1.3 数据视图1.3.1 数据抽象从低到高层：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="article:published_time" content="2023-01-02T03:38:54.000Z">
+<meta property="article:modified_time" content="2023-04-13T04:55:56.834Z">
+<meta property="article:author" content="夜悊">
+<meta property="article:tag" content="数据库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/2023/01/02/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC6%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%BC%95%E8%A8%80%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '《数据库系统概念（第6版）》第1章：“引言”的学习提纲',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-04-13 12:55:56'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">《数据库系统概念（第6版）》第1章：“引言”的学习提纲</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-02T03:38:54.000Z" title="发表于 2023-01-02 11:38:54">2023-01-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-04-13T04:55:56.834Z" title="更新于 2023-04-13 12:55:56">2023-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="《数据库系统概念（第6版）》第1章：“引言”的学习提纲"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>《数据库系统概念（第6版）》第1章：“引言”的学习提纲。</p>
+<hr>
+<blockquote>
+<p>数据库管理系统（DBMS）包括数据库（DB）</p>
+</blockquote>
+<hr>
+<h1 id="1-1-数据库系统的应用"><a href="#1-1-数据库系统的应用" class="headerlink" title="1.1 数据库系统的应用"></a>1.1 数据库系统的应用</h1><ul>
+<li>直接或间接地应用</li>
+<li>应用广泛</li>
+</ul>
+<hr>
+<h1 id="1-2-数据库系统的目标"><a href="#1-2-数据库系统的目标" class="headerlink" title="1.2 数据库系统的目标"></a>1.2 数据库系统的目标</h1><p>文件处理系统的缺点：</p>
+<ul>
+<li>数据的冗余和不一致</li>
+<li>数据访问困难</li>
+<li>数据孤立</li>
+<li>完整性问题</li>
+<li>原子性问题</li>
+<li>并发访问异常</li>
+<li>安全性问题</li>
+<li>…</li>
+</ul>
+<p>数据库系统需要改进上述缺点</p>
+<hr>
+<h1 id="1-3-数据视图"><a href="#1-3-数据视图" class="headerlink" title="1.3 数据视图"></a>1.3 数据视图</h1><h2 id="1-3-1-数据抽象"><a href="#1-3-1-数据抽象" class="headerlink" title="1.3.1 数据抽象"></a>1.3.1 数据抽象</h2><p>从低到高层：</p>
+<ul>
+<li>物理层</li>
+<li>逻辑层</li>
+<li>视图层</li>
+</ul>
+<hr>
+<h2 id="1-3-2-实例和模式"><a href="#1-3-2-实例和模式" class="headerlink" title="1.3.2 实例和模式"></a>1.3.2 实例和模式</h2><p>从低到高层：</p>
+<ul>
+<li>物理模式（唯一）</li>
+<li>逻辑模式（唯一）（体现物理数据独立性）（最重要）</li>
+<li>子模式（不唯一）</li>
+</ul>
+<hr>
+<h2 id="1-3-3-数据模型"><a href="#1-3-3-数据模型" class="headerlink" title="1.3.3 数据模型"></a>1.3.3 数据模型</h2><ul>
+<li>关系模型</li>
+<li>实体-联系（E-R）模型</li>
+<li>基于对象的数据模型</li>
+<li>半结构化数据模型</li>
+<li>网状数据模型（少用）</li>
+<li>层次数据模型（少用）</li>
+</ul>
+<hr>
+<h1 id="1-4-数据库语言"><a href="#1-4-数据库语言" class="headerlink" title="1.4 数据库语言"></a>1.4 数据库语言</h1><h2 id="1-4-1-数据操纵语言（DML）"><a href="#1-4-1-数据操纵语言（DML）" class="headerlink" title="1.4.1 数据操纵语言（DML）"></a>1.4.1 数据操纵语言（DML）</h2><p>访问类型：</p>
+<ul>
+<li>查询</li>
+<li>插入</li>
+<li>删除</li>
+<li>修改</li>
+</ul>
+<p>类型：</p>
+<ul>
+<li>过程化数据操纵语言</li>
+<li>非过程化数据操纵语言&#x2F;声明式数据操纵语言（相对更简单）</li>
+</ul>
+<hr>
+<h2 id="1-4-2-数据定义语言（DDL）"><a href="#1-4-2-数据定义语言（DDL）" class="headerlink" title="1.4.2 数据定义语言（DDL）"></a>1.4.2 数据定义语言（DDL）</h2><p>定义的约束类型：</p>
+<ul>
+<li><strong>域约束</strong></li>
+<li>参照完整性</li>
+<li><strong>断言</strong></li>
+<li>授权</li>
+</ul>
+<hr>
+<h1 id="1-5-关系数据库"><a href="#1-5-关系数据库" class="headerlink" title="1.5 关系数据库"></a>1.5 关系数据库</h1><blockquote>
+<p>“关系数据库基于关系模型，使用一系列表来表达数据以及这些数据之间的联系。关系数据库也包括DML和DDL。”</p>
+</blockquote>
+<hr>
+<h2 id="1-5-1-表"><a href="#1-5-1-表" class="headerlink" title="1.5.1 表"></a>1.5.1 表</h2><p>内容：</p>
+<ul>
+<li>行&#x2F;记录</li>
+<li>列&#x2F;字段&#x2F;属性</li>
+</ul>
+<hr>
+<h2 id="1-5-2-数据操纵语言"><a href="#1-5-2-数据操纵语言" class="headerlink" title="1.5.2 数据操纵语言"></a>1.5.2 数据操纵语言</h2><blockquote>
+<p>“SQL查询语言是非过程化的。”</p>
+</blockquote>
+<p>格式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 字段名</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line"><span class="keyword">where</span> 条件;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> instructor.ID, dapartment.dept_name</span><br><span class="line"><span class="keyword">from</span> instructor, dapartment</span><br><span class="line"><span class="keyword">where</span> instructor.dept_name <span class="operator">=</span> department.dept_name <span class="keyword">and</span> department.budget <span class="operator">&gt;</span> <span class="number">95000</span>;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="1-5-3-数据定义语言"><a href="#1-5-3-数据定义语言" class="headerlink" title="1.5.3 数据定义语言"></a>1.5.3 数据定义语言</h2><p>格式：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> 表名</span><br><span class="line">(</span><br><span class="line">(字段名 字段类型)，</span><br><span class="line">(字段名 字段类型)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> department</span><br><span class="line">(</span><br><span class="line">dept_name <span class="type">char</span>(<span class="number">20</span>),</span><br><span class="line">building <span class="type">char</span>(<span class="number">15</span>),</span><br><span class="line">budget <span class="type">numeric</span>(<span class="number">12</span>,<span class="number">2</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>“另外，DDL语句还更新了<strong>数据字典</strong>，它包含<strong>元数据</strong>(见1.4.2节)。表的模式就是元数据的一个例子。”</p>
+</blockquote>
+<hr>
+<h2 id="1-5-4-来自应用程序的数据库访问"><a href="#1-5-4-来自应用程序的数据库访问" class="headerlink" title="1.5.4 来自应用程序的数据库访问"></a>1.5.4 来自应用程序的数据库访问</h2><blockquote>
+<p>“SQL不像一个通用的图灵机那么强大；即，有一些计算可以用通用的程序设计语言来表达，但无<br>法通过SQL来表达。SQL还不支持诸如从用户那儿输入、输出到显示器，或者通过网络通信这样的动作。这样的计算和动作必须用一种<strong>宿主语言</strong>来写，比如C、C++或Java,在其中使用<strong>嵌入式的SQL</strong>查询来访问数据库中的数据。<strong>应用程序(application program)</strong> 在这里是指以这种方式与数据库进行交互的程序。”</p>
+</blockquote>
+<blockquote>
+<p>“为了访问数据库，DML语句需要由宿主语言来执行。有两种途径可以做到这一点：<br>●一种是通过提供<strong>应用程序接口(过程集)</strong>,它可以用来将DML和DDL的语句发送给数据库，再取回结果。<br>与C语言一起使用的<strong>开放数据库连接(ODBC)标准</strong>，是一种常用的应用程序接口标准。<strong>Java数据库连接(JDBC)标准</strong>为Java语言提供了相应的特性。<br>●另一种是通过扩展宿主语言的语法，在宿主语言的程序中嵌入DML调用。通常用一个特殊字符作为DML调用的开始，并且通过预处理器，称为<strong>DML预编译器(DML precompiler)</strong>,来将DML语句转变成宿主语言中的过程调用。”</p>
+</blockquote>
+<hr>
+<h1 id="1-6-数据库设计"><a href="#1-6-数据库设计" class="headerlink" title="1.6 数据库设计"></a>1.6 数据库设计</h1><blockquote>
+<p>“数据库设计的主要内容是数据库模式的设计。”</p>
+</blockquote>
+<hr>
+<h2 id="1-6-1-设计过程"><a href="#1-6-1-设计过程" class="headerlink" title="1.6.1 设计过程"></a>1.6.1 设计过程</h2><ol>
+<li>需求分析</li>
+<li>概念设计</li>
+<li>逻辑设计</li>
+<li>物理设计</li>
+</ol>
+<hr>
+<h2 id="1-6-2-大学机构的数据库设计——略"><a href="#1-6-2-大学机构的数据库设计——略" class="headerlink" title="1.6.2 大学机构的数据库设计——略"></a>1.6.2 大学机构的数据库设计——略</h2><hr>
+<h2 id="1-6-3-实体-联系模型"><a href="#1-6-3-实体-联系模型" class="headerlink" title="1.6.3 实体-联系模型"></a>1.6.3 实体-联系模型</h2><p>内容：</p>
+<ul>
+<li>实体</li>
+<li>联系</li>
+</ul>
+<blockquote>
+<p>“数据库的总体逻辑结构(模式)可以用<strong>实体-联系图(entity-relationship diagram,E-R图)</strong> 进行图形化表示。有几种方法来画这样的图。最常用的方法之一是采用**统一建模语言(Unified Modeling Language,UML)**。</p>
+</blockquote>
+<hr>
+<h2 id="1-6-4-规范化"><a href="#1-6-4-规范化" class="headerlink" title="1.6.4 规范化"></a>1.6.4 规范化</h2><blockquote>
+<p>“设计关系数据库所用到的另外一种方法是通常被称为<strong>规范化</strong>的过程。它的目标是生成一个关系模式集合，使我们存储信息时没有不必要的冗余，同时又能很轻易地检索数据。”</p>
+</blockquote>
+<blockquote>
+<p>“空值很难处理，所以最好不要用它。”</p>
+</blockquote>
+<blockquote>
+<p>“规范化的详尽理论已经研究形成，它有助于形式化地定义什么样的数据库设计是不好的，以及如<br> 何得到我们想要的设计。”</p>
+</blockquote>
+<hr>
+<h1 id="1-7-数据存储和查询"><a href="#1-7-数据存储和查询" class="headerlink" title="1.7 数据存储和查询"></a>1.7 数据存储和查询</h1><blockquote>
+<p>“数据库系统的功能部件大致可分为存储管理器和查询处理部件。”</p>
+</blockquote>
+<hr>
+<h2 id="1-7-1-存储管理器"><a href="#1-7-1-存储管理器" class="headerlink" title="1.7.1 存储管理器"></a>1.7.1 存储管理器</h2><p> 包括：</p>
+<ul>
+<li>权限及完整性管理器</li>
+<li>事务管理器</li>
+<li>文件管理器</li>
+<li>缓冲区管理器</li>
+</ul>
+<p>实现的数据结构：</p>
+<ul>
+<li>数据文件</li>
+<li>数据字典</li>
+<li>索引</li>
+</ul>
+<hr>
+<h2 id="1-7-2-查询处理器"><a href="#1-7-2-查询处理器" class="headerlink" title="1.7.2 查询处理器"></a>1.7.2 查询处理器</h2><p>包括：</p>
+<ul>
+<li>数据定义语言解释器</li>
+<li>数据操纵语言编译器</li>
+<li>查询执行引擎</li>
+</ul>
+<hr>
+<h1 id="1-8-事务管理"><a href="#1-8-事务管理" class="headerlink" title="1.8 事务管理"></a>1.8 事务管理</h1><p>事务的4个特性（ACID）：</p>
+<ul>
+<li>原子性</li>
+<li>一致性</li>
+<li>隔离性</li>
+<li>持久性</li>
+</ul>
+<p>事务管理器包括：</p>
+<ul>
+<li>（故障）恢复管理器</li>
+<li>并发控制管理器</li>
+</ul>
+<hr>
+<h1 id="1-9-数据库体系结构"><a href="#1-9-数据库体系结构" class="headerlink" title="1.9 数据库体系结构"></a>1.9 数据库体系结构</h1><p>类型：</p>
+<ul>
+<li>集中式</li>
+<li>客户&#x2F;服务端式</li>
+<li>并行式</li>
+<li>分布式</li>
+</ul>
+<p>2层：</p>
+<ul>
+<li>客户端（包含应用程序）</li>
+<li>服务端（包含数据库系统）</li>
+</ul>
+<p>3层：</p>
+<ul>
+<li>客户端</li>
+<li>服务端（包含应用程序，不包含数据库系统）</li>
+<li>数据库系统</li>
+</ul>
+<hr>
+<h1 id="1-10-数据挖掘与信息检索"><a href="#1-10-数据挖掘与信息检索" class="headerlink" title="1.10 数据挖掘与信息检索"></a>1.10 数据挖掘与信息检索</h1><blockquote>
+<p>“<strong>数据挖掘(data mining)</strong> 这个术语指半自动地分析大型数据库并从中找出有用的模式的过程。”</p>
+</blockquote>
+<blockquote>
+<p>“查询非结构化的文本数据被称为<strong>信息检索(information retrieval）。</strong>”</p>
+</blockquote>
+<hr>
+<h1 id="1-11-特种数据库"><a href="#1-11-特种数据库" class="headerlink" title="1.11 特种数据库"></a>1.11 特种数据库</h1><h2 id="1-11-1-基于对象的数据模型"><a href="#1-11-1-基于对象的数据模型" class="headerlink" title="1.11.1 基于对象的数据模型"></a>1.11.1 基于对象的数据模型</h2><blockquote>
+<p>“现在主要的数据库厂商都支持<strong>对象-关系数据模型(object-relational data model),</strong> 这是一个将面向对象数据模型和关系数据模型的特点结合在一起的数据模型。它扩展了传统的关系模型，增加了新的特征如结构和集合类型，以及面向对象特性。”</p>
+</blockquote>
+<hr>
+<h2 id="1-11-2-半结构化数据模型"><a href="#1-11-2-半结构化数据模型" class="headerlink" title="1.11.2 半结构化数据模型"></a>1.11.2 半结构化数据模型</h2><blockquote>
+<p>“半结构化数据模型允许那些相同类型的数据项有不同的属性集的数据说明。这和早先提到的数据模型形成了对比：在那些数据模型中所有某种特定类型的数据项必须有相同的属性集。”</p>
+</blockquote>
+<hr>
+<h1 id="1-12-数据库用户和管理员"><a href="#1-12-数据库用户和管理员" class="headerlink" title="1.12 数据库用户和管理员"></a>1.12 数据库用户和管理员</h1><h2 id="1-12-1-数据库用户和用户界面"><a href="#1-12-1-数据库用户和用户界面" class="headerlink" title="1.12.1 数据库用户和用户界面"></a>1.12.1 数据库用户和用户界面</h2><p>用户类型：</p>
+<ul>
+<li>无经验的用户</li>
+<li>应用程序员</li>
+<li>老练的用户</li>
+<li>专门的用户</li>
+</ul>
+<hr>
+<h2 id="1-12-2-数据库管理员"><a href="#1-12-2-数据库管理员" class="headerlink" title="1.12.2 数据库管理员"></a>1.12.2 数据库管理员</h2><p>作用：</p>
+<ul>
+<li>模式定义</li>
+<li>存储结构及存取方法定义</li>
+<li>模式及物理组织的修改</li>
+<li>数据访问授权</li>
+<li>日常维护</li>
+</ul>
+<hr>
+<h1 id="1-13-数据库系统的历史——略"><a href="#1-13-数据库系统的历史——略" class="headerlink" title="1.13 数据库系统的历史——略"></a>1.13 数据库系统的历史——略</h1><hr>
+<h1 id="1-14-总结——略"><a href="#1-14-总结——略" class="headerlink" title="1.14 总结——略"></a>1.14 总结——略</h1><hr>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>《数据库系统概念（第6版）》第1章：“引言”的学习提纲。</p>
+<hr>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><ul>
+<li>《数据库系统概念（第6版）》作者：Abraham Silberschatz，Henry E.Korth，S.Sudarshan</li>
+</ul>
+<hr>
+<h1 id="作者的话"><a href="#作者的话" class="headerlink" title="作者的话"></a>作者的话</h1><ul>
+<li><strong>感谢参考资料的作者&#x2F;博主</strong></li>
+<li>作者：夜悊</li>
+<li>版权所有，转载请注明出处，谢谢~</li>
+<li><strong>如果文章对你有帮助，请点个赞或加个粉丝吧，你的支持就是作者的动力~</strong></li>
+<li>文章在描述时有疑惑的地方，请留言，定会一一耐心讨论、解答</li>
+<li>文章在认识上有错误的地方, 敬请批评指正</li>
+<li>望读者们都能有所收获</li>
+</ul>
+<hr>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">夜悊</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/01/02/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC6%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%BC%95%E8%A8%80%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/">http://example.com/2023/01/02/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E5%BF%B5%EF%BC%88%E7%AC%AC6%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%BC%95%E8%A8%80%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">夜悊的技术小宅</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/11/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/23/C++%E7%9A%84%E5%9F%BA%E4%BA%8E%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%E3%80%81%E5%B8%B8%E7%94%A8STL%E5%AE%B9%E5%99%A8%E5%92%8CC++11%E6%A0%87%E5%87%86/" title="C++的基于对象编程范式、常用STL容器和C++11标准"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">C++的基于对象编程范式、常用STL容器和C++11标准</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2023/01/12/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC2%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第2章：“关系数据库”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-12</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第2章：“关系数据库”的学习提纲</div></div></a></div><div><a href="/2023/01/11/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC1%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-11</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第1章：“数据库系统概述”的学习提纲</div></div></a></div><div><a href="/2023/01/15/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC4%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E7%90%86%E8%AE%BA%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-15</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第4章：“关系数据库理论”的学习提纲</div></div></a></div><div><a href="/2023/01/14/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC5%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AE%89%E5%85%A8%E4%BF%9D%E6%8A%A4%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第5章：“数据库安全保护”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-14</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第5章：“数据库安全保护”的学习提纲</div></div></a></div><div><a href="/2023/01/13/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC6%E7%AB%A0%EF%BC%9A%E2%80%9C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第6章：“数据库设计”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-13</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第6章：“数据库设计”的学习提纲</div></div></a></div><div><a href="/2023/01/16/%E3%80%8A%E6%95%B0%E6%8D%AE%E5%BA%93%E5%8E%9F%E7%90%86%E5%8F%8A%E5%BA%94%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%88%E7%AC%AC4%E7%89%88%20_%20%E5%BE%AE%E8%AF%BE%E7%89%88%EF%BC%89%E3%80%8B%E7%AC%AC3%E7%AB%A0%EF%BC%9A%E2%80%9C%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93%E6%A0%87%E5%87%86%E8%AF%AD%E8%A8%80%E2%80%94%E2%80%94SQL%E2%80%9D%E5%92%8C%E7%AC%AC7%E7%AB%A0%EF%BC%9A%E2%80%9CSQL%20Server%202012%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E2%80%9D%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-01-16</div><div class="title">《数据库原理及应用教程（第4版 | 微课版）》第3章：“关系数据库标准语言——SQL”和第7章：“SQL Server 2012高级应用”的学习提纲</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">1.1 数据库系统的应用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%9B%AE%E6%A0%87"><span class="toc-number">3.</span> <span class="toc-text">1.2 数据库系统的目标</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-3-%E6%95%B0%E6%8D%AE%E8%A7%86%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">1.3 数据视图</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-1-%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1"><span class="toc-number">4.1.</span> <span class="toc-text">1.3.1 数据抽象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-2-%E5%AE%9E%E4%BE%8B%E5%92%8C%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.2.</span> <span class="toc-text">1.3.2 实例和模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-3-%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.3.</span> <span class="toc-text">1.3.3 数据模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-4-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AF%AD%E8%A8%80"><span class="toc-number">5.</span> <span class="toc-text">1.4 数据库语言</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-1-%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E8%AF%AD%E8%A8%80%EF%BC%88DML%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">1.4.1 数据操纵语言（DML）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-2-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80%EF%BC%88DDL%EF%BC%89"><span class="toc-number">5.2.</span> <span class="toc-text">1.4.2 数据定义语言（DDL）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-5-%E5%85%B3%E7%B3%BB%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">6.</span> <span class="toc-text">1.5 关系数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-1-%E8%A1%A8"><span class="toc-number">6.1.</span> <span class="toc-text">1.5.1 表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-2-%E6%95%B0%E6%8D%AE%E6%93%8D%E7%BA%B5%E8%AF%AD%E8%A8%80"><span class="toc-number">6.2.</span> <span class="toc-text">1.5.2 数据操纵语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-3-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89%E8%AF%AD%E8%A8%80"><span class="toc-number">6.3.</span> <span class="toc-text">1.5.3 数据定义语言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-4-%E6%9D%A5%E8%87%AA%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BF%E9%97%AE"><span class="toc-number">6.4.</span> <span class="toc-text">1.5.4 来自应用程序的数据库访问</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-6-%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1"><span class="toc-number">7.</span> <span class="toc-text">1.6 数据库设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-1-%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B"><span class="toc-number">7.1.</span> <span class="toc-text">1.6.1 设计过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-2-%E5%A4%A7%E5%AD%A6%E6%9C%BA%E6%9E%84%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1%E2%80%94%E2%80%94%E7%95%A5"><span class="toc-number">7.2.</span> <span class="toc-text">1.6.2 大学机构的数据库设计——略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-3-%E5%AE%9E%E4%BD%93-%E8%81%94%E7%B3%BB%E6%A8%A1%E5%9E%8B"><span class="toc-number">7.3.</span> <span class="toc-text">1.6.3 实体-联系模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-4-%E8%A7%84%E8%8C%83%E5%8C%96"><span class="toc-number">7.4.</span> <span class="toc-text">1.6.4 规范化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-7-%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E5%92%8C%E6%9F%A5%E8%AF%A2"><span class="toc-number">8.</span> <span class="toc-text">1.7 数据存储和查询</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-1-%E5%AD%98%E5%82%A8%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-number">8.1.</span> <span class="toc-text">1.7.1 存储管理器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-2-%E6%9F%A5%E8%AF%A2%E5%A4%84%E7%90%86%E5%99%A8"><span class="toc-number">8.2.</span> <span class="toc-text">1.7.2 查询处理器</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-8-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="toc-number">9.</span> <span class="toc-text">1.8 事务管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-9-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">10.</span> <span class="toc-text">1.9 数据库体系结构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-10-%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E4%B8%8E%E4%BF%A1%E6%81%AF%E6%A3%80%E7%B4%A2"><span class="toc-number">11.</span> <span class="toc-text">1.10 数据挖掘与信息检索</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-11-%E7%89%B9%E7%A7%8D%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">12.</span> <span class="toc-text">1.11 特种数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-1-%E5%9F%BA%E4%BA%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">12.1.</span> <span class="toc-text">1.11.1 基于对象的数据模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-2-%E5%8D%8A%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B"><span class="toc-number">12.2.</span> <span class="toc-text">1.11.2 半结构化数据模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-12-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7%E5%92%8C%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">13.</span> <span class="toc-text">1.12 数据库用户和管理员</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-1-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%94%A8%E6%88%B7%E5%92%8C%E7%94%A8%E6%88%B7%E7%95%8C%E9%9D%A2"><span class="toc-number">13.1.</span> <span class="toc-text">1.12.1 数据库用户和用户界面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-2-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">13.2.</span> <span class="toc-text">1.12.2 数据库管理员</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-13-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%8E%86%E5%8F%B2%E2%80%94%E2%80%94%E7%95%A5"><span class="toc-number">14.</span> <span class="toc-text">1.13 数据库系统的历史——略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-14-%E6%80%BB%E7%BB%93%E2%80%94%E2%80%94%E7%95%A5"><span class="toc-number">15.</span> <span class="toc-text">1.14 总结——略</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">16.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="toc-number">17.</span> <span class="toc-text">参考资料</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%9C%E8%80%85%E7%9A%84%E8%AF%9D"><span class="toc-number">18.</span> <span class="toc-text">作者的话</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
