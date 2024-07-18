@@ -5,15 +5,15 @@
 <meta property="og:site_name" content="夜悊的技术小宅">
 <meta property="og:description" content="一名潜心学习技术的在校大学生">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
+<meta property="og:image" content="http://example.com/img/avatar.png">
 <meta property="article:author" content="夜悊">
 <meta property="article:tag" content="博客 计算机技术">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+<meta name="twitter:image" content="http://example.com/img/avatar.png"><link rel="shortcut icon" href="/img/favicon2.png"><link rel="canonical" href="http://example.com/page/6/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
   root: '/',
   algolia: undefined,
   localSearch: undefined,
-  translate: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
   highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
@@ -25,7 +25,7 @@
     homepage: false,
     post: false
   },
-  runtime: '',
+  runtime: '天',
   dateSuffix: {
     just: '刚刚',
     min: '分钟前',
@@ -54,7 +54,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2024-07-18 10:39:46'
+  postUpdate: '2024-07-18 11:40:58'
 }</script><script>(win=>{
       win.saveToLocal = {
         set: (key, value, ttl) => {
@@ -151,291 +151,7 @@
         }
       }
       detectApple()
-    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">夜悊的技术小宅</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/08/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE/" title="“查找”学习提纲（一）——线性查找">“查找”学习提纲（一）——线性查找</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-08T13:15:39.000Z" title="发表于 2022-09-08 21:15:39">2022-09-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言“查找”学习提纲（一）——线性查找
-
-代码模板
-线性查找的C++语言描述实现模板_夜悊的博客-CSDN博客
-
-
-查找的基本概念相关概念
-查找：在数据集合中寻找满足某种条件的数据元素的过程
-查找表：同一类型的数据元素的集合
-记录：数据元素
-关键字：唯一标识数据元素的数据项&#x2F;字段的值
-
-
-查找（表）的类型
-静态查找（表）
-动态查找（表）
-
-
-查找的相关操作
-判断是否存在——静态
-检索各种属性——静态
-插入——动态
-删除——动态
-
-
-查找的结果
-成功
-失败
-
-
-查找方式的选择因素
-查找表的数据结构：如顺序存储或链式存储
-查找表中关键字的次序：如无序或有序
-
-
-查找的性能分析时间复杂度-&gt;平均查找长度（ASL）&#x2F;平均比较次数：
-
-查找长度&#x2F;比较次数：比较关键字的次数
-平均查找长度（ASL）：查找每记录的概率（一般为1&#x2F;n）×查找长度。n为数据规模
-
-空间复杂度
-
-顺序&#x2F;线性查找适用
-线性表
-
-注意：有序线性表的顺序查找和有序顺序表的折半查找，思想不同
-
-性能平均查找长度（ASL）：
-
-查找成功：(n+1)&#x2F;2。n为数据规模
- ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/07/%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="线性查找的C++语言描述实现模板">线性查找的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-07T03:32:04.000Z" title="发表于 2022-09-07 11:32:04">2022-09-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言数据结构中线性查找的C++语言描述实现模板，有详细的步骤解析及使用示例。
-
-代码仓库
-yezhening&#x2F;Programming-examples: 编程实例 (github.com)
-Programming-examples: 编程实例 (gitee.com)
-
-
-linearSearch.cpp1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491501 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/05/%E2%80%9C%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“树与二叉树”学习提纲">“树与二叉树”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-05T04:01:10.000Z" title="发表于 2022-09-05 12:01:10">2022-09-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言“树与二叉树”学习提纲。
-
-树的基本概念树的关键概念
-结点的度：分支数
-树的度：各结点度的最大值
-结点的层次：根结点为第1层，根结点的孩子结点为第2层，依次类推
-结点的深度：从根结点到当前结点的层数
-结点的高度：从当前结点到叶子结点的层数的最大值
-树的深度&#x2F;高度：各结点层次的最大值
-结点间的路径：结点间的点数
-结点间的路径长度：结点间的边数
-树的路径长度：根结点到每个结点的路径长度的和
-
-
-树的存储结构顺序存储：
-
-双亲表示法
-
-双亲表示法
-
-整型一维数组：下标为当前结点，值为当前结点的双亲
-结构体一维数组：结点结构可灵活设计：当前结点，当前结点的双亲，当前结点的孩子，当前结点的兄弟等
-
-链式存储：
-
-多重链表表示法
-孩子表示法（改进：双亲孩子表示法）
-孩子兄弟表示法&#x2F;二叉树表示法
-
-多重链表表示法：
-
-指针域数量&#x3D;树的度。结点结构：数据域，孩子指针域
-指针域数量&#x3D;结点的度：结点结构：数据域，度域，孩子指针域
-
-孩子表示法：
-
-一维数组+单链表
-一维数组，存储单链表的头指针。结点结构：数据域，头指针域
-单链表，存储孩子结点。结点结构：数据域， ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Git的基本原理和常用命令">Git的基本原理和常用命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-03T07:46:07.000Z" title="发表于 2022-09-03 15:46:07">2022-09-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">开发和管理工具</a></span></div><div class="content">前言Git的基本原理和常用命令。
-
-概念Git是分布式版本控制系统：
-
-分布式：每台计算机都有完整的版本仓库，可无需联网工作，可无需服务端支持
-版本控制：版本管理（旧版本和新版本），分支管理（其他分支和当前分支）
-系统：软件
-
-
-基本原理系统区域
-用户文件夹：普通的文件夹
-工作区（Workspace）：用户文件夹中，除.git文件夹外的其他文件
-版本库：用户文件夹中的.git文件夹
-暂存区（Stage&#x2F;Index）：.git文件夹中的index文件
-本地仓库（Repository）：.git文件夹中，除index文件外的其他文件
-远程仓库（Remote）：不在本地的文件（一般存储在代码托管平台：如Github或Gitee）
-
-文件的系统区域流工作区-&gt;暂存区-&gt;本地仓库-&gt;远程仓库：
-
-git add：工作区-&gt;暂存区
-git commit：暂存区-&gt;本地仓库
-git push：本地仓库-&gt;远程仓库
-
-远程仓库-&gt;本地仓库-&gt;暂存区-&gt;工作区：
-
-git clone：远程仓库-&gt;用户文件夹
-git pull：远程仓库 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/31/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="二叉树和线索二叉树的C++语言描述实现模板">二叉树和线索二叉树的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-31T04:18:34.000Z" title="发表于 2022-08-31 12:18:34">2022-08-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言数据结构中二叉树和线索二叉树的C++语言描述实现模板，有详细的步骤解析及使用示例。
-
-代码仓库
-yezhening&#x2F;Programming-examples: 编程实例 (github.com)
-Programming-examples: 编程实例 (gitee.com)
-
-
-bTree.cpp（二叉树）1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001011021031041051061071081091101111121131141151161171181191201211221231241251261271281291301311321331341351361371381391401411421431441451461471481491 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/24/%E2%80%9C%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“数组、矩阵与广义表”学习提纲">“数组、矩阵与广义表”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-24T07:20:47.000Z" title="发表于 2022-08-24 15:20:47">2022-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言“数组、矩阵与广义表”学习提纲。
-
-数组多维数组的存储方式
-行优先
-列优先
-
-
-矩阵常见的特殊矩阵矩阵分区：上三角区，主对角线，下三角区
-
-对称矩阵
-三角矩阵：上三角矩阵，下三角矩阵
-对角矩阵&#x2F;带状矩阵：三对角矩阵
-
-
-对称矩阵的压缩存储计算数组表示：a[n][n]。其中a为数组名称，n为行和列数元素表示：a[i][j]。其中i为行下标，j为列下标
-存储元素数量：(1+n)×n÷2
-存储下标（从0开始；行下标和列下标从1开始，行优先，存下三角区）：
-
-i×(i-1)÷2+j-1，i&gt;&#x3D;j（下三角区和主对角线元素）
-j×(j-1)÷2+i-1，i&lt;j（上三角区元素）
-
-注意：
-
-关注：行下标和列下标从0或1开始，存储下标从0或1开始，依据行或列优先存储。对称矩阵还要多关注存储在上或下三角区
-行下标和列下标从0开始相比从1开始需要重新推导公式
-存储下标从1开始相比从0开始需要多+1
-选择题可以使用特殊值代入法判断
-
-
-三角矩阵的压缩存储计算数组表示：a[n][n]。其中a为数组名称，n为行和列数元素表示：a[i][j]。其中i为行下标，j为列下标
-存储元 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/23/%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="串模式匹配的C++语言描述实现模板">串模式匹配的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-22T16:32:44.000Z" title="发表于 2022-08-23 00:32:44">2022-08-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div><div class="content">前言数据结构中串模式匹配的C++语言描述实现模板，有详细的步骤解析及使用示例。
-
-代码仓库
-yezhening&#x2F;Programming-examples: 编程实例 (github.com)
-Programming-examples: 编程实例 (gitee.com)
-
-
-暴力&#x2F;简单&#x2F;朴素算法代码模板12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061//头文件————————————————————#include &lt;iostream&gt;//命名空间————————————————————using namespace std;//函数声明————————————————————void useExample();                                      //使用示例int index(const string &amp;mainStr,  ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="设计模式总结">设计模式总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-22T02:41:29.000Z" title="发表于 2022-08-22 10:41:29">2022-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">前言设计模式总结。
-
-面向对象的特性：3点
-封装
-继承
-多态
-
-
-编程代码的原则&#x2F;面向对象的优势：4点
-可维护
-可复用
-可扩展
-可灵活&#x2F;灵活性好
-
-
-统一建模语言（UML）图的基本关系：6种
-继承：实线，三角箭头，指向被继承类
-实现：虚线，三角箭头，指向被实现接口
-依赖：虚线，箭头，指向被依赖者
-关联：实线，箭头，指向被关联者
-聚合：空心菱形，实线箭头，指向被聚合者
-组合：实心菱形，实线箭头，指向被组合者
-
-继承和实现关系的区别：
-
-（抽象）类&#x2F;继承和接口&#x2F;实现在一定程度上可相互转换代替
-（抽象）类：抽象类型，对象之间有关系，属于同一类型，使用继承关系。如：雁和鸟，雁是鸟类型
-接口：抽象行为，对象之间无关系，有共同行为，使用实现关系。如：飞机和鸟，都有飞行的行为
-
-依赖、关联、聚合和组合的区别：依赖：
-
-表现：方法中的形式参数、局部变量和静态方法调用
-侧重：临时性
-
-关联：
-
-表现：方法中的形式参数，类中的成员字段
-侧重：长期性；对象间是平等的，对象了解对象。如：企鹅了解气候
-
-聚合：
-
-表现：类中的成员字段
-侧重：长期性；对象间是不平等的，对象 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/21/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="行为型设计模式总结">行为型设计模式总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-21T04:24:34.000Z" title="发表于 2022-08-21 12:24:34">2022-08-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div><div class="content">前言行为型设计模式总结。
-
-模板方法模式（Template Method）描述：
-
-定义一个操作中的算法的骨架，而将一些步骤延迟到子类中。使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤
-
-结构：
-
-抽象类
-具体类——与抽象类是继承关系
-
-概述：
-
-抽象类：步骤方法，模板方法
-模板方法：定义多个步骤方法的组合内容和执行时序——（算法）模板，不变化行为
-具体类：重写抽象类的步骤方法——具体步骤实现，变化行为
-客户端：创建抽象类类型的具体类对象，抽象类类型的具体类对象调用抽象类的模板方法
-
-核心：
-
-继承
-多态
-模板方法：定义多个步骤方法的组合内容和执行时序——（算法）模板，不变化行为
-具体类重写抽象类的步骤方法——具体步骤实现，变化行为
-算法过程相同，具体步骤实现步骤不同
-类比： 房屋建造的步骤和时序固定：先打地基，后建墙壁，打地基的方式，墙壁类型的选择不固定
-
-
-策略模式（Strategy）描述：
-
-定义了算法家族，分别封装起来，让它们之间可以互相替换，让算法的变化，不会影响到使用算法的客户
-
-结构：
-
-抽象策略类
-具体策略类——与抽象策略类是继承关系
-上下文类——与抽象 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/18/%E2%80%9C%E5%BA%94%E7%94%A8%E5%B1%82%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“应用层”学习提纲">“应用层”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-18T13:08:20.000Z" title="发表于 2022-08-18 21:08:20">2022-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div><div class="content">前言计算机网络的知识抽象、晦涩、不易理解并记忆，在此对“应用层”一章中重点知识总结成提纲。
-
-网络应用模型网络应用的模型&#x2F;模式
-客户机&#x2F;服务器（C&#x2F;S）模型&#x2F;模式
-对等方到对等方（P2P）模型&#x2F;模式
-
-
-基于客户机&#x2F;服务器（C&#x2F;S）模型&#x2F;模式的应用
-全球广域网&#x2F;万维网（Web）
-文件传输协议（FTP）
-远程登陆（TELNET）
-电子邮件
-
-
-基于对等方到对等方（P2P）模型&#x2F;模式的应用
-PPlive
-Bittorrent
-电驴
-
-
-域名系统（DNS）域名系统（DNS）概述
-基于用户数据报协议（UDP），端口号：53
-基于客户机&#x2F;服务器（C&#x2F;S）模型&#x2F;模式
-联机分布式的数据库系统
-
-
-域名系统（DNS）的组成依据概念：
-
-层次域名空间
-域名服务器
-解析器
-
-
-顶级域名（TLD）的类型
-国家&#x2F;地区顶级域名（nTLD）
-通用顶级域名（gTLD）
-基础结构顶级域名&#x2F;反向顶级域名
-
-
-域名服务器的类型
-根域名服务器：管理顶级域名：13个集群
-顶级域 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+    })(window)</script><link rel="stylesheet" href="/css/my_css.css"><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-bookmark"></i><span> 笔记目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-blog"></i><span> 其他博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249"><i class="fa-fw fa fa-link"></i><span> CSDN</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ye-zhe-ning"><i class="fa-fw fa fa-link"></i><span> 知乎</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-sitemap"></i><span> 代码仓库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/yezhening"><i class="fa-fw fa fa-link"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/yezhening"><i class="fa-fw fa fa-link"></i><span> Github</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about_me/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('/img/index.png')"><nav id="nav"><span id="blog-info"><a href="/" title="夜悊的技术小宅"><span class="site-name">夜悊的技术小宅</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-bookmark"></i><span> 笔记目录</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-blog"></i><span> 其他博客</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://blog.csdn.net/m0_62083249"><i class="fa-fw fa fa-link"></i><span> CSDN</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://www.zhihu.com/people/ye-zhe-ning"><i class="fa-fw fa fa-link"></i><span> 知乎</span></a></li></ul></div><div class="menus_item"><a class="site-page group hide" href="javascript:void(0);"><i class="fa-fw fa fa-sitemap"></i><span> 代码仓库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://gitee.com/yezhening"><i class="fa-fw fa fa-link"></i><span> Gitee</span></a></li><li><a class="site-page child" target="_blank" rel="noopener" href="https://github.com/yezhening"><i class="fa-fw fa fa-link"></i><span> Github</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/about_me/"><i class="fa-fw fas fa-user"></i><span> 关于我</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">夜悊的技术小宅</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/08/%E2%80%9C%E6%9F%A5%E6%89%BE%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE/" title="“查找”学习提纲（一）——线性查找">“查找”学习提纲（一）——线性查找</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-08T13:15:39.000Z" title="发表于 2022-09-08 21:15:39">2022-09-08</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/07/%E7%BA%BF%E6%80%A7%E6%9F%A5%E6%89%BE%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="线性查找的C++语言描述实现模板">线性查找的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-07T03:32:04.000Z" title="发表于 2022-09-07 11:32:04">2022-09-07</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/05/%E2%80%9C%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“树与二叉树”学习提纲">“树与二叉树”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-05T04:01:10.000Z" title="发表于 2022-09-05 12:01:10">2022-09-05</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/09/03/Git%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86%E5%92%8C%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="Git的基本原理和常用命令">Git的基本原理和常用命令</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-09-03T07:46:07.000Z" title="发表于 2022-09-03 15:46:07">2022-09-03</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/">开发和管理工具</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/31/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%92%8C%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="二叉树和线索二叉树的C++语言描述实现模板">二叉树和线索二叉树的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-31T04:18:34.000Z" title="发表于 2022-08-31 12:18:34">2022-08-31</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/24/%E2%80%9C%E6%95%B0%E7%BB%84%E3%80%81%E7%9F%A9%E9%98%B5%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“数组、矩阵与广义表”学习提纲">“数组、矩阵与广义表”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-24T07:20:47.000Z" title="发表于 2022-08-24 15:20:47">2022-08-24</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/23/%E4%B8%B2%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D%E7%9A%84C++%E8%AF%AD%E8%A8%80%E6%8F%8F%E8%BF%B0%E5%AE%9E%E7%8E%B0%E6%A8%A1%E6%9D%BF/" title="串模式匹配的C++语言描述实现模板">串模式匹配的C++语言描述实现模板</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-22T16:32:44.000Z" title="发表于 2022-08-23 00:32:44">2022-08-23</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/22/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="设计模式总结">设计模式总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-22T02:41:29.000Z" title="发表于 2022-08-22 10:41:29">2022-08-22</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/21/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E6%80%BB%E7%BB%93/" title="行为型设计模式总结">行为型设计模式总结</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-21T04:24:34.000Z" title="发表于 2022-08-21 12:24:34">2022-08-21</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></span></div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2022/08/18/%E2%80%9C%E5%BA%94%E7%94%A8%E5%B1%82%E2%80%9D%E5%AD%A6%E4%B9%A0%E6%8F%90%E7%BA%B2/" title="“应用层”学习提纲">“应用层”学习提纲</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2022-08-18T13:08:20.000Z" title="发表于 2022-08-18 21:08:20">2022-08-18</time></span><span class="article-meta"><span class="article-meta-separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">计算机网络</a></span></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/page/5/#content-inner"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/#content-inner">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/#content-inner">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/7/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">夜悊</div><div class="author-info__description">一名潜心学习技术的在校大学生</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">90</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">14</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/yezhening"><i class="fab fa-github"></i><span>跟我来~</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">为保证静态博客的简约，暂不使用过多动态特效和留言评论功能，可点击上方的邮箱图标联系博主吼~</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/25/%E4%B8%AD%E4%BB%8B%E8%80%85%E5%92%8C%E8%AE%BF%E9%97%AE%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板">中介者和访问者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-25T02:06:12.000Z" title="发表于 2023-12-25 10:06:12">2023-12-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/24/%E5%A4%87%E5%BF%98%E5%BD%95%E3%80%81%E8%BF%AD%E4%BB%A3%E5%99%A8%E5%92%8C%E8%A7%A3%E9%87%8A%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板">备忘录、迭代器和解释器模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-24T03:08:55.000Z" title="发表于 2023-12-24 11:08:55">2023-12-24</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/23/%E7%8A%B6%E6%80%81%E3%80%81%E5%91%BD%E4%BB%A4%E5%92%8C%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板">状态、命令和观察者模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-23T03:33:04.000Z" title="发表于 2023-12-23 11:33:04">2023-12-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/22/%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E3%80%81%E7%AD%96%E7%95%A5%E5%92%8C%E8%81%8C%E8%B4%A3%E9%93%BE%E6%A8%A1%E5%BC%8F%EF%BC%88%E8%A1%8C%E4%B8%BA%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板">模板方法、策略和职责链模式（行为型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-22T02:29:58.000Z" title="发表于 2023-12-22 10:29:58">2023-12-22</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2023/12/21/%E6%A1%A5%E6%8E%A5%E5%92%8C%E4%BA%AB%E5%85%83%E6%A8%A1%E5%BC%8F%EF%BC%88%E7%BB%93%E6%9E%84%E5%9E%8B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%89%E7%9A%84%20C++%20%E4%BB%A3%E7%A0%81%E7%A4%BA%E4%BE%8B%E6%A8%A1%E6%9D%BF/" title="桥接和享元模式（结构型设计模式）的 C++ 代码示例模板">桥接和享元模式（结构型设计模式）的 C++ 代码示例模板</a><time datetime="2023-12-21T02:01:36.000Z" title="发表于 2023-12-21 10:01:36">2023-12-21</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
@@ -443,5 +159,5 @@ Bittorrent
             </div>
             <ul class="card-category-list" id="aside-cat-list">
             <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/C/"><span class="card-category-list-name">C++</span><span class="card-category-list-count">9</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Go/"><span class="card-category-list-name">Go</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Node-js/"><span class="card-category-list-name">Node.js</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"><span class="card-category-list-name">开发和管理工具</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/"><span class="card-category-list-name">操作系统</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"><span class="card-category-list-name">数据库</span><span class="card-category-list-count">7</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"><span class="card-category-list-name">数据结构</span><span class="card-category-list-count">18</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"><span class="card-category-list-name">环境和网络编程</span><span class="card-category-list-count">8</span></a></li>
-            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.34em; color: #99a3b0">计算机组成原理</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.26em; color: #999fa8">操作系统</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.34em; color: #99a3b0">数据库</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 1.14em; color: #999b9d">开发和管理工具</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 1.38em; color: #99a4b4">环境和网络编程</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 1.14em; color: #999b9d">环境配置</a> <a href="/tags/Go/" style="font-size: 1.22em; color: #999ea4">Go</a> <a href="/tags/C/" style="font-size: 1.42em; color: #99a6b7">C++</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.46em; color: #99a7bb">设计模式</a> <a href="/tags/Node-js/" style="font-size: 1.1em; color: #999">Node.js</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 1.18em; color: #999ca1">网络安全</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">90</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-18T02:39:46.156Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" style="font-size: 1.3em; color: #99a1ac">计算机网络</a> <a href="/tags/Node-js/" style="font-size: 1.1em; color: #999">Node.js</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 1.34em; color: #99a3b0">数据库</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" style="font-size: 1.38em; color: #99a4b4">环境和网络编程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" style="font-size: 1.5em; color: #99a9bf">数据结构</a> <a href="/tags/C/" style="font-size: 1.42em; color: #99a6b7">C++</a> <a href="/tags/Go/" style="font-size: 1.22em; color: #999ea4">Go</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/" style="font-size: 1.18em; color: #999ca1">网络安全</a> <a href="/tags/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" style="font-size: 1.14em; color: #999b9d">环境配置</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 1.14em; color: #999b9d">算法</a> <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" style="font-size: 1.46em; color: #99a7bb">设计模式</a> <a href="/tags/%E5%BC%80%E5%8F%91%E5%92%8C%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/" style="font-size: 1.14em; color: #999b9d">开发和管理工具</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 1.34em; color: #99a3b0">计算机组成原理</a> <a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.26em; color: #999fa8">操作系统</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">7</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/05/"><span class="card-archive-list-date">五月 2023</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/02/"><span class="card-archive-list-date">二月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/01/"><span class="card-archive-list-date">一月 2023</span><span class="card-archive-list-count">7</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">90</div></div><div class="webinfo-item"><div class="item-name">已运行时间 :</div><div class="item-count" id="runtimeshow" data-publishDate="2023-04-09T16:00:00.000Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-07-18T03:40:57.831Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By 夜悊</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text"><a target="_blank" href="https://beian.miit.gov.cn/" >琼ICP备2023001225号-1</a><br><img src="/img/beian.png"/>&nbsp<a target="_blank" href="https://www.beian.gov.cn/portal/registerSystemInfo?recordcode=46010802001221" >琼公网安备 46010802001221号</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="translateLink" type="button" title="简繁转换">繁</button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
